@@ -2,8 +2,14 @@
 
 [ext_resource type="Script" uid="uid://b66igukj623im" path="res://Entities/Player/player.gd" id="1_3uyv8"]
 [ext_resource type="Texture2D" uid="uid://dp046b054844b" path="res://icon.svg" id="1_mv1ah"]
+[ext_resource type="Texture2D" uid="uid://c0itn8wyh7o38" path="res://Entities/Weapons/Sprites/gun.png" id="3_5c2io"]
+[ext_resource type="Script" uid="uid://cafqysag83qgy" path="res://Entities/Components/health_component.gd" id="3_lu8i8"]
+[ext_resource type="PackedScene" uid="uid://bsnv6acgqi2fe" path="res://Entities/Components/hit_box_component.tscn" id="4_tekja"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3uyv8"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5c2io"]
 size = Vector2(32, 32)
 
 [node name="Player" type="CharacterBody2D" unique_id=1982066888]
@@ -20,6 +26,16 @@ shape = SubResource("RectangleShape2D_3uyv8")
 unique_name_in_owner = true
 
 [node name="Icon" type="Sprite2D" parent="GunAnchor" unique_id=314551305]
-position = Vector2(24, 0)
-scale = Vector2(0.0625, 0.0625)
-texture = ExtResource("1_mv1ah")
+position = Vector2(32, 0)
+scale = Vector2(1.709375, 1.7093751)
+texture = ExtResource("3_5c2io")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1414961840]
+script = ExtResource("3_lu8i8")
+
+[node name="HitBoxComponent" parent="." unique_id=390649418 node_paths=PackedStringArray("health_component") instance=ExtResource("4_tekja")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" unique_id=1323915501]
+shape = SubResource("RectangleShape2D_5c2io")
+debug_color = Color(0.964333, 0, 0.4962629, 0.41960785)
