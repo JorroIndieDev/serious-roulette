@@ -2,16 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream:Entities/Environment/ground/Sprites/ground.png.import
 uid="uid://c22a3jnjsyawb"
 path="res://.godot/imported/ground.png-e6de853f2ac9ff8fccdc35330d82e08b.ctex"
+=======
+uid="uid://cytijui76sndv"
+path="res://.godot/imported/ground.png-0ae2304d2dd8f7749968d34af2564ddd.ctex"
+>>>>>>> Stashed changes:Entities/Environment/Sprites/ground.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<< Updated upstream:Entities/Environment/ground/Sprites/ground.png.import
 source_file="res://Entities/Environment/ground/Sprites/ground.png"
 dest_files=["res://.godot/imported/ground.png-e6de853f2ac9ff8fccdc35330d82e08b.ctex"]
+=======
+source_file="res://Entities/Environment/Sprites/ground.png"
+dest_files=["res://.godot/imported/ground.png-0ae2304d2dd8f7749968d34af2564ddd.ctex"]
+>>>>>>> Stashed changes:Entities/Environment/Sprites/ground.png.import
 
 [params]
 
