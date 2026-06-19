@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bbalrjoxm3lhw"]
+
+[ext_resource type="Texture2D" uid="uid://b632muw3xvagt" path="res://Entities/Enemies/Zombie/Sprites/enemy.png" id="1_5rx78"]
+[ext_resource type="Script" uid="uid://cafqysag83qgy" path="res://Entities/Components/health_component.gd" id="2_1kokx"]
+[ext_resource type="PackedScene" uid="uid://bsnv6acgqi2fe" path="res://Entities/Components/hit_box_component.tscn" id="3_gob2a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rx78"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1odr"]
+size = Vector2(16, 16)
+
+[node name="Zombie" type="CharacterBody2D" unique_id=928013042]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1979417337]
+position = Vector2(-7.1525574e-07, 0)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("1_5rx78")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1649317382]
+shape = SubResource("RectangleShape2D_5rx78")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=983203079]
+script = ExtResource("2_1kokx")
+metadata/_custom_type_script = "uid://cafqysag83qgy"
+
+[node name="HitBoxComponent" parent="." unique_id=390649418 node_paths=PackedStringArray("health_component") instance=ExtResource("3_gob2a")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" unique_id=1654512284]
+shape = SubResource("RectangleShape2D_a1odr")
+debug_color = Color(0.9379107, 1.2899041e-05, 0.6280861, 0.41960785)

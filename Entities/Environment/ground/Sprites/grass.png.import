@@ -2,16 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream:Entities/Environment/ground/Sprites/grass.png.import
 uid="uid://d3q1jismayfur"
 path="res://.godot/imported/grass.png-480bedb0821e8c52582f92e959ec247e.ctex"
+=======
+uid="uid://c8mjpksq5wdiu"
+path="res://.godot/imported/grass.png-863e845d4d0820c14e58a5fae7d10b02.ctex"
+>>>>>>> Stashed changes:Entities/Environment/Sprites/grass.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<< Updated upstream:Entities/Environment/ground/Sprites/grass.png.import
 source_file="res://Entities/Environment/ground/Sprites/grass.png"
 dest_files=["res://.godot/imported/grass.png-480bedb0821e8c52582f92e959ec247e.ctex"]
+=======
+source_file="res://Entities/Environment/Sprites/grass.png"
+dest_files=["res://.godot/imported/grass.png-863e845d4d0820c14e58a5fae7d10b02.ctex"]
+>>>>>>> Stashed changes:Entities/Environment/Sprites/grass.png.import
 
 [params]
 

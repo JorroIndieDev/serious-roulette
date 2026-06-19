@@ -6,7 +6,16 @@ class_name Player extends CharacterBody2D
 @export var acceleration := 800.0
 ## Friction/deceleration when no input (pixels per second per second)
 @export var friction := 1000.0
-@export var gun_hold_distance := 25
+@export var gun_hold_distance := 12
+@onready var GunPivot: Marker2D = %GunPivot
+@onready var GunAnchor: Node2D = $GunPivot/GunAnchor
+
+@onready var pistol: Node2D = $GunPivot/GunAnchor/Pistol
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("attack"):
+		pistol.shoot()
+
 
 func _physics_process(delta: float) -> void:
 	
@@ -32,14 +41,11 @@ func _movement(delta: float) -> void:
 		# Decelerate with friction
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 
-@onready var GunPivot: Marker2D = $GunAnchor
-@onready var icon: Sprite2D = $GunAnchor/Icon
-
 func _gun_movement() -> void:
 	
 	var mouse_direction := GunPivot.global_position.direction_to(get_global_mouse_position())
-	icon.global_position = GunPivot.global_position + mouse_direction * gun_hold_distance
-	icon.flip_v = mouse_direction.x < 0
-	icon.look_at(get_global_mouse_position())
+	GunAnchor.global_position = GunPivot.global_position + mouse_direction * gun_hold_distance
+	GunAnchor.scale.y = 1 if mouse_direction.x > 0 else -1
+	GunAnchor.rotation = mouse_direction.angle()
 	
 	

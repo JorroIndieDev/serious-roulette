@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bhf6rlpaq2rph"]
+
+[ext_resource type="Texture2D" uid="uid://v63c5cn8xt67" path="res://Entities/Weapons/Sprites/gun.png" id="1_kl2qt"]
+[ext_resource type="Script" uid="uid://bqq3pifvwht4y" path="res://Entities/Weapons/Pistol/pistol.gd" id="1_mjjjf"]
+
+[node name="Pistol" type="Node2D" unique_id=1346476372]
+script = ExtResource("1_mjjjf")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=168221217]
+texture = ExtResource("1_kl2qt")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1316599992]
+unique_name_in_owner = true
+position = Vector2(3, -1)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckv18b06igwtc"
-path="res://.godot/imported/gun.png-fd2fee5764ad783b31587b3152ffa80a.ctex"
+uid="uid://b632muw3xvagt"
+path="res://.godot/imported/enemy.png-cfe864cde051d6515f1c77c66432e373.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Weapons/Sprites/gun.png"
-dest_files=["res://.godot/imported/gun.png-fd2fee5764ad783b31587b3152ffa80a.ctex"]
+source_file="res://Entities/Enemies/Zombie/Sprites/enemy.png"
+dest_files=["res://.godot/imported/enemy.png-cfe864cde051d6515f1c77c66432e373.ctex"]
 
 [params]
 
