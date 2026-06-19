@@ -6,12 +6,13 @@ class_name Player extends CharacterBody2D
 @export var acceleration := 800.0
 ## Friction/deceleration when no input (pixels per second per second)
 @export var friction := 1000.0
-
+@export var gun_hold_distance := 25
 
 func _physics_process(delta: float) -> void:
 	
 	_movement(delta)
 	
+	_gun_movement()
 	# Move the character
 	move_and_slide()
 
@@ -31,6 +32,14 @@ func _movement(delta: float) -> void:
 		# Decelerate with friction
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 
+@onready var GunPivot: Marker2D = $GunAnchor
+@onready var icon: Sprite2D = $GunAnchor/Icon
 
 func _gun_movement() -> void:
-	return
+	
+	var mouse_direction := GunPivot.global_position.direction_to(get_global_mouse_position())
+	icon.global_position = GunPivot.global_position + mouse_direction * gun_hold_distance
+	icon.flip_v = mouse_direction.x < 0
+	icon.look_at(get_global_mouse_position())
+	
+	
