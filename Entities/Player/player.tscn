@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dkg7k0jurawe1"]
+
+[ext_resource type="Script" uid="uid://b66igukj623im" path="res://Entities/Player/player.gd" id="1_3uyv8"]
+[ext_resource type="Texture2D" uid="uid://dp046b054844b" path="res://icon.svg" id="1_mv1ah"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3uyv8"]
+size = Vector2(32, 32)
+
+[node name="Player" type="CharacterBody2D" unique_id=1982066888]
+script = ExtResource("1_3uyv8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=414992599]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_mv1ah")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=275667892]
+shape = SubResource("RectangleShape2D_3uyv8")
+
+[node name="GunAnchor" type="Marker2D" parent="." unique_id=625265875]
+unique_name_in_owner = true
+
+[node name="Icon" type="Sprite2D" parent="GunAnchor" unique_id=314551305]
+position = Vector2(24, 0)
+scale = Vector2(0.0625, 0.0625)
+texture = ExtResource("1_mv1ah")
