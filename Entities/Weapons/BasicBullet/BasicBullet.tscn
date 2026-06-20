@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://kw313fbjjkkw"]
+
+[ext_resource type="Script" uid="uid://6gdu3ccrjt72" path="res://Entities/Weapons/BasicBullet/basic_bullet.gd" id="1_3enu8"]
+[ext_resource type="PackedScene" uid="uid://bsnv6acgqi2fe" path="res://Entities/Components/hit_box_component.tscn" id="1_d07l8"]
+[ext_resource type="Texture2D" uid="uid://bkffegfgtcurm" path="res://Entities/Weapons/Sprites/bullet.png" id="1_rbriu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d07l8"]
+size = Vector2(4, 2)
+
+[node name="BasicBullet" type="Node2D" unique_id=69629363]
+script = ExtResource("1_3enu8")
+
+[node name="HitBoxComponent" parent="." unique_id=390649418 instance=ExtResource("1_d07l8")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" unique_id=1531536604]
+shape = SubResource("RectangleShape2D_d07l8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1878858284]
+texture = ExtResource("1_rbriu")
