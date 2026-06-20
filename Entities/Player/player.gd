@@ -10,12 +10,18 @@ class_name Player extends CharacterBody2D
 @onready var GunPivot: Marker2D = %GunPivot
 @onready var GunAnchor: Node2D = $GunPivot/GunAnchor
 
-@onready var pistol: Node2D = $GunPivot/GunAnchor/Pistol
+@export var gun_data: GunResource
+var equiped_gun: BaseGun
 
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("attack"):
-		pistol.shoot()
+#func _input(event: InputEvent) -> void:
+	#if Input.is_action_just_pressed("attack"):
+		#if gun:
+			#gun._shoot()
 
+func _ready() -> void:
+	if gun_data:
+		equiped_gun = gun_data.gun_scene.instantiate()
+		GunAnchor.add_child(equiped_gun)
 
 func _physics_process(delta: float) -> void:
 	

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dkg7k0jurawe1"]
 
 [ext_resource type="Script" uid="uid://b66igukj623im" path="res://Entities/Player/player.gd" id="1_3uyv8"]
+[ext_resource type="Resource" uid="uid://dtwdx3u2jpm84" path="res://Entities/Weapons/Pistol/Pistol.tres" id="2_4wf4l"]
 [ext_resource type="Texture2D" uid="uid://boi054mlp8027" path="res://Entities/Player/Sprites/player.png" id="2_5c2io"]
-[ext_resource type="PackedScene" uid="uid://bhf6rlpaq2rph" path="res://Entities/Weapons/Pistol/pistol.tscn" id="3_5c2io"]
 [ext_resource type="Script" uid="uid://cafqysag83qgy" path="res://Entities/Components/health_component.gd" id="3_lu8i8"]
 [ext_resource type="PackedScene" uid="uid://bsnv6acgqi2fe" path="res://Entities/Components/hit_box_component.tscn" id="4_tekja"]
 
@@ -14,6 +14,7 @@ size = Vector2(16, 16)
 
 [node name="Player" type="CharacterBody2D" unique_id=1982066888]
 script = ExtResource("1_3uyv8")
+gun_data = ExtResource("2_4wf4l")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=414992599]
 texture = ExtResource("2_5c2io")
@@ -26,8 +27,6 @@ unique_name_in_owner = true
 
 [node name="GunAnchor" type="Node2D" parent="GunPivot" unique_id=1576068548]
 position = Vector2(16, 0)
-
-[node name="Pistol" parent="GunPivot/GunAnchor" unique_id=1346476372 instance=ExtResource("3_5c2io")]
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1414961840]
 script = ExtResource("3_lu8i8")

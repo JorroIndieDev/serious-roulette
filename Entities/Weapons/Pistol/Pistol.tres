@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="GunResource" format=3 uid="uid://dtwdx3u2jpm84"]
+
+[ext_resource type="PackedScene" uid="uid://bhf6rlpaq2rph" path="res://Entities/Weapons/Pistol/pistol.tscn" id="1_1w56s"]
+[ext_resource type="Script" uid="uid://u4ky25ao1wmw" path="res://Entities/Weapons/GunResource.gd" id="1_t7b2b"]
+[ext_resource type="Resource" uid="uid://cgrlbpjp51ygy" path="res://Entities/Weapons/Bullets/BasicBullet/basic_bullet.tres" id="2_0vx3k"]
+
+[resource]
+script = ExtResource("1_t7b2b")
+base_damage = 10.0
+fire_rate = 5
+base_ammo = 15
+loaded_bullet = ExtResource("2_0vx3k")
+gun_scene = ExtResource("1_1w56s")
+metadata/_custom_type_script = "uid://u4ky25ao1wmw"

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://kw313fbjjkkw"]
 
-[ext_resource type="Script" uid="uid://6gdu3ccrjt72" path="res://Entities/Weapons/BasicBullet/basic_bullet.gd" id="1_3enu8"]
+[ext_resource type="Script" uid="uid://6gdu3ccrjt72" path="res://Entities/Weapons/Bullets/BasicBullet/basic_bullet.gd" id="1_3enu8"]
 [ext_resource type="PackedScene" uid="uid://bsnv6acgqi2fe" path="res://Entities/Components/hit_box_component.tscn" id="1_d07l8"]
 [ext_resource type="Texture2D" uid="uid://bkffegfgtcurm" path="res://Entities/Weapons/Sprites/bullet.png" id="1_rbriu"]
 

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BulletResource" format=3 uid="uid://cgrlbpjp51ygy"]
+
+[ext_resource type="Script" uid="uid://bue7151g0fud" path="res://Entities/Weapons/Bullets/BulletResource.gd" id="1_7b2p4"]
+[ext_resource type="PackedScene" uid="uid://kw313fbjjkkw" path="res://Entities/Weapons/Bullets/BasicBullet/BasicBullet.tscn" id="1_r0yop"]
+
+[resource]
+script = ExtResource("1_7b2p4")
+bullet_damage = 5.0
+base_speed = 200.0
+bullet_scene = ExtResource("1_r0yop")
+metadata/_custom_type_script = "uid://bue7151g0fud"
