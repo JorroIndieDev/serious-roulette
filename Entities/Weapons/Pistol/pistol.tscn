@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://bhf6rlpaq2rph"]
 
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://ckv18b06igwtc" path="res://Entities/Weapons/Sprites/gun.png" id="1_kl2qt"]
+=======
+[ext_resource type="Texture2D" uid="uid://v63c5cn8xt67" path="res://Entities/Weapons/Sprites/gun.png" id="1_kl2qt"]
+>>>>>>> Stashed changes
 [ext_resource type="Script" uid="uid://bqq3pifvwht4y" path="res://Entities/Weapons/Pistol/pistol.gd" id="1_mjjjf"]
 
 [node name="Pistol" type="Node2D" unique_id=1346476372]
