@@ -13,14 +13,15 @@ class_name Player extends CharacterBody2D
 @export var gun_data: GunResource
 var equiped_gun: BaseGun
 
-#func _input(event: InputEvent) -> void:
-	#if Input.is_action_just_pressed("attack"):
-		#if gun:
-			#gun._shoot()
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("attack"):
+		if equiped_gun:
+			equiped_gun._shoot()
 
 func _ready() -> void:
 	if gun_data:
 		equiped_gun = gun_data.gun_scene.instantiate()
+		equiped_gun.setup(gun_data)
 		GunAnchor.add_child(equiped_gun)
 
 

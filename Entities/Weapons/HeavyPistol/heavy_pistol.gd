@@ -10,4 +10,4 @@ func _shoot() -> void:
 	GameManager.ProjectileContainer.call_deferred("add_child", bullet)
 	bullet.transform = %Muzzle.global_transform
 	
-	print("Shot")
+	print("Shot Heavy")
