@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://wg5qctifa1yg"]
+
+[ext_resource type="Texture2D" uid="uid://cigj131xloc00" path="res://Entities/Gambling/Common/Sprites/shine.png" id="1_nxqgx"]
+
+[node name="Prize" type="Control" unique_id=1936118158]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Shine" type="TextureRect" parent="." unique_id=291400522]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 44.999985
+offset_top = -26.000008
+offset_right = 202.99998
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("1_nxqgx")
+stretch_mode = 3
+
+[node name="Prize" type="TextureRect" parent="." unique_id=383803044]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 99.0
+offset_top = 26.0
+offset_right = 190.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="text" type="VBoxContainer" parent="." unique_id=2020183154]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 124.0
+offset_top = -11.0
+offset_right = 164.0
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 101
+
+[node name="Title" type="Label" parent="text" unique_id=850877879]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="text" unique_id=1022616756]
+layout_mode = 2
+horizontal_alignment = 1

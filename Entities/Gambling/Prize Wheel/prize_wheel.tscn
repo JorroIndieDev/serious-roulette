@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://b0pc5conrvscy"]
+
+[ext_resource type="Script" uid="uid://clemo8souw35q" path="res://Entities/Gambling/Prize Wheel/prize_wheel.gd" id="1_mlm3o"]
+[ext_resource type="Texture2D" uid="uid://d2b5dg46jgvyu" path="res://Entities/Gambling/Prize Wheel/Sprites/prize-wheel-middle.png" id="2_jeqm5"]
+[ext_resource type="Texture2D" uid="uid://ba8qkur5p6wl" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/bullet-hell.png" id="2_mqewy"]
+[ext_resource type="Texture2D" uid="uid://jdcpn2ivg2o" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/extra-health.png" id="3_8nmwy"]
+[ext_resource type="Texture2D" uid="uid://cs4ckayjh0b83" path="res://Entities/Gambling/Prize Wheel/Sprites/prize-wheel-base.png" id="3_c7hlq"]
+[ext_resource type="Texture2D" uid="uid://npe7jbhad2nj" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/extra-money-upgrade.png" id="4_bv73h"]
+[ext_resource type="Texture2D" uid="uid://bqaxda86hj25f" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/heal.png" id="5_1rwbk"]
+[ext_resource type="Texture2D" uid="uid://buhu2sxlrrnle" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/infinte-bullets.png" id="6_bac0g"]
+[ext_resource type="Texture2D" uid="uid://cqlh4d2hrrdht" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/multishot-upgrade.png" id="7_5eegt"]
+[ext_resource type="Texture2D" uid="uid://1f38ayi4htat" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/speed-uprade.png" id="8_rvm6f"]
+[ext_resource type="Texture2D" uid="uid://cl0yybqhh5pdl" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/walk-speed-upgrade.png" id="9_0hjst"]
+
+[node name="Prize_Wheel" type="Node2D" unique_id=1990295571]
+script = ExtResource("1_mlm3o")
+prize_pool = Array[Texture2D]([ExtResource("2_mqewy"), ExtResource("3_8nmwy"), ExtResource("4_bv73h"), ExtResource("5_1rwbk"), ExtResource("6_bac0g"), ExtResource("7_5eegt"), ExtResource("8_rvm6f"), ExtResource("9_0hjst")])
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1576877719]
+texture = ExtResource("2_jeqm5")
+
+[node name="PrizeContainer" type="Node2D" parent="Background" unique_id=1139533651]
+
+[node name="Prize1" type="Sprite2D" parent="Background/PrizeContainer" unique_id=666754603]
+position = Vector2(7, -17)
+rotation = 0.39269912
+
+[node name="Prize2" type="Sprite2D" parent="Background/PrizeContainer" unique_id=920799716]
+position = Vector2(17, -7)
+rotation = 1.1780972
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Prize3" type="Sprite2D" parent="Background/PrizeContainer" unique_id=912312018]
+position = Vector2(17, 7)
+rotation = 1.9634954
+
+[node name="Prize4" type="Sprite2D" parent="Background/PrizeContainer" unique_id=482278359]
+position = Vector2(7, 17)
+rotation = 2.7488935
+
+[node name="Prize5" type="Sprite2D" parent="Background/PrizeContainer" unique_id=808281085]
+position = Vector2(-7, 17)
+rotation = -2.7488935
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Prize6" type="Sprite2D" parent="Background/PrizeContainer" unique_id=1110991634]
+position = Vector2(-17, 7)
+rotation = -1.9634955
+
+[node name="Prize7" type="Sprite2D" parent="Background/PrizeContainer" unique_id=328852683]
+position = Vector2(-17, -7)
+rotation = -1.178097
+
+[node name="Prize8" type="Sprite2D" parent="Background/PrizeContainer" unique_id=1910235197]
+position = Vector2(-7, -17)
+rotation = -0.39269906
+
+[node name="Rim" type="Sprite2D" parent="." unique_id=582308507]
+texture = ExtResource("3_c7hlq")
