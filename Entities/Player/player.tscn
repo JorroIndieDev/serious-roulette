@@ -32,7 +32,6 @@ position = Vector2(16, 0)
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1414961840]
 script = ExtResource("3_lu8i8")
-MAX_HEALTH = 99999.0
 
 [node name="HitBoxComponent" parent="." unique_id=390649418 node_paths=PackedStringArray("health_component") instance=ExtResource("4_tekja")]
 collision_layer = 0

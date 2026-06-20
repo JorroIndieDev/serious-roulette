@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PlayerUpgrade" format=3 uid="uid://b0q2hx5ddp5of"]
+
+[ext_resource type="Script" uid="uid://c118wcr0nowgu" path="res://Entities/Upgrades/PlayerUpgrades/PlayerUpgrade.gd" id="1_wmf4c"]
+
+[resource]
+script = ExtResource("1_wmf4c")
+add_speed = 500.0
+name = "Speed Up"
+description = "speed.. up"
+metadata/_custom_type_script = "uid://c118wcr0nowgu"

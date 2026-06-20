@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bbalrjoxm3lhw"]
 
 [ext_resource type="Texture2D" uid="uid://b632muw3xvagt" path="res://Entities/Enemies/Zombie/Sprites/enemy.png" id="1_5rx78"]
-[ext_resource type="Script" uid="uid://cvg6bvdhwpg2q" path="res://Entities/Enemies/Zombie/zombie.gd" id="1_a1odr"]
+[ext_resource type="Script" path="res://Entities/Enemies/Zombie/zombie.gd" id="1_a1odr"]
 [ext_resource type="Script" uid="uid://cafqysag83qgy" path="res://Entities/Components/health_component.gd" id="2_1kokx"]
-[ext_resource type="LabelSettings" uid="uid://dqbwnlhfqpwhv" path="res://Entities/Weapons/standard_damage_label_settings.tres" id="3_4yx7f"]
+[ext_resource type="LabelSettings" path="res://Entities/Weapons/standard_damage_label_settings.tres" id="3_4yx7f"]
 [ext_resource type="PackedScene" uid="uid://bsnv6acgqi2fe" path="res://Entities/Components/hit_box_component.tscn" id="3_gob2a"]
-[ext_resource type="Script" uid="uid://dfrb5an6t75hv" path="res://Entities/Components/DamageNumberSpawner.gd" id="4_gob2a"]
+[ext_resource type="Script" path="res://Entities/Components/DamageNumberSpawner.gd" id="4_gob2a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5rx78"]
 size = Vector2(16, 16)
@@ -31,7 +31,7 @@ shape = SubResource("RectangleShape2D_5rx78")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=983203079]
 script = ExtResource("2_1kokx")
-MAX_HEALTH = 99999.0
+BASE_MAX_HEALTH = 55555.0
 metadata/_custom_type_script = "uid://cafqysag83qgy"
 
 [node name="HitBoxComponent" parent="." unique_id=390649418 node_paths=PackedStringArray("health_component") instance=ExtResource("3_gob2a")]

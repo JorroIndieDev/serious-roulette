@@ -1,12 +1,16 @@
 class_name Player extends CharacterBody2D
 
 ## Maximum movement speed (pixels per second)
-@export var max_speed := 200.0
+@export var base_max_speed := 200.0
+var max_speed: float
 ## Acceleration rate (pixels per second per second)
 @export var acceleration := 800.0
 ## Friction/deceleration when no input (pixels per second per second)
 @export var friction := 1000.0
 @export var gun_hold_distance := 12
+
+@onready var health_component: HealthComponent = $HealthComponent
+
 @onready var GunPivot: Marker2D = %GunPivot
 @onready var GunAnchor: Node2D = $GunPivot/GunAnchor
 
@@ -26,6 +30,10 @@ func _unhandled_input(_event) -> void:
 		input_attack = false
 
 func _ready() -> void:
+	
+	max_speed = base_max_speed
+	PlayerData.player_ref = self
+	
 	if gun_data:
 		equiped_gun = gun_data.gun_scene.instantiate()
 		equiped_gun.setup(gun_data)
@@ -65,3 +73,20 @@ func _gun_movement() -> void:
 	equiped_gun.gun_sprite.flip_v = mouse_direction.x <= 0
 	GunPivot.rotation = mouse_direction.angle()
 	
+
+func _recalculate_stats() -> void:
+	
+	for upgrade in PlayerData.upgrades_list:
+		var u: PlayerUpgrade = upgrade as PlayerUpgrade
+		
+		max_speed += u.add_speed
+		health_component.max_health += u.add_health
+		# regen and the rest
+	
+
+
+
+
+
+
+#EOF
