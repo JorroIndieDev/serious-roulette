@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cnetuwb3tdjja"]
+
+[ext_resource type="Script" uid="uid://c4uwigeuc1ftb" path="res://gambling.gd" id="1_aup5e"]
+[ext_resource type="PackedScene" uid="uid://b0pc5conrvscy" path="res://Entities/Gambling/Prize Wheel/prize_wheel.tscn" id="2_e5k3t"]
+[ext_resource type="PackedScene" uid="uid://ij2ktlbdvxrf" path="res://Entities/Gambling/Slot Machine/slot_machine.tscn" id="3_e3umc"]
+[ext_resource type="PackedScene" uid="uid://wg5qctifa1yg" path="res://Entities/Gambling/Common/prize.tscn" id="4_e5k3t"]
+
+[node name="Gambling" type="Control" unique_id=405436325]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aup5e")
+
+[node name="Prize_Wheel" parent="." unique_id=1990295571 instance=ExtResource("2_e5k3t")]
+position = Vector2(162, 275)
+scale = Vector2(3, 3)
+spins = 3
+spin_duration = 2
+height_to_slide = 170.0
+
+[node name="Slot-Machine" parent="." unique_id=1421680914 instance=ExtResource("3_e3umc")]
+
+[node name="Prize" parent="." unique_id=1936118158 instance=ExtResource("4_e5k3t")]
+layout_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=85783609]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.5
+offset_top = -20.0
+offset_right = 55.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=455633011]
+layout_mode = 2
+text = "spin"
+
+[node name="Button2" type="Button" parent="HBoxContainer" unique_id=2139522744]
+layout_mode = 2
+text = "gamble"
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]

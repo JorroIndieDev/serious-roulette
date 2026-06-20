@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://dt3w4y2xpbjde"]
+
+[ext_resource type="Script" uid="uid://delkjho11x61n" path="res://main_menu.gd" id="1_npuod"]
+[ext_resource type="PackedScene" uid="uid://dj2ktq7kbfh4b" path="res://Entities/PlayGround.tscn" id="2_2ekim"]
+[ext_resource type="Texture2D" uid="uid://bpth102rg8tgk" path="res://Main Menu/Sprites/back-ground.png" id="2_ft8e8"]
+[ext_resource type="Texture2D" uid="uid://bnjmnuwo17ndd" path="res://Main Menu/Sprites/logo-v2.png" id="3_2ekim"]
+[ext_resource type="Texture2D" uid="uid://b1yhpran1b8dh" path="res://Globals/UI/Sprites/Button.png" id="4_hd3la"]
+[ext_resource type="Texture2D" uid="uid://uqrjt5agtdqr" path="res://Globals/UI/Sprites/Button-press.png" id="5_b6svo"]
+[ext_resource type="Texture2D" uid="uid://cfdx2yswhcm4v" path="res://Globals/UI/Sprites/Button-hover.png" id="6_tgyvh"]
+
+[node name="main_menu" type="Control" unique_id=710365407]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_npuod")
+game_scene = ExtResource("2_2ekim")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=918850252]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ft8e8")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2026447660]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2082989665]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Logo" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=733729642]
+layout_mode = 2
+texture = ExtResource("3_2ekim")
+stretch_mode = 2
+
+[node name="play_button" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=48283191]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_hd3la")
+texture_pressed = ExtResource("5_b6svo")
+texture_hover = ExtResource("6_tgyvh")
+
+[node name="play_text" type="Label" parent="MarginContainer/VBoxContainer/play_button" unique_id=1886607307]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 13.0
+theme_override_font_sizes/font_size = 7
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="quit_button" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=2069266201]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_hd3la")
+texture_pressed = ExtResource("5_b6svo")
+
+[node name="quit_text" type="Label" parent="MarginContainer/VBoxContainer/quit_button" unique_id=1220304466]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 13.0
+theme_override_font_sizes/font_size = 7
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]
