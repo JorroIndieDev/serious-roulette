@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://do8jbqq0dudwe" path="res://Entities/Weapons/HeavyPistol/heavy_pistol.gd" id="1_m838o"]
 [ext_resource type="Texture2D" uid="uid://c0itn8wyh7o38" path="res://Entities/Weapons/Sprites/gun.png" id="1_ubue2"]
 
-[node name="HeavyPistol" type="Node2D" unique_id=2106572378]
+[node name="HeavyPistol" type="Node2D" unique_id=2106572378 node_paths=PackedStringArray("gun_sprite")]
 script = ExtResource("1_m838o")
+gun_sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=144915434]
 self_modulate = Color(0.43854162, 0.9755102, 0.61422783, 1)
@@ -12,3 +13,4 @@ texture = ExtResource("1_ubue2")
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=67614177]
 unique_name_in_owner = true
+position = Vector2(3, -1)

@@ -8,6 +8,7 @@ func _shoot() -> void:
 	bullet.bullet_resource = bullet_data
 	bullet.attack = _calculate_attack(bullet_data)
 	GameManager.ProjectileContainer.call_deferred("add_child", bullet)
-	bullet.transform = %Muzzle.global_transform
+	bullet.position = %Muzzle.global_position
+	#bullet.transform = %Muzzle.global_transform
 	
 	print("Shot")

@@ -12,16 +12,24 @@ class_name Player extends CharacterBody2D
 
 @export var gun_data: GunResource
 var equiped_gun: BaseGun
+var input_attack: bool = false
 
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("attack"):
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("attack") and not input_attack:
 		if equiped_gun:
+			input_attack = true
 			equiped_gun._shoot()
+
+#then record the you raise you mouse button
+func _unhandled_input(_event) -> void:
+	if not Input.is_action_just_pressed("attack"):
+		input_attack = false
 
 func _ready() -> void:
 	if gun_data:
 		equiped_gun = gun_data.gun_scene.instantiate()
 		equiped_gun.setup(gun_data)
+		equiped_gun.gun_pivot = GunPivot
 		GunAnchor.add_child(equiped_gun)
 
 
@@ -49,11 +57,11 @@ func _movement(delta: float) -> void:
 		# Decelerate with friction
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 
+
 func _gun_movement() -> void:
 	
 	var mouse_direction := GunPivot.global_position.direction_to(get_global_mouse_position())
 	GunAnchor.global_position = GunPivot.global_position + mouse_direction * gun_hold_distance
-	GunAnchor.scale.y = 1 if mouse_direction.x > 0 else -1
-	GunAnchor.rotation = mouse_direction.angle()
-	
+	equiped_gun.gun_sprite.flip_v = mouse_direction.x <= 0
+	GunPivot.rotation = mouse_direction.angle()
 	

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bkffegfgtcurm" path="res://Entities/Weapons/Sprites/bullet.png" id="1_rbriu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d07l8"]
-size = Vector2(4, 2)
+size = Vector2(2, 1)
 
 [node name="BasicBullet" type="Node2D" unique_id=69629363 node_paths=PackedStringArray("hitbox")]
 script = ExtResource("1_3enu8")
