@@ -3,14 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://b632muw3xvagt" path="res://Entities/Enemies/Zombie/Sprites/enemy.png" id="1_5rx78"]
 [ext_resource type="Script" uid="uid://cvg6bvdhwpg2q" path="res://Entities/Enemies/Zombie/zombie.gd" id="1_a1odr"]
 [ext_resource type="Script" uid="uid://cafqysag83qgy" path="res://Entities/Components/health_component.gd" id="2_1kokx"]
+[ext_resource type="LabelSettings" uid="uid://dqbwnlhfqpwhv" path="res://Entities/Weapons/standard_damage_label_settings.tres" id="3_4yx7f"]
 [ext_resource type="PackedScene" uid="uid://bsnv6acgqi2fe" path="res://Entities/Components/hit_box_component.tscn" id="3_gob2a"]
 [ext_resource type="Script" uid="uid://dfrb5an6t75hv" path="res://Entities/Components/DamageNumberSpawner.gd" id="4_gob2a"]
-
-[sub_resource type="SystemFont" id="SystemFont_a1odr"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_4yx7f"]
-font = SubResource("SystemFont_a1odr")
-font_size = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5rx78"]
 size = Vector2(16, 16)
@@ -23,7 +18,7 @@ script = ExtResource("1_a1odr")
 
 [node name="DamageNumberSpawner" type="Node2D" parent="." unique_id=883605978]
 script = ExtResource("4_gob2a")
-label_settings = SubResource("LabelSettings_4yx7f")
+label_settings = ExtResource("3_4yx7f")
 metadata/_custom_type_script = "uid://dfrb5an6t75hv"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1979417337]

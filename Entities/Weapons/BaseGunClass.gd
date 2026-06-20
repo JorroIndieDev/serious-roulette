@@ -1,5 +1,7 @@
 class_name BaseGun extends Node2D
 
+@export var gun_sprite: Sprite2D
+var gun_pivot: Marker2D
 var gun_data: GunResource
 
 func _shoot() -> void:

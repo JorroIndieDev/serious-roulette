@@ -8,6 +8,10 @@ func _shoot() -> void:
 	bullet.bullet_resource = bullet_data
 	bullet.attack = _calculate_attack(bullet_data)
 	GameManager.ProjectileContainer.call_deferred("add_child", bullet)
-	bullet.transform = %Muzzle.global_transform
+	bullet.direction = gun_pivot.global_position.direction_to(get_global_mouse_position())
+	bullet.position = %Muzzle.global_position
+	bullet.rotation = %Muzzle.global_rotation
+
+	#bullet.transform = %Muzzle.global_transform
 	
 	print("Shot Heavy")
