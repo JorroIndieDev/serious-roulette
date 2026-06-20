@@ -1,12 +1,14 @@
 class_name HealthComponent extends Node
 
-@export var MAX_HEALTH : float = 40.0
+@export var BASE_MAX_HEALTH : float = 40.0
+var max_health: float
 var health : float
 
 signal damaged(dmg:float)
 
 func _ready() -> void:
-	health = MAX_HEALTH
+	max_health = BASE_MAX_HEALTH
+	health = max_health
 
 func damage(attack: Attack):
 	health -= attack.attack_damage

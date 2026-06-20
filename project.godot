@@ -11,13 +11,15 @@ config_version=5
 [application]
 
 config/name="SeriousRoulete"
-run/main_scene="uid://dj2ktq7kbfh4b"
+run/main_scene="uid://ddpedmcxgtsjb"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameManager="*uid://cfi4kh8mvyhlw"
+PlayerData="*uid://dbwk5cjoulpw0"
+UpgradeDB="*uid://cohd2gkan27ts"
 
 [display]
 
