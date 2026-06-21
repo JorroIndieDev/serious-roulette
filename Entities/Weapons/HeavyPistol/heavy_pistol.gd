@@ -1,7 +1,6 @@
 extends BaseGun
 
 func _shoot() -> void:
-
 	var bullet_data := _apply_bullet_modifiers(gun_data.loaded_bullet)
 	
 	var bullet: BaseBullet = bullet_data.bullet_scene.instantiate()
@@ -11,7 +10,3 @@ func _shoot() -> void:
 	bullet.direction = gun_pivot.global_position.direction_to(get_global_mouse_position())
 	bullet.position = %Muzzle.global_position
 	bullet.rotation = %Muzzle.global_rotation
-
-	#bullet.transform = %Muzzle.global_transform
-	
-	print("Shot Heavy")

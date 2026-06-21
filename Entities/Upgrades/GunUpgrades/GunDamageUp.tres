@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="GunUpgrade" format=3 uid="uid://c36vp1ar3qart"]
+
+[ext_resource type="Script" uid="uid://cq7dj35jcrxbc" path="res://Entities/Upgrades/GunUpgrades/GunUpgrade.gd" id="1_jr67t"]
+
+[resource]
+script = ExtResource("1_jr67t")
+inc_base_damage = 10.0
+name = "GunDamageUp"
+description = "Big gun damage"
+metadata/_custom_type_script = "uid://cq7dj35jcrxbc"

@@ -4,14 +4,29 @@ class_name PlayerUpgrade extends Upgrade
 @export var add_health: float
 
 
-func _stack_upgrade(_u: Upgrade) -> void:
+func _stack_upgrade(u: Upgrade) -> Upgrade:
 	
-	if _u.max_stacks != 0 and (_u.upgrade_stack >= _u.max_stacks): return
+	if (u.max_stacks > 0 ) and (u.upgrade_stack <= u.max_stacks): return
 	
-	var u := _u as PlayerUpgrade
-	add_health += u.add_health
-	add_speed += u.add_speed
+	var other := u as PlayerUpgrade
+	if not other:
+		return self.duplicate()  # fallback
+
+	# Create a brand new combined upgrade
+	var combined := PlayerUpgrade.new()
+	combined.id = self.id
+	combined.name = self.name
+	combined.texture = self.texture
+	combined.max_stacks = self.max_stacks
+
+	# Additive stacking (as you wanted)
+	combined.add_speed = self.add_speed + other.add_speed
+	combined.add_health = self.add_health + other.add_health
+
+	# Important: sum the stack counts if you track them
+	combined.upgrade_stack = self.upgrade_stack + other.upgrade_stack
+
+	return combined
+
+#func _apply_upgrade(object: Variant) -> void:
 	
-	#regen and what not goes here
-	
-	upgrade_stack += 1

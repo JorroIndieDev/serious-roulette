@@ -1,9 +1,7 @@
 extends Node
 
-enum UPGRADES {
-	MOVESPEED
-}
 
 var available_upgrades: Dictionary = {
-	UPGRADES.MOVESPEED: preload("uid://b0q2hx5ddp5of"),
+	Upgrade.ID.MOVESPEED: preload("uid://b0q2hx5ddp5of"),
+	Upgrade.ID.GUNDMGUP: preload("uid://c36vp1ar3qart"),
 }
