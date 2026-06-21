@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://blo40ybfw4ar7" path="res://Entities/Environment/play_ground.gd" id="1_tdycy"]
 [ext_resource type="PackedScene" uid="uid://bbalrjoxm3lhw" path="res://Entities/Enemies/Zombie/zombie.tscn" id="2_3fgwc"]
 [ext_resource type="Script" uid="uid://blbclafowdwtt" path="res://Entities/projectile_container.gd" id="3_3fgwc"]
+[ext_resource type="PackedScene" uid="uid://dex6xabsgs45s" path="res://UI/pause_menu.tscn" id="5_fj38m"]
 
 [node name="PlayGround" type="Node2D" unique_id=1613171688]
 script = ExtResource("1_tdycy")
@@ -19,3 +20,5 @@ script = ExtResource("3_3fgwc")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1473317213]
 anchor_mode = 0
+
+[node name="pause_menu" parent="." unique_id=463649552 instance=ExtResource("5_fj38m")]
