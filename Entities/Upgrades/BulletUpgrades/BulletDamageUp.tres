@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BulletUpgrade" format=3 uid="uid://bx7b7xcpepcgj"]
+
+[ext_resource type="Script" uid="uid://lwonjlqokopa" path="res://Entities/Upgrades/BulletUpgrades/BulletUpgrade.gd" id="1_s3i77"]
+
+[resource]
+script = ExtResource("1_s3i77")
+inc_damage = 5.0
+inc_speed = 20.0
+name = "Bullet Damage Up"
+description = "Big bullet damage"
+metadata/_custom_type_script = "uid://lwonjlqokopa"

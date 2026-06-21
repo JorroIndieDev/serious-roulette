@@ -50,7 +50,7 @@ func _append_upgrade(upgrade: Upgrade) -> void:
 			gu._apply_upgrade(player_ref.gun_data)
 		
 		var bu when bu is BulletUpgrade:
-			pass
+			bu._apply_upgrade(player_ref.gun_data.loaded_bullet)
 		
 		_:
 			pass

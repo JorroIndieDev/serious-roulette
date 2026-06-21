@@ -26,6 +26,6 @@ func _calculate_attack(b_data: BulletResource) -> Attack:
 	return attack
 
 func _apply_bullet_modifiers(b_data: BulletResource) -> BulletResource:
-	var new_data: BulletResource = b_data
+	var new_data: BulletResource = b_data.duplicate()
 	new_data.bullet_speed = b_data.base_speed
 	return new_data
