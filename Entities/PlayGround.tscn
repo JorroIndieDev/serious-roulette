@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://dj2ktq7kbfh4b"]
 
 [ext_resource type="PackedScene" uid="uid://dkg7k0jurawe1" path="res://Entities/Player/player.tscn" id="1_5amh0"]
+[ext_resource type="Script" uid="uid://blo40ybfw4ar7" path="res://Entities/Environment/play_ground.gd" id="1_tdycy"]
 [ext_resource type="PackedScene" uid="uid://bbalrjoxm3lhw" path="res://Entities/Enemies/Zombie/zombie.tscn" id="2_3fgwc"]
 [ext_resource type="Script" uid="uid://blbclafowdwtt" path="res://Entities/projectile_container.gd" id="3_3fgwc"]
 
 [node name="PlayGround" type="Node2D" unique_id=1613171688]
+script = ExtResource("1_tdycy")
 
 [node name="Player" parent="." unique_id=1982066888 instance=ExtResource("1_5amh0")]
 position = Vector2(168, 40)
