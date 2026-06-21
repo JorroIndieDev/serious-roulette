@@ -48,12 +48,14 @@ func _physics_process(delta: float) -> void:
 
 
 func _movement(delta: float) -> void:
+	
 	# Get raw directional input (normalised vector)
 	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	
+
+	$Sprite2D.flip_h = sign(position.direction_to(get_global_mouse_position()).x) < 0 
 	# Desired velocity based on input
 	var target_velocity := input_dir * stats.max_speed
-	
+
 	# Apply acceleration or friction
 	if input_dir:
 		# Accelerate towards target velocity
@@ -64,12 +66,19 @@ func _movement(delta: float) -> void:
 
 
 func _gun_movement() -> void:
-	
 	var mouse_direction := GunPivot.global_position.direction_to(get_global_mouse_position())
 	GunAnchor.global_position = GunPivot.global_position + mouse_direction * gun_hold_distance
-	equiped_gun.gun_sprite.flip_v = mouse_direction.x <= 0
-	GunPivot.rotation = mouse_direction.angle()
+	if mouse_direction.x <= 0:
+		equiped_gun.gun_sprite.flip_v = true
+		equiped_gun.muzzle.position.y = abs(equiped_gun.muzzle.position.y)
+		equiped_gun.muzzle.rotation = PI
+	else:
+		equiped_gun.gun_sprite.flip_v = false
+		equiped_gun.muzzle.position.y = -abs(equiped_gun.muzzle.position.y)
+		equiped_gun.muzzle.rotation = 0
 	
+	GunPivot.rotation = mouse_direction.angle()
+
 
 func _recalculate_stats(upgrade: Upgrade) -> void:
 	
@@ -78,8 +87,6 @@ func _recalculate_stats(upgrade: Upgrade) -> void:
 	stats.max_speed += u.add_speed
 	health_component.max_health += u.add_health
 	# regen and the rest
-
-
 
 
 

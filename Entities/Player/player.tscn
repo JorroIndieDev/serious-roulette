@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cafqysag83qgy" path="res://Entities/Components/health_component.gd" id="3_lu8i8"]
 [ext_resource type="PackedScene" uid="uid://bsnv6acgqi2fe" path="res://Entities/Components/hit_box_component.tscn" id="4_tekja"]
 [ext_resource type="Script" uid="uid://8du7544f6aen" path="res://Entities/Player/player_stats.gd" id="6_4wf4l"]
+[ext_resource type="Script" uid="uid://b5qwjrl1n3qxg" path="res://Entities/SpriteAnimatino.gd" id="7_lub02"]
 [ext_resource type="Script" uid="uid://51hlmhkf4fmy" path="res://Entities/Player/TwinShooterCamera.gd" id="8_7a1se"]
 
 [sub_resource type="SystemFont" id="SystemFont_a1odr"]
@@ -43,6 +44,9 @@ script = ExtResource("3_lu8i8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=414992599]
 texture = ExtResource("2_5c2io")
+script = ExtResource("7_lub02")
+walk_amplitude = 0.2
+sway_speed = 7.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=275667892]
 shape = SubResource("RectangleShape2D_3uyv8")
