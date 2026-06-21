@@ -18,8 +18,8 @@ signal prize_won(reward: Upgrade)
 
 var offscreen_y: float
 var onscreen_y: float
-var winning_texture: Texture2D
-var is_spinnin: bool = false
+var winning_prize: Upgrade
+#var winning_texture: Texture2D
 
 func _ready() -> void:
 	
