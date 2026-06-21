@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bbalrjoxm3lhw" path="res://Entities/Enemies/Zombie/zombie.tscn" id="2_fw5fx"]
 [ext_resource type="PackedScene" uid="uid://cnetuwb3tdjja" path="res://Entities/Gambling/gambling_component.tscn" id="5_6j03f"]
 [ext_resource type="Texture2D" uid="uid://dby7k428p1h72" path="res://Entities/Environment/tree/Sprites/tree.png" id="6_nb14x"]
-[ext_resource type="PackedScene" path="res://UI/pause_menu.tscn" id="7_csoal"]
+[ext_resource type="PackedScene" uid="uid://dex6xabsgs45s" path="res://UI/pause_menu.tscn" id="7_csoal"]
 
 [node name="PlayGround" type="Node2D" unique_id=729696177]
 process_mode = 1
