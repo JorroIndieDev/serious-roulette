@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://cnetuwb3tdjja"]
 
 [ext_resource type="Script" uid="uid://c4uwigeuc1ftb" path="res://gambling.gd" id="1_aup5e"]
-[ext_resource type="PackedScene" uid="uid://b0pc5conrvscy" path="res://Entities/Gambling/Prize Wheel/prize_wheel.tscn" id="2_e5k3t"]
-[ext_resource type="PackedScene" uid="uid://ij2ktlbdvxrf" path="res://Entities/Gambling/Slot Machine/slot_machine.tscn" id="3_e3umc"]
-[ext_resource type="Texture2D" uid="uid://cigj131xloc00" path="res://Entities/Gambling/Common/Sprites/shine.png" id="4_rcxeg"]
+[ext_resource type="PackedScene" uid="uid://ysw4i6ejx6bi" path="res://Entities/Gambling/Prize Wheel/prize_wheel.tscn" id="2_e5k3t"]
+[ext_resource type="PackedScene" uid="uid://k5juvq8egci7" path="res://Entities/Gambling/Slot Machine/slot_machine.tscn" id="3_e3umc"]
+[ext_resource type="Script" uid="uid://bc5ple8gnuaxt" path="res://Entities/Upgrades/Upgrade.gd" id="3_p0klh"]
+[ext_resource type="Texture2D" uid="uid://dw2cipnji7gtc" path="res://Entities/Gambling/Common/Sprites/shine.png" id="4_rcxeg"]
 
 [node name="Gambling" type="Control" unique_id=405436325]
 layout_mode = 3
@@ -14,16 +15,22 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_aup5e")
 
-[node name="Prize_Wheel" parent="." unique_id=1990295571 instance=ExtResource("2_e5k3t")]
+[node name="Prize_Wheel" parent="." unique_id=1990295571 node_paths=PackedStringArray("gambling_node") instance=ExtResource("2_e5k3t")]
 position = Vector2(162, 275)
 scale = Vector2(3, 3)
+num_prizes = 8
 spins = 3
 spin_duration = 2
 height_to_slide = 170.0
+time_to_slide = 0.5
+display_duration = 1.5
+prize_pool = Array[ExtResource("3_p0klh")]([])
+gambling_node = NodePath("..")
 
-[node name="Slot-Machine" parent="." unique_id=1421680914 instance=ExtResource("3_e3umc")]
+[node name="Slot-Machine" parent="." unique_id=1421680914 node_paths=PackedStringArray("gambling_node") instance=ExtResource("3_e3umc")]
 position = Vector2(162, 274)
 scale = Vector2(2.925, 2.925)
+gambling_node = NodePath("..")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=85783609]
 layout_mode = 1
