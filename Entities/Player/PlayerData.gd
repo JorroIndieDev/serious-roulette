@@ -2,7 +2,21 @@ extends Node
 
 var player_ref: Player
 
+var player_points: int
+var player_coins: int
+
 var upgrades_list: Array[Upgrade] = []
+
+signal _player_leveled
+
+var leveled_up: bool:
+	get: return leveled_up
+	set(value):
+		leveled_up = value
+		if value: emit_signal("_player_leveled")
+
+func _ready() -> void:
+	connect("_player_leveled", GameManager._player_leveled)
 
 func _change_gun(gun: GunResource) -> void:
 	if !player_ref.gun_data:
@@ -54,3 +68,4 @@ func _append_upgrade(upgrade: Upgrade) -> void:
 		
 		_:
 			pass
+	print(upgrade.name)

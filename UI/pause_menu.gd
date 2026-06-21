@@ -12,7 +12,10 @@ func _unhandled_input(event: InputEvent) -> void:
 func toggle_pause():
 	var is_paused = not get_tree().paused
 	get_tree().paused = is_paused
-	
+	if is_paused:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	menu_ui.visible = is_paused
 
 

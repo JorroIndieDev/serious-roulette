@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="GunUpgrade" format=3 uid="uid://c36vp1ar3qart"]
 
 [ext_resource type="Script" uid="uid://cq7dj35jcrxbc" path="res://Entities/Upgrades/GunUpgrades/GunUpgrade.gd" id="1_jr67t"]
+[ext_resource type="Texture2D" uid="uid://c0itn8wyh7o38" path="res://Entities/Weapons/Sprites/gun.png" id="2_nmynn"]
 
 [resource]
 script = ExtResource("1_jr67t")
 inc_base_damage = 10.0
 name = "GunDamageUp"
 description = "Big gun damage"
+texture = ExtResource("2_nmynn")
 metadata/_custom_type_script = "uid://cq7dj35jcrxbc"
