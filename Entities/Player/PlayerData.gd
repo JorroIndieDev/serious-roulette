@@ -2,6 +2,9 @@ extends Node
 
 var player_ref: Player
 
+var player_points: int
+var player_coins: int
+
 var upgrades_list: Array[Upgrade] = []
 
 signal _player_leveled

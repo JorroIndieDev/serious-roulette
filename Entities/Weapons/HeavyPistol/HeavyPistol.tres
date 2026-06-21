@@ -9,6 +9,6 @@ script = ExtResource("1_23wox")
 base_damage = 15.0
 fire_rate = 5
 base_ammo = 10
+reload_time = 0.7
 loaded_bullet = ExtResource("2_i5c2x")
 gun_scene = ExtResource("1_fy7tv")
-metadata/_custom_type_script = "uid://u4ky25ao1wmw"

@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
-@onready var player : CharacterBody2D = $"../Player"
-@export var follow_k : float = 3.0
+@onready var player: CharacterBody2D = $"../Player"
+@export var follow_k: float = 3.0
 @export var max_speed: float = 150.0
 @export var hitbox: HitBoxComponent
+var can_damage : bool = true
 
 
 func _ready() -> void:
@@ -23,17 +24,25 @@ func pathfind():
 		velocity = raw_velocity.limit_length(max_speed)
 		
 		move_and_slide()
-			
+
+
 func melee(area: Area2D) -> void: 
 	print("melee")
-	if area is HitBoxComponent and area.owner is Player:
+	if can_damage and area is HitBoxComponent and area.owner is Player:
 		var enemy_attack = Attack.new()
 		enemy_attack.attack_damage = 10.0
 		enemy_attack.knockback_force = 10.0
 		enemy_attack.attack_position = global_position
 		area.damage(enemy_attack)
 		print("Get damaged")
-	
+		can_damage = false
+		hitbox.set_deferred("monitorable", can_damage)
+		hitbox.set_deferred("monitoring", can_damage)
+		await get_tree().create_timer(1.0).timeout
+		can_damage = true
+		hitbox.set_deferred("monitorable", can_damage)
+		hitbox.set_deferred("monitoring", can_damage)
+
 
 func _physics_process(delta: float) -> void:
 	pathfind()

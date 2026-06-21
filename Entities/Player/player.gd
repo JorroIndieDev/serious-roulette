@@ -17,17 +17,22 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("attack") and not input_attack:
 		if equiped_gun:
 			input_attack = true
-			equiped_gun._shoot()
+			equiped_gun.try_shoot()
 
 #then record the you raise you mouse button
 func _unhandled_input(_event) -> void:
 	if not Input.is_action_just_pressed("attack"):
 		input_attack = false
 
+func _damaged(dmg: float) -> void:
+	$DamageNumberSpawner.spawn_label(dmg)
+
 func _ready() -> void:
 	
 	stats.max_speed = stats.base_max_speed
 	PlayerData.player_ref = self
+	
+	health_component.connect("damaged", _damaged)
 	
 	if gun_data:
 		PlayerData._change_gun(gun_data)
