@@ -2,12 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://bhf6rlpaq2rph" path="res://Entities/Weapons/Pistol/pistol.tscn" id="1_pmsk4"]
 [ext_resource type="Resource" uid="uid://cgrlbpjp51ygy" path="res://Entities/Weapons/Bullets/BasicBullet/basic_bullet.tres" id="2_meide"]
-[ext_resource type="Script" path="res://Entities/Weapons/GunResource.gd" id="3_pn64k"]
+[ext_resource type="Script" uid="uid://u4ky25ao1wmw" path="res://Entities/Weapons/GunResource.gd" id="3_pn64k"]
 
 [resource]
 script = ExtResource("3_pn64k")
 base_damage = 10.0
 fire_rate = 5
 base_ammo = 15
+reload_time = 0.5
 loaded_bullet = ExtResource("2_meide")
 gun_scene = ExtResource("1_pmsk4")
