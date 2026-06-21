@@ -23,6 +23,7 @@ func show_prize(win_texture : Texture2D, win_title : String, win_desc : String):
 	var title:Label = $Prize/text/Title
 	var desc:Label = $Prize/text/Description
 	#prize.scale = Vector2(0.1,0.1)
+	shine.rotation = 0
 
 	texture.texture = win_texture
 	title.text = win_title

@@ -69,6 +69,7 @@ func spin():
 	
 	var tween_out = create_tween()
 	tween_out.tween_property(self, "position:y", offscreen_y, time_to_slide).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	background.rotation == 0
 
 
 	
