@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c4uwigeuc1ftb" path="res://gambling.gd" id="1_aup5e"]
 [ext_resource type="PackedScene" uid="uid://b0pc5conrvscy" path="res://Entities/Gambling/Prize Wheel/prize_wheel.tscn" id="2_e5k3t"]
 [ext_resource type="PackedScene" uid="uid://ij2ktlbdvxrf" path="res://Entities/Gambling/Slot Machine/slot_machine.tscn" id="3_e3umc"]
-[ext_resource type="PackedScene" uid="uid://wg5qctifa1yg" path="res://Entities/Gambling/Common/prize.tscn" id="4_e5k3t"]
+[ext_resource type="Texture2D" uid="uid://cigj131xloc00" path="res://Entities/Gambling/Common/Sprites/shine.png" id="4_rcxeg"]
 
 [node name="Gambling" type="Control" unique_id=405436325]
 layout_mode = 3
@@ -22,9 +22,8 @@ spin_duration = 2
 height_to_slide = 170.0
 
 [node name="Slot-Machine" parent="." unique_id=1421680914 instance=ExtResource("3_e3umc")]
-
-[node name="Prize" parent="." unique_id=1936118158 instance=ExtResource("4_e5k3t")]
-layout_mode = 0
+position = Vector2(162, 274)
+scale = Vector2(2.925, 2.925)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=85783609]
 layout_mode = 1
@@ -48,4 +47,68 @@ text = "spin"
 layout_mode = 2
 text = "gamble"
 
+[node name="Prize" type="Control" parent="." unique_id=265729450]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Shine" type="TextureRect" parent="Prize" unique_id=1919818534]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 66.00001
+offset_top = -3.0
+offset_right = 224.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+pivot_offset = Vector2(78.895, 76.015)
+texture = ExtResource("4_rcxeg")
+stretch_mode = 3
+
+[node name="Prize" type="TextureRect" parent="Prize" unique_id=301536305]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 68.0
+offset_top = -3.0
+offset_right = 225.0
+offset_bottom = 154.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 3
+
+[node name="text" type="VBoxContainer" parent="Prize" unique_id=1008642369]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 124.0
+offset_top = -11.0
+offset_right = 164.0
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 101
+
+[node name="Title" type="Label" parent="Prize/text" unique_id=1323838468]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="Prize/text" unique_id=628547842]
+layout_mode = 2
+horizontal_alignment = 1
+
 [connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
