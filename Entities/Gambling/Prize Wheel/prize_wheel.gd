@@ -17,6 +17,7 @@ signal prize_won(reward: String)
 var offscreen_y: float
 var onscreen_y: float
 var winning_texture: Texture2D
+var is_spinnin: bool = false
 
 func _ready() -> void:
 	offscreen_y = position.y
@@ -36,11 +37,19 @@ func spin():
 	var won_texture = winning_sprite.texture.resource_name.remove_chars(".png")
 	winning_texture = winning_sprite.texture
 	
-	var slice_angle = TAU / num_prizes 
-	var base_spins = spins * TAU + slice_angle/2
+	background.rotation = 0.0
 	
-	var current_spins = snapped(rotation, TAU)
-	var target_angle = current_spins + base_spins + (winning_index + slice_angle)
+	var slice_angle = TAU / num_prizes 
+	
+	var target_offset = TAU - (winning_index * slice_angle)
+	if winning_index == 0:
+		target_offset = 0.0
+		
+	var distance_to_target = target_offset - rotation
+	if distance_to_target < 0:
+		distance_to_target = 0.0
+	
+	var target_angle = rotation + (spins * TAU) + distance_to_target - slice_angle/2
 	
 	var tween = create_tween()
 	tween.tween_property(self, "position:y", onscreen_y, time_to_slide).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
@@ -54,6 +63,7 @@ func spin():
 	
 	var tween_out = create_tween()
 	tween_out.tween_property(self, "position:y", offscreen_y, time_to_slide).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	background.rotation == 0
 
 
 	
