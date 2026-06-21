@@ -1,4 +1,4 @@
-extends Control
+class_name GamblingNode extends Control
 
 @onready var prize_wheel: Node2D = $Prize_Wheel
 @onready var slot_machine: Node2D = $"Slot-Machine"
@@ -8,7 +8,6 @@ extends Control
 
 func _ready() -> void:
 	prize.visible = false
-	
 
 func _on_button_pressed() -> void:
 	prize_wheel.spin()

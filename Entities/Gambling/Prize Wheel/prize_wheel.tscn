@@ -1,20 +1,18 @@
-[gd_scene format=3 uid="uid://b0pc5conrvscy"]
+[gd_scene format=3 uid="uid://ysw4i6ejx6bi"]
 
 [ext_resource type="Script" uid="uid://clemo8souw35q" path="res://Entities/Gambling/Prize Wheel/prize_wheel.gd" id="1_mlm3o"]
-[ext_resource type="Texture2D" uid="uid://d2b5dg46jgvyu" path="res://Entities/Gambling/Prize Wheel/Sprites/prize-wheel-middle.png" id="2_jeqm5"]
-[ext_resource type="Texture2D" uid="uid://ba8qkur5p6wl" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/bullet-hell.png" id="2_mqewy"]
-[ext_resource type="Texture2D" uid="uid://jdcpn2ivg2o" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/extra-health.png" id="3_8nmwy"]
-[ext_resource type="Texture2D" uid="uid://cs4ckayjh0b83" path="res://Entities/Gambling/Prize Wheel/Sprites/prize-wheel-base.png" id="3_c7hlq"]
-[ext_resource type="Texture2D" uid="uid://npe7jbhad2nj" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/extra-money-upgrade.png" id="4_bv73h"]
-[ext_resource type="Texture2D" uid="uid://bqaxda86hj25f" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/heal.png" id="5_1rwbk"]
-[ext_resource type="Texture2D" uid="uid://buhu2sxlrrnle" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/infinte-bullets.png" id="6_bac0g"]
-[ext_resource type="Texture2D" uid="uid://cqlh4d2hrrdht" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/multishot-upgrade.png" id="7_5eegt"]
-[ext_resource type="Texture2D" uid="uid://1f38ayi4htat" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/speed-uprade.png" id="8_rvm6f"]
-[ext_resource type="Texture2D" uid="uid://cl0yybqhh5pdl" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/walk-speed-upgrade.png" id="9_0hjst"]
+[ext_resource type="Texture2D" uid="uid://dqejxarmlw253" path="res://Entities/Gambling/Prize Wheel/Sprites/prize-wheel-middle.png" id="2_jeqm5"]
+[ext_resource type="Texture2D" uid="uid://s7t5mnyxifa6" path="res://Entities/Gambling/Prize Wheel/Sprites/prize-wheel-base.png" id="3_c7hlq"]
 
 [node name="Prize_Wheel" type="Node2D" unique_id=1990295571]
 script = ExtResource("1_mlm3o")
-prize_pool = Array[Texture2D]([ExtResource("2_mqewy"), ExtResource("3_8nmwy"), ExtResource("4_bv73h"), ExtResource("5_1rwbk"), ExtResource("6_bac0g"), ExtResource("7_5eegt"), ExtResource("8_rvm6f"), ExtResource("9_0hjst")])
+num_prizes = null
+spins = null
+spin_duration = null
+height_to_slide = null
+time_to_slide = null
+display_duration = null
+prize_pool = null
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1576877719]
 texture = ExtResource("2_jeqm5")
