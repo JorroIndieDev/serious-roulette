@@ -4,6 +4,7 @@ class_name Upgrade extends Resource
 enum ID {
 	MOVESPEED,
 	GUNDMGUP,
+	BULLETDMGUP,
 	# Add more here as you create them
 }
 

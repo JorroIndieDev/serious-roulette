@@ -5,6 +5,8 @@ class_name BulletResource extends Resource
 @export var bullet_damage: float
 ## Additive by default, enable for mutiplicative damage
 @export var multiplicative: bool = false
+## How many bodies it can pierce
+@export var max_pierce: int = 0
 
 ## Bullet base speed
 @export var base_speed: float
