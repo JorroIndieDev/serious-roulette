@@ -1,8 +1,15 @@
 [gd_scene format=3 uid="uid://ij2ktlbdvxrf"]
 
 [ext_resource type="Texture2D" uid="uid://vs58f24y321y" path="res://Entities/Gambling/Slot Machine/Sprites/slot-background.png" id="1_1ky1d"]
+[ext_resource type="Script" uid="uid://d2gmadphcmt78" path="res://Entities/Gambling/Slot Machine/slot_machine.gd" id="1_hartl"]
+[ext_resource type="Texture2D" uid="uid://ndckdbl1je5a" path="res://Entities/Gambling/Slot Machine/Sprites/Prizes/flintlock.png" id="2_4uu2i"]
 [ext_resource type="Texture2D" uid="uid://ckxi6qhke76ww" path="res://Entities/Gambling/Slot Machine/Sprites/slot-numbers.png" id="2_hartl"]
 [ext_resource type="Texture2D" uid="uid://dlp67xrkf4eb" path="res://Entities/Gambling/Slot Machine/Sprites/slot-machine.png" id="3_n8uwf"]
+[ext_resource type="Texture2D" uid="uid://bwnoaa3gdat2e" path="res://Entities/Gambling/Slot Machine/Sprites/Prizes/rocket-launcher.png" id="3_s1cpq"]
+[ext_resource type="Texture2D" uid="uid://dfnefm1b7ehme" path="res://Entities/Gambling/Slot Machine/Sprites/Prizes/cannon.png" id="4_lue1r"]
+[ext_resource type="Texture2D" uid="uid://c3m86n16m8d67" path="res://Entities/Gambling/Slot Machine/Sprites/Prizes/ak.png" id="5_kqu4k"]
+[ext_resource type="Texture2D" uid="uid://c1siwomeq82f3" path="res://Entities/Gambling/Slot Machine/Sprites/Prizes/staff.png" id="6_r4q7b"]
+[ext_resource type="Texture2D" uid="uid://ca6gkf0gi46ua" path="res://Entities/Gambling/Slot Machine/Sprites/Prizes/shotgun.png" id="7_yracn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tjoe7"]
 atlas = ExtResource("1_1ky1d")
@@ -48,7 +55,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_4uu2i")
 }],
 "loop": true,
-"name": &"Stopped",
+"name": &"Stop",
 "speed": 1.0
 }]
 
@@ -195,10 +202,12 @@ animations = [{
 }]
 
 [node name="Slot-Machine" type="Node2D" unique_id=1421680914]
+script = ExtResource("1_hartl")
+prize_pool = Array[Texture2D]([ExtResource("2_4uu2i"), ExtResource("3_s1cpq"), ExtResource("4_lue1r"), ExtResource("5_kqu4k"), ExtResource("6_r4q7b"), ExtResource("7_yracn")])
 
 [node name="Background" type="AnimatedSprite2D" parent="." unique_id=1985166926]
 sprite_frames = SubResource("SpriteFrames_s1cpq")
-animation = &"Spinning"
+animation = &"Stop"
 
 [node name="Numbers" type="AnimatedSprite2D" parent="." unique_id=679914532]
 sprite_frames = SubResource("SpriteFrames_grwre")
@@ -211,3 +220,16 @@ sprite_frames = SubResource("SpriteFrames_xf1ke")
 animation = &"On"
 autoplay = "On"
 frame_progress = 0.85989
+
+[node name="PrizeContainer" type="Node2D" parent="." unique_id=1154211332]
+
+[node name="Prize3" type="Sprite2D" parent="PrizeContainer" unique_id=493791095]
+position = Vector2(-17.64, 0)
+scale = Vector2(0.4, 0.4)
+
+[node name="Prize2" type="Sprite2D" parent="PrizeContainer" unique_id=2049762336]
+scale = Vector2(0.4, 0.4)
+
+[node name="Prize1" type="Sprite2D" parent="PrizeContainer" unique_id=373720587]
+position = Vector2(17.83, 0)
+scale = Vector2(0.4, 0.4)

@@ -48,21 +48,13 @@ func spin():
 	
 	await tween.finished
 	prize_won.emit(won_texture)
+	$"..".show_prize(winning_texture, winning_texture.resource_name, "text")
 	await get_tree().create_timer(display_duration).timeout
+	
 	
 	var tween_out = create_tween()
 	tween_out.tween_property(self, "position:y", offscreen_y, time_to_slide).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
 
-func show_prize():
-	var texture:TextureRect = $"prize.Prize"
-	var shine:TextureRect = $"prize.Shine"
-	var title:Label = $"prize.text.Title"
-	var desc:Label = $"prize.text.Description"
 
-	texture.texture = winning_texture
-	var tween = create_tween()
-	tween.tween_property(shine, "rotation", 720, 1.5).set_trans(Tween.TRANS_QUAD)
-	title.text = winning_texture.resource_name.remove_chars(".png")
-	desc.text = "Insert description here"
 	
 	
