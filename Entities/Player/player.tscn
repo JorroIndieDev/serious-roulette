@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://boi054mlp8027" path="res://Entities/Player/Sprites/player.png" id="2_5c2io"]
 [ext_resource type="Script" uid="uid://cafqysag83qgy" path="res://Entities/Components/health_component.gd" id="3_lu8i8"]
 [ext_resource type="PackedScene" uid="uid://bsnv6acgqi2fe" path="res://Entities/Components/hit_box_component.tscn" id="4_tekja"]
+[ext_resource type="Script" uid="uid://8du7544f6aen" path="res://Entities/Player/player_stats.gd" id="6_4wf4l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3uyv8"]
 size = Vector2(16, 16)
@@ -12,11 +13,18 @@ size = Vector2(16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5c2io"]
 size = Vector2(16, 16)
 
-[node name="Player" type="CharacterBody2D" unique_id=1982066888]
+[node name="Player" type="CharacterBody2D" unique_id=1982066888 node_paths=PackedStringArray("stats")]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_3uyv8")
+stats = NodePath("PlayerStats")
 gun_data = ExtResource("2_4wf4l")
+
+[node name="PlayerStats" type="Node" parent="." unique_id=582439842]
+script = ExtResource("6_4wf4l")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1414961840]
+script = ExtResource("3_lu8i8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=414992599]
 texture = ExtResource("2_5c2io")
@@ -29,9 +37,6 @@ unique_name_in_owner = true
 
 [node name="GunAnchor" type="Node2D" parent="GunPivot" unique_id=1576068548]
 position = Vector2(16, 0)
-
-[node name="HealthComponent" type="Node" parent="." unique_id=1414961840]
-script = ExtResource("3_lu8i8")
 
 [node name="HitBoxComponent" parent="." unique_id=390649418 node_paths=PackedStringArray("health_component") instance=ExtResource("4_tekja")]
 collision_layer = 0
