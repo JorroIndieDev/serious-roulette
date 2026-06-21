@@ -5,7 +5,7 @@ var ProjectileContainer: Node
 var main_menu: MainMenu
 
 func _ready() -> void:
-	pass
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)   
 
 func _play_button() -> void:
 	change_scene(main_menu.game_scene)

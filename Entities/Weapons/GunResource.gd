@@ -10,6 +10,7 @@ class_name GunResource extends Resource
 @export var base_ammo: int
 ## How many bullets left to fire
 var current_ammo: int
+@export var reload_time: float
 
 ## Bullet Resource that the gun will fire
 @export var loaded_bullet: BulletResource

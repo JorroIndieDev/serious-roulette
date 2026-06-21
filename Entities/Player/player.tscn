@@ -3,9 +3,19 @@
 [ext_resource type="Script" uid="uid://b66igukj623im" path="res://Entities/Player/player.gd" id="1_3uyv8"]
 [ext_resource type="Resource" uid="uid://278g4rptvq6j" path="res://Entities/Weapons/HeavyPistol/HeavyPistol.tres" id="2_4wf4l"]
 [ext_resource type="Texture2D" uid="uid://boi054mlp8027" path="res://Entities/Player/Sprites/player.png" id="2_5c2io"]
+[ext_resource type="Script" uid="uid://dfrb5an6t75hv" path="res://Entities/Components/DamageNumberSpawner.gd" id="3_01a4e"]
 [ext_resource type="Script" uid="uid://cafqysag83qgy" path="res://Entities/Components/health_component.gd" id="3_lu8i8"]
 [ext_resource type="PackedScene" uid="uid://bsnv6acgqi2fe" path="res://Entities/Components/hit_box_component.tscn" id="4_tekja"]
 [ext_resource type="Script" uid="uid://8du7544f6aen" path="res://Entities/Player/player_stats.gd" id="6_4wf4l"]
+[ext_resource type="Script" uid="uid://51hlmhkf4fmy" path="res://Entities/Player/TwinShooterCamera.gd" id="8_7a1se"]
+
+[sub_resource type="SystemFont" id="SystemFont_a1odr"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_7a1se"]
+font = SubResource("SystemFont_a1odr")
+font_size = 5
+font_color = Color(0.8033154, 0.24975055, 0.26828036, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3uyv8"]
 size = Vector2(16, 16)
@@ -20,8 +30,13 @@ script = ExtResource("1_3uyv8")
 stats = NodePath("PlayerStats")
 gun_data = ExtResource("2_4wf4l")
 
+[node name="DamageNumberSpawner" type="Node2D" parent="." unique_id=1915771119]
+script = ExtResource("3_01a4e")
+label_settings = SubResource("LabelSettings_7a1se")
+
 [node name="PlayerStats" type="Node" parent="." unique_id=582439842]
 script = ExtResource("6_4wf4l")
+base_max_speed = 100.0
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1414961840]
 script = ExtResource("3_lu8i8")
@@ -46,3 +61,10 @@ health_component = NodePath("../HealthComponent")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" unique_id=1323915501]
 shape = SubResource("RectangleShape2D_5c2io")
 debug_color = Color(0.964333, 0, 0.4962629, 0.41960785)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2055349467]
+limit_enabled = false
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+editor_draw_limits = true
+script = ExtResource("8_7a1se")

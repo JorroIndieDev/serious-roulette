@@ -27,7 +27,7 @@ func spawn_label(number: float, critical_hit: bool = false) -> void:
 	# Tween Black magic, proceed at your own risk
 	
 	var target_rise_pos: Vector2 = new_label.position + Vector2(randf_range(-5.0, 5.0), randf_range(-22.0, -16.0))
-	var tween_leght: float = .92
+	var tween_leght: float = 1.0
 	var label_tween: Tween = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	label_tween.tween_property(new_label, "position", target_rise_pos, tween_leght)
 	label_tween.parallel().tween_property(new_label, "scale", Vector2.ONE * 1.35, tween_leght)
