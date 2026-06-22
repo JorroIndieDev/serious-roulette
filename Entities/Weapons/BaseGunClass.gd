@@ -1,6 +1,8 @@
 class_name BaseGun extends Node2D
 
 @export var gun_sprite: Sprite2D
+@export var shooting_particle: CPUParticles2D
+@export var muzzle: Marker2D
 var gun_pivot: Marker2D
 var gun_data: GunResource
 
@@ -84,10 +86,29 @@ func try_shoot() -> bool:
 func _shoot() -> void:
 	var bullet_data := _apply_bullet_modifiers(gun_data.loaded_bullet)
 	var bullet: BaseBullet = bullet_data.bullet_scene.instantiate()
-	
 	bullet.bullet_resource = bullet_data
 	bullet.attack = _calculate_attack(bullet_data)
+
+	# Base direction from gun pivot to mouse
+	var base_dir := gun_pivot.global_position.direction_to(get_global_mouse_position())
 	
+	shooting_particle.scale.x = -1 if global_position.x > get_global_mouse_position().x else 1
+	
+	shooting_particle.emitting = true
+	
+	# Spread (static version)
+	var spread_rad := deg_to_rad(gun_data.spread_degrees)
+	var offset := randf_range(-spread_rad, spread_rad)
+	bullet.direction = base_dir.rotated(offset)
+
+	bullet.position = muzzle.global_position
+	bullet.rotation = muzzle.global_rotation
+
+	GameManager.ProjectileContainer.call_deferred("add_child", bullet)
+
+	# Visual recoil (your existing method)
+	_apply_recoil()
+
 	play_shoot_sound(gun_data.shot_sound)
 	
 	GameManager.ProjectileContainer.call_deferred("add_child", bullet)
@@ -127,3 +148,29 @@ func _apply_bullet_modifiers(b_data: BulletResource) -> BulletResource:
 	var new_data: BulletResource = b_data.duplicate()
 	new_data.bullet_speed = b_data.base_speed
 	return new_data
+
+func _apply_recoil() -> void:
+	var tween := create_tween()
+
+	var start_pos := position
+	var start_rot := rotation
+
+	var recoil_pos := Vector2(-gun_data.recoil_distance_pixels, 0.0)
+	var recoil_angle := deg_to_rad(-gun_data.recoil_angle_degrees)
+
+	if global_position.x > get_global_mouse_position().x:
+		recoil_angle = -recoil_angle
+
+	# Kick
+	tween.tween_property(gun_sprite, "position", start_pos + recoil_pos, gun_data.recoil_duration)\
+		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
+	tween.parallel().tween_property(gun_sprite, "rotation", start_rot + recoil_angle, gun_data.recoil_duration)\
+		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
+
+	# Return
+	tween.tween_property(gun_sprite, "position", start_pos, gun_data.return_duration)\
+		.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUINT)
+	tween.parallel().tween_property(gun_sprite, "rotation", start_rot, gun_data.return_duration)\
+		.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUINT)
+
+#EOF

@@ -8,6 +8,8 @@ class_name Player extends CharacterBody2D
 
 @onready var GunPivot: Marker2D = %GunPivot
 @onready var GunAnchor: Node2D = $GunPivot/GunAnchor
+@onready var camera: PlayerCamera = $Camera2D
+@onready var character_sprite: Sprite2D = $Sprite2D
 
 @export var gun_data: GunResource
 var equiped_gun: BaseGun
@@ -17,15 +19,24 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("attack") and not input_attack:
 		if equiped_gun:
 			input_attack = true
-			equiped_gun.try_shoot()
+			if equiped_gun.try_shoot(): 
+				camera.shake(0.5, gun_data.gun_strength)
 
-#then record the you raise you mouse button
+
 func _unhandled_input(_event) -> void:
 	if not Input.is_action_just_pressed("attack"):
 		input_attack = false
 
+
 func _damaged(dmg: float) -> void:
+	camera.shake(.5,1.0)
+	flash_sprite(character_sprite)
 	$DamageNumberSpawner.spawn_label(dmg)
+
+
+func died() -> void:
+	PlayerData.emit_signal("player_died")
+
 
 func _ready() -> void:
 	
@@ -48,12 +59,14 @@ func _physics_process(delta: float) -> void:
 
 
 func _movement(delta: float) -> void:
+	
 	# Get raw directional input (normalised vector)
 	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	
+
+	$Sprite2D.flip_h = sign(position.direction_to(get_global_mouse_position()).x) < 0 
 	# Desired velocity based on input
 	var target_velocity := input_dir * stats.max_speed
-	
+
 	# Apply acceleration or friction
 	if input_dir:
 		# Accelerate towards target velocity
@@ -64,12 +77,21 @@ func _movement(delta: float) -> void:
 
 
 func _gun_movement() -> void:
-	
 	var mouse_direction := GunPivot.global_position.direction_to(get_global_mouse_position())
 	GunAnchor.global_position = GunPivot.global_position + mouse_direction * gun_hold_distance
-	equiped_gun.gun_sprite.flip_v = mouse_direction.x <= 0
-	GunPivot.rotation = mouse_direction.angle()
+	if mouse_direction.x <= 0:
+		equiped_gun.gun_sprite.flip_v = true
+		equiped_gun.muzzle.position.y = abs(equiped_gun.muzzle.position.y)
+		equiped_gun.shooting_particle.position.x = abs(equiped_gun.shooting_particle.position.x)
+		equiped_gun.muzzle.rotation = PI
+	else:
+		equiped_gun.gun_sprite.flip_v = false
+		equiped_gun.muzzle.position.y = -abs(equiped_gun.muzzle.position.y)
+		equiped_gun.shooting_particle.position.x = -abs(equiped_gun.shooting_particle.position.x)
+		equiped_gun.muzzle.rotation = 0
 	
+	GunPivot.rotation = mouse_direction.angle()
+
 
 func _recalculate_stats(upgrade: Upgrade) -> void:
 	
@@ -80,8 +102,37 @@ func _recalculate_stats(upgrade: Upgrade) -> void:
 	# regen and the rest
 
 
+func flash_sprite(sprite: Sprite2D) -> void:
+	var mat = sprite.material as ShaderMaterial
+	if not mat:
+		return
 
+	# Store original values (flash is 0, brightness is 1)
+	var orig_flash = mat.get_shader_parameter("flash")
+	var orig_brightness = mat.get_shader_parameter("brightness")
 
+	var tween = create_tween()
+	tween.set_parallel(true)   # run both animations at the same time
+
+	# Flash: 0 → 1 → 0
+	tween.tween_method(
+		func(value): mat.set_shader_parameter("flash", value),
+		0.0, 1.0, 0.05
+	)
+	tween.tween_method(
+		func(value): mat.set_shader_parameter("flash", value),
+		1.0, 0.0, 0.1
+	)
+
+	# Brightness: 1 → 3 → 1  (boost for glow)
+	tween.tween_method(
+		func(value): mat.set_shader_parameter("brightness", value),
+		1.0, 3.0, 0.05
+	)
+	tween.tween_method(
+		func(value): mat.set_shader_parameter("brightness", value),
+		3.0, 1.0, 0.1
+	)
 
 
 
