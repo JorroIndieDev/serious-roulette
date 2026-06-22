@@ -2,8 +2,19 @@ extends Node
 
 var player_ref: Player
 
-var player_points: int
-var player_coins: int
+var player_points: int:
+	set(value): 
+		player_points += value
+		if player_points % 100 == 0:
+			leveled_up = true
+		print_debug(player_points)
+	get: return player_points
+
+var player_coins: int:
+	set(value): 
+		player_coins += value
+		print_debug(player_coins)
+	get: return player_coins
 
 var upgrades_list: Array[Upgrade] = []
 
@@ -69,3 +80,6 @@ func _append_upgrade(upgrade: Upgrade) -> void:
 		_:
 			pass
 	print(upgrade.name)
+
+func player_died() -> void:
+	pass
