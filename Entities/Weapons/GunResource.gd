@@ -29,5 +29,9 @@ var current_ammo: int
 @export_category("Extra resources")
 ## Bullet Resource that the gun will fire
 @export var loaded_bullet: BulletResource
+
+## Sound of the gun
+@export var shot_sound: AudioStream
+
 ## Gun scene
 @export var gun_scene: PackedScene

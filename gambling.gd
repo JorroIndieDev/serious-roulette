@@ -4,7 +4,9 @@ class_name GamblingNode extends Control
 @onready var slot_machine: Node2D = $"Slot-Machine"
 @onready var prize: Control = $Prize
 @onready var buttons: HBoxContainer = $HBoxContainer
+@onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 
+signal finished_gambling
 
 func _ready() -> void:
 	prize.visible = false
@@ -23,18 +25,16 @@ func show_prize(win_texture : Texture2D, win_title : String, win_desc : String):
 	var title:Label = $Prize/text/Title
 	var desc:Label = $Prize/text/Description
 	#prize.scale = Vector2(0.1,0.1)
-	shine.rotation = 0
-
 	texture.texture = win_texture
 	title.text = win_title
 	desc.text = win_desc
 	prize.visible = true
 	var tween = create_tween()
-	tween.tween_property(shine, "rotation", 3, 3)
+	tween.tween_property(shine, "rotation", 1, 1.5)
 	#tween.tween_property(prize, "scale", Vector2(1,1), 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	audio_player.play()
 	
-	
-	
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(1.5).timeout
 	prize.visible = false
 	buttons.visible = true
+	finished_gambling.emit()

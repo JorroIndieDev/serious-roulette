@@ -18,12 +18,41 @@ glow_bloom = 0.2
 glow_hdr_threshold = 1.5
 glow_hdr_luminance_cap = 2.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ui1sl"]
+atlas = ExtResource("7_epvvo")
+region = Rect2(11, 0, 11, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjt80"]
+atlas = ExtResource("7_epvvo")
+region = Rect2(0, 0, 11, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sjfbu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ui1sl")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjt80")
+}],
+"loop": true,
+"name": &"shot",
+"speed": 0.0
+}]
+
 [node name="PlayGround" type="Node2D" unique_id=729696177]
 process_mode = 1
 script = ExtResource("1_chst8")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1584923213]
 environment = SubResource("Environment_csoal")
+[node name="World" parent="." unique_id=959458457 instance=ExtResource("2_ui1sl")]
+position = Vector2(-548, -342)
 
 [node name="ProjectileContainer" type="Node" parent="." unique_id=1370213385]
 script = ExtResource("1_fw5fx")

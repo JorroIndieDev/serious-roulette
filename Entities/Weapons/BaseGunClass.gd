@@ -9,6 +9,7 @@ var gun_data: GunResource
 var _shot_timer: Timer
 var _reload_timer: Timer
 var _is_reloading: bool = false  
+var _shoot_audio_player: AudioStreamPlayer2D
 
 func _ready() -> void:
 	# Create the timer node
@@ -108,6 +109,26 @@ func _shoot() -> void:
 	# Visual recoil (your existing method)
 	_apply_recoil()
 
+	play_shoot_sound(gun_data.shot_sound)
+	
+	GameManager.ProjectileContainer.call_deferred("add_child", bullet)
+	bullet.direction = gun_pivot.global_position.direction_to(get_global_mouse_position())
+	bullet.position = %Muzzle.global_position
+	bullet.rotation = %Muzzle.global_rotation
+	
+func play_shoot_sound(stream: AudioStream) -> void:
+	if not stream:
+		return
+	
+	var temp_player := AudioStreamPlayer2D.new()
+	temp_player.stream = stream
+	temp_player.pitch_scale = randf_range(0.9, 1.1)
+	temp_player.global_position = global_position
+	temp_player.volume_linear = 0.3
+	
+	temp_player.finished.connect(temp_player.queue_free)
+	get_tree().current_scene.add_child(temp_player)
+	temp_player.play()
 
 func _calculate_attack(b_data: BulletResource) -> Attack:
 	
