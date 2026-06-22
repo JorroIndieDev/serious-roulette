@@ -1,29 +1,45 @@
 extends CharacterBody2D
 
-@onready var player: CharacterBody2D = $"../Player"
 @export var follow_k: float = 3.0
 @export var max_speed: float = 150.0
 @export var hitbox: HitBoxComponent
+@export var value_points: int = 10
+@export var value_coins: int = 5
+
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
 var can_damage : bool = true
 
 
 func _ready() -> void:
 	$HealthComponent.connect("damaged", _damaged)
+	$HealthComponent.connect("died", _died)
 	if hitbox:
 		hitbox.connect("area_entered", melee)
 
+
+func _physics_process(_delta: float) -> void:
+	pathfind()
+
+
+func _died() -> void:
+	GameManager.spawn_coin(position, value_coins)
+	PlayerData.player_points = value_points
+
+
 func _damaged(dmg:float) -> void:
+	flash_sprite(sprite_2d)
 	$DamageNumberSpawner.spawn_label(dmg)
 
+
 func pathfind():
-	if player:
-		var distance = player.global_position - global_position
-		
-		var raw_velocity = distance * follow_k
-		
-		velocity = raw_velocity.limit_length(max_speed)
-		
-		move_and_slide()
+	var distance = PlayerData.player_ref.global_position - global_position
+	
+	var raw_velocity = distance * follow_k
+	
+	velocity = raw_velocity.limit_length(max_speed)
+	
+	move_and_slide()
 
 
 func melee(area: Area2D) -> void: 
@@ -44,5 +60,34 @@ func melee(area: Area2D) -> void:
 		hitbox.set_deferred("monitoring", can_damage)
 
 
-func _physics_process(delta: float) -> void:
-	pathfind()
+func flash_sprite(sprite: Sprite2D) -> void:
+	var mat = sprite.material as ShaderMaterial
+	if not mat:
+		return
+
+	# Store original values (flash is 0, brightness is 1)
+	var _orig_flash = mat.get_shader_parameter("flash")
+	var _orig_brightness = mat.get_shader_parameter("brightness")
+
+	var tween = create_tween()
+	tween.set_parallel(true)   # run both animations at the same time
+
+	# Flash: 0 → 1 → 0
+	tween.tween_method(
+		func(value): mat.set_shader_parameter("flash", value),
+		0.0, 1.0, 0.05
+	)
+	tween.tween_method(
+		func(value): mat.set_shader_parameter("flash", value),
+		1.0, 0.0, 0.1
+	)
+
+	# Brightness: 1 → 3 → 1  (boost for glow)
+	tween.tween_method(
+		func(value): mat.set_shader_parameter("brightness", value),
+		1.0, 3.0, 0.05
+	)
+	tween.tween_method(
+		func(value): mat.set_shader_parameter("brightness", value),
+		3.0, 1.0, 0.1
+	)

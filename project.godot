@@ -8,10 +8,14 @@
 
 config_version=5
 
+[addons]
+
+splashscreen_cumulet/next_scene="res://Main Menu/main_menu.tscn"
+
 [application]
 
 config/name="SeriousRoulete"
-run/main_scene="uid://dt3w4y2xpbjde"
+run/main_scene="res://addons/splashscreen_easier/splash_screen.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -43,7 +47,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/fancy_folder_colors/plugin.cfg")
+enabled=PackedStringArray("res://addons/fancy_folder_colors/plugin.cfg", "res://addons/splashscreen_easier/plugin.cfg")
 
 [input]
 
