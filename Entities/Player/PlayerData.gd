@@ -2,10 +2,26 @@ extends Node
 
 var player_ref: Player
 
-var player_points: int
-var player_coins: int
+var player_points: int:
+	set(value): 
+		player_points += value
+		if player_points % 100 == 0:
+			leveled_up = true
+		emit_signal("points_gained", player_points)
+		print_debug(player_points)
+	get: return player_points
+
+var player_coins: int:
+	set(value): 
+		player_coins += value
+		emit_signal("coins_gained", player_coins)
+		print_debug(player_coins)
+	get: return player_coins
 
 var upgrades_list: Array[Upgrade] = []
+
+signal points_gained(ammount: int)
+signal coins_gained(ammount: int)
 
 signal _player_leveled
 
@@ -17,6 +33,8 @@ var leveled_up: bool:
 
 func _ready() -> void:
 	connect("_player_leveled", GameManager._player_leveled)
+	connect("points_gained", GameManager._update_hud_points)
+	connect("coins_gained", GameManager._update_hud_coins)
 
 func _change_gun(gun: GunResource) -> void:
 	if !player_ref.gun_data:
@@ -69,3 +87,6 @@ func _append_upgrade(upgrade: Upgrade) -> void:
 		_:
 			pass
 	print(upgrade.name)
+
+func player_died() -> void:
+	pass

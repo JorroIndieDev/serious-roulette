@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://cafqysag83qgy" path="res://Entities/Components/health_component.gd" id="3_lu8i8"]
 [ext_resource type="PackedScene" uid="uid://bsnv6acgqi2fe" path="res://Entities/Components/hit_box_component.tscn" id="4_tekja"]
 [ext_resource type="Script" uid="uid://8du7544f6aen" path="res://Entities/Player/player_stats.gd" id="6_4wf4l"]
+[ext_resource type="Shader" uid="uid://bnfe2fmvmb1bk" path="res://Entities/hit_effect.gdshader" id="6_x1y6q"]
+[ext_resource type="Script" uid="uid://b5qwjrl1n3qxg" path="res://Entities/SpriteAnimatino.gd" id="7_lub02"]
 [ext_resource type="Script" uid="uid://51hlmhkf4fmy" path="res://Entities/Player/TwinShooterCamera.gd" id="8_7a1se"]
 
 [sub_resource type="SystemFont" id="SystemFont_a1odr"]
@@ -17,15 +19,19 @@ font = SubResource("SystemFont_a1odr")
 font_size = 5
 font_color = Color(0.8033154, 0.24975055, 0.26828036, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ap3xn"]
+shader = ExtResource("6_x1y6q")
+shader_parameter/flash = 0.0
+shader_parameter/brightness = 1.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3uyv8"]
-size = Vector2(16, 16)
+size = Vector2(14, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5c2io"]
 size = Vector2(16, 16)
 
 [node name="Player" type="CharacterBody2D" unique_id=1982066888 node_paths=PackedStringArray("stats")]
-collision_layer = 0
-collision_mask = 0
+collision_mask = 10
 script = ExtResource("1_3uyv8")
 stats = NodePath("PlayerStats")
 gun_data = ExtResource("2_4wf4l")
@@ -42,7 +48,11 @@ base_max_speed = 100.0
 script = ExtResource("3_lu8i8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=414992599]
+material = SubResource("ShaderMaterial_ap3xn")
 texture = ExtResource("2_5c2io")
+script = ExtResource("7_lub02")
+walk_amplitude = 0.2
+sway_speed = 7.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=275667892]
 shape = SubResource("RectangleShape2D_3uyv8")
