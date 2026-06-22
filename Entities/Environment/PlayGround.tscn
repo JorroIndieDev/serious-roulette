@@ -7,6 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://cnetuwb3tdjja" path="res://Entities/Gambling/gambling_component.tscn" id="5_6j03f"]
 [ext_resource type="Texture2D" uid="uid://dby7k428p1h72" path="res://Entities/Environment/tree/Sprites/tree.png" id="6_nb14x"]
 [ext_resource type="PackedScene" uid="uid://dex6xabsgs45s" path="res://UI/pause_menu.tscn" id="7_csoal"]
+[ext_resource type="PackedScene" uid="uid://dk7g6xi1vwwb2" path="res://Entities/Weapons/HeavyPistol/HeavyPistol.tscn" id="8_epvvo"]
+
+[sub_resource type="Environment" id="Environment_csoal"]
+background_mode = 3
+tonemap_mode = 1
+glow_enabled = true
+glow_hdr_threshold = 1.5
+glow_hdr_luminance_cap = 2.0
 
 [node name="PlayGround" type="Node2D" unique_id=729696177]
 process_mode = 1
@@ -58,3 +66,9 @@ position = Vector2(-88, -8)
 texture = ExtResource("6_nb14x")
 
 [node name="pause_menu" parent="." unique_id=463649552 instance=ExtResource("7_csoal")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1584923213]
+environment = SubResource("Environment_csoal")
+
+[node name="HeavyPistol" parent="." unique_id=2106572378 instance=ExtResource("8_epvvo")]
+position = Vector2(88, 56)
