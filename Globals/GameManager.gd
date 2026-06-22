@@ -3,7 +3,7 @@ extends Node
 var ProjectileContainer: Node
 var CoinContainer: Node
 var main_menu: MainMenu
-
+var _HUD: HUD
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)   
@@ -26,3 +26,8 @@ func spawn_coin(pos: Vector2, coin_val: int = 0) -> void:
 	coin.coin_data = coin_data
 	CoinContainer.call_deferred("add_child", coin)
 	coin.position = pos
+
+func _update_hud_coins(ammount: int) -> void:
+	_HUD._update_coins(ammount)
+func _update_hud_points(ammount: int) -> void:
+	_HUD._update_points(ammount)

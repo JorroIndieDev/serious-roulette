@@ -36,6 +36,7 @@ func animate_bobbing() -> void:
 func _on_pick_up_body_entered(body: Node2D) -> void:
 	if body is Player and coin_data:
 		PlayerData.player_coins = coin_data.coin_value
+		self.queue_free()
 
 
 func _on_pick_up_area_body_entered(body: Node2D) -> void:

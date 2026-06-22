@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cnetuwb3tdjja" path="res://Entities/Gambling/gambling_component.tscn" id="5_6j03f"]
 [ext_resource type="PackedScene" path="res://UI/pause_menu.tscn" id="7_csoal"]
 [ext_resource type="PackedScene" uid="uid://cim8jli1y73hs" path="res://Entities/Environment/tree/tree.tscn" id="7_epvvo"]
+[ext_resource type="PackedScene" uid="uid://qlp3vehirojc" path="res://UI/hud.tscn" id="7_x1u7j"]
 
 [sub_resource type="Environment" id="Environment_csoal"]
 background_mode = 3
@@ -35,6 +36,7 @@ position = Vector2(64, 48)
 
 [node name="Zombie" parent="." unique_id=928013042 instance=ExtResource("2_fw5fx")]
 position = Vector2(272, 40)
+value_points = 100
 
 [node name="GamblingUI" type="CanvasLayer" parent="." unique_id=1482808314]
 process_mode = 3
@@ -42,7 +44,7 @@ visible = false
 
 [node name="Gambling" parent="GamblingUI" unique_id=405436325 instance=ExtResource("5_6j03f")]
 
-[node name="HUD" type="CanvasLayer" parent="." unique_id=1375945698]
+[node name="HUD" parent="." unique_id=668063283 instance=ExtResource("7_x1u7j")]
 
 [node name="pause_menu" parent="." unique_id=463649552 instance=ExtResource("7_csoal")]
 
