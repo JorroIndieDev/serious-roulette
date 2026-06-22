@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://delkjho11x61n" path="res://main_menu.gd" id="1_npuod"]
 [ext_resource type="PackedScene" uid="uid://ddpedmcxgtsjb" path="res://Entities/Environment/PlayGround.tscn" id="2_2ekim"]
-[ext_resource type="Texture2D" uid="uid://dvohqb43kskq4" path="res://Main Menu/Sprites/back-ground.png" id="2_ft8e8"]
-[ext_resource type="Texture2D" uid="uid://uomjko2va6f2" path="res://Main Menu/Sprites/logo-v2.png" id="3_2ekim"]
-[ext_resource type="Texture2D" uid="uid://cfaix6em6ekp8" path="res://UI/Sprites/Button.png" id="4_hd3la"]
-[ext_resource type="Texture2D" uid="uid://6qjjur51vt6k" path="res://UI/Sprites/Button-press.png" id="5_b6svo"]
-[ext_resource type="Texture2D" uid="uid://c1s1bddcb1p5k" path="res://UI/Sprites/Button-hover.png" id="6_tgyvh"]
+[ext_resource type="Texture2D" uid="uid://c6qa00wkx1hcr" path="res://Main Menu/Sprites/back-ground.png" id="2_ft8e8"]
+[ext_resource type="Texture2D" uid="uid://bgn6xo78vikac" path="res://Main Menu/Sprites/logo-v2.png" id="3_2ekim"]
+[ext_resource type="Texture2D" uid="uid://dq2no6bj8tutf" path="res://UI/Sprites/Button.png" id="4_hd3la"]
+[ext_resource type="Texture2D" uid="uid://cetf87tynwlma" path="res://UI/Sprites/Button-press.png" id="5_b6svo"]
+[ext_resource type="Texture2D" uid="uid://ct60h4ftit4tc" path="res://UI/Sprites/Button-hover.png" id="6_tgyvh"]
 
 [node name="main_menu" type="Control" unique_id=710365407]
 layout_mode = 3
@@ -75,6 +75,8 @@ theme_override_font_sizes/font_size = 7
 text = "Quit"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=250951089]
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]
