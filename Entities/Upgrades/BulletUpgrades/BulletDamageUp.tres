@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BulletUpgrade" format=3 uid="uid://bx7b7xcpepcgj"]
 
 [ext_resource type="Script" uid="uid://lwonjlqokopa" path="res://Entities/Upgrades/BulletUpgrades/BulletUpgrade.gd" id="1_s3i77"]
-[ext_resource type="Texture2D" uid="uid://lkitgkmlj4x7" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/bullet-hell.png" id="2_vh66m"]
+[ext_resource type="Texture2D" uid="uid://dvi56520bjwny" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/bullet-hell.png" id="2_vh66m"]
 
 [resource]
 script = ExtResource("1_s3i77")

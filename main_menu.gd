@@ -12,6 +12,12 @@ func _ready() -> void:
 	GameManager.main_menu = self
 	connect("play_pressed", GameManager._play_button)
 
+signal play_pressed
+
+func _ready() -> void:
+	GameManager.main_menu = self
+	connect("play_pressed", GameManager._play_button)
+
 func _on_play_button_pressed() -> void:
 	GlobalAudio.get_node("UI_sounds").stream = START
 	GlobalAudio.get_node("UI_sounds").play()

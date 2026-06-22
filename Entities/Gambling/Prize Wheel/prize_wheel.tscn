@@ -8,6 +8,14 @@
 [node name="Prize_Wheel" type="Node2D" unique_id=1990295571]
 script = ExtResource("1_mlm3o")
 
+num_prizes = null
+spins = null
+spin_duration = null
+height_to_slide = null
+time_to_slide = null
+display_duration = null
+prize_pool = null
+
 [node name="Background" type="Sprite2D" parent="." unique_id=1576877719]
 texture = ExtResource("2_jeqm5")
 
