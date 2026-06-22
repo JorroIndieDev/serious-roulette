@@ -4,12 +4,19 @@
 [ext_resource type="Script" uid="uid://blo40ybfw4ar7" path="res://Entities/Environment/play_ground.gd" id="1_chst8"]
 [ext_resource type="Script" uid="uid://blbclafowdwtt" path="res://Entities/projectile_container.gd" id="1_fw5fx"]
 [ext_resource type="PackedScene" uid="uid://bbalrjoxm3lhw" path="res://Entities/Enemies/Zombie/zombie.tscn" id="2_fw5fx"]
-[ext_resource type="PackedScene" uid="uid://bfm6vx3ku3uk5" path="res://Entities/Environment/ground/world.tscn" id="2_ui1sl"]
+[ext_resource type="Script" uid="uid://clb4qbtwtsenl" path="res://Entities/Environment/coin_container.gd" id="3_x1u7j"]
 [ext_resource type="PackedScene" uid="uid://cnetuwb3tdjja" path="res://Entities/Gambling/gambling_component.tscn" id="5_6j03f"]
-[ext_resource type="Texture2D" uid="uid://dby7k428p1h72" path="res://Entities/Environment/tree/Sprites/tree.png" id="6_nb14x"]
-[ext_resource type="Texture2D" uid="uid://cmmalb46mlgfw" path="res://UI/crosshair/Sprites/crosshair.png" id="7_epvvo"]
-[ext_resource type="Script" uid="uid://c7jpq8xfog7am" path="res://UI/crosshair/crosshair.gd" id="8_ui1sl"]
-[ext_resource type="PackedScene" uid="uid://dex6xabsgs45s" path="res://UI/pause_menu.tscn" id="8_x1u7j"]
+[ext_resource type="PackedScene" path="res://UI/pause_menu.tscn" id="7_csoal"]
+[ext_resource type="PackedScene" uid="uid://cim8jli1y73hs" path="res://Entities/Environment/tree/tree.tscn" id="7_epvvo"]
+[ext_resource type="PackedScene" uid="uid://qlp3vehirojc" path="res://UI/hud.tscn" id="7_x1u7j"]
+
+[sub_resource type="Environment" id="Environment_csoal"]
+background_mode = 3
+tonemap_mode = 4
+glow_enabled = true
+glow_bloom = 0.2
+glow_hdr_threshold = 1.5
+glow_hdr_luminance_cap = 2.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ui1sl"]
 atlas = ExtResource("7_epvvo")
@@ -42,17 +49,23 @@ animations = [{
 process_mode = 1
 script = ExtResource("1_chst8")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1584923213]
+environment = SubResource("Environment_csoal")
 [node name="World" parent="." unique_id=959458457 instance=ExtResource("2_ui1sl")]
 position = Vector2(-548, -342)
 
 [node name="ProjectileContainer" type="Node" parent="." unique_id=1370213385]
 script = ExtResource("1_fw5fx")
 
+[node name="CoinContainer" type="Node" parent="." unique_id=1074324347]
+script = ExtResource("3_x1u7j")
+
 [node name="Player" parent="." unique_id=1982066888 instance=ExtResource("1_3dth6")]
 position = Vector2(64, 48)
 
 [node name="Zombie" parent="." unique_id=928013042 instance=ExtResource("2_fw5fx")]
 position = Vector2(272, 40)
+value_points = 100
 
 [node name="GamblingUI" type="CanvasLayer" parent="." unique_id=1482808314]
 process_mode = 3
@@ -60,32 +73,30 @@ visible = false
 
 [node name="Gambling" parent="GamblingUI" unique_id=405436325 instance=ExtResource("5_6j03f")]
 
-[node name="HUD" type="CanvasLayer" parent="." unique_id=1375945698]
+[node name="HUD" parent="." unique_id=668063283 instance=ExtResource("7_x1u7j")]
 
-[node name="Tree" type="Sprite2D" parent="." unique_id=638431152]
-position = Vector2(152, 112)
-texture = ExtResource("6_nb14x")
+[node name="pause_menu" parent="." unique_id=463649552 instance=ExtResource("7_csoal")]
 
-[node name="Tree2" type="Sprite2D" parent="." unique_id=655469122]
-position = Vector2(-48, 64)
-texture = ExtResource("6_nb14x")
+[node name="Tree" parent="." unique_id=587637675 instance=ExtResource("7_epvvo")]
+position = Vector2(-64, 56)
 
-[node name="Tree3" type="Sprite2D" parent="." unique_id=1181105129]
-position = Vector2(184, -24)
-texture = ExtResource("6_nb14x")
+[node name="Tree" parent="Tree" unique_id=707072484 instance=ExtResource("7_epvvo")]
+position = Vector2(208, -64)
 
-[node name="Tree4" type="Sprite2D" parent="." unique_id=840079861]
-position = Vector2(-8, 192)
-texture = ExtResource("6_nb14x")
+[node name="Tree" parent="Tree/Tree" unique_id=1435641577 instance=ExtResource("7_epvvo")]
+position = Vector2(-48, 136)
 
-[node name="Tree5" type="Sprite2D" parent="." unique_id=1608817409]
-position = Vector2(64, 168)
-texture = ExtResource("6_nb14x")
+[node name="Tree" parent="Tree/Tree/Tree" unique_id=1613895735 instance=ExtResource("7_epvvo")]
+position = Vector2(152, 8)
 
-[node name="Tree6" type="Sprite2D" parent="." unique_id=1110848644]
-position = Vector2(328, 56)
-texture = ExtResource("6_nb14x")
+[node name="Tree" parent="Tree/Tree/Tree/Tree" unique_id=1334161050 instance=ExtResource("7_epvvo")]
+position = Vector2(-48, -96)
 
+[node name="Tree" parent="Tree/Tree/Tree/Tree/Tree" unique_id=384899705 instance=ExtResource("7_epvvo")]
+position = Vector2(-136, -40)
+
+[node name="Tree" parent="Tree/Tree/Tree/Tree/Tree/Tree" unique_id=111453840 instance=ExtResource("7_epvvo")]
+position = Vector2(-56, 80)
 [node name="Tree7" type="Sprite2D" parent="." unique_id=336499012]
 position = Vector2(-88, -8)
 texture = ExtResource("6_nb14x")

@@ -14,3 +14,4 @@ reload_time = 0.5
 loaded_bullet = ExtResource("2_meide")
 shot_sound = ExtResource("4_5cxc1")
 gun_scene = ExtResource("1_pmsk4")
+metadata/_custom_type_script = "uid://u4ky25ao1wmw"

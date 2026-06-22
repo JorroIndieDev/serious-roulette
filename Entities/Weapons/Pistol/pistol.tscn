@@ -12,4 +12,7 @@ texture = ExtResource("1_kl2qt")
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=1316599992]
 unique_name_in_owner = true
-position = Vector2(3, -1)
+position = Vector2(4, -1)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1158335056]
+gravity = Vector2(-980, 0)
