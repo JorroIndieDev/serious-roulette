@@ -10,6 +10,7 @@ base_damage = 15.0
 fire_rate = 5
 base_ammo = 10
 reload_time = 0.7
+gun_strength = 0.7
 recoil_angle_degrees = 25.0
 recoil_distance_pixels = 2.0
 recoil_duration = 0.05

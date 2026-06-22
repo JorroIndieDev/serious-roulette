@@ -5,20 +5,23 @@
 [ext_resource type="Script" path="res://Entities/projectile_container.gd" id="1_fw5fx"]
 [ext_resource type="PackedScene" uid="uid://bbalrjoxm3lhw" path="res://Entities/Enemies/Zombie/zombie.tscn" id="2_fw5fx"]
 [ext_resource type="PackedScene" uid="uid://cnetuwb3tdjja" path="res://Entities/Gambling/gambling_component.tscn" id="5_6j03f"]
-[ext_resource type="Texture2D" uid="uid://dby7k428p1h72" path="res://Entities/Environment/tree/Sprites/tree.png" id="6_nb14x"]
-[ext_resource type="PackedScene" uid="uid://dex6xabsgs45s" path="res://UI/pause_menu.tscn" id="7_csoal"]
-[ext_resource type="PackedScene" uid="uid://dk7g6xi1vwwb2" path="res://Entities/Weapons/HeavyPistol/HeavyPistol.tscn" id="8_epvvo"]
+[ext_resource type="PackedScene" path="res://UI/pause_menu.tscn" id="7_csoal"]
+[ext_resource type="PackedScene" uid="uid://cim8jli1y73hs" path="res://Entities/Environment/tree/tree.tscn" id="7_epvvo"]
 
 [sub_resource type="Environment" id="Environment_csoal"]
 background_mode = 3
-tonemap_mode = 1
+tonemap_mode = 4
 glow_enabled = true
+glow_bloom = 0.2
 glow_hdr_threshold = 1.5
 glow_hdr_luminance_cap = 2.0
 
 [node name="PlayGround" type="Node2D" unique_id=729696177]
 process_mode = 1
 script = ExtResource("1_chst8")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1584923213]
+environment = SubResource("Environment_csoal")
 
 [node name="ProjectileContainer" type="Node" parent="." unique_id=1370213385]
 script = ExtResource("1_fw5fx")
@@ -37,38 +40,25 @@ visible = false
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1375945698]
 
-[node name="Tree" type="Sprite2D" parent="." unique_id=638431152]
-position = Vector2(152, 112)
-texture = ExtResource("6_nb14x")
-
-[node name="Tree2" type="Sprite2D" parent="." unique_id=655469122]
-position = Vector2(-48, 64)
-texture = ExtResource("6_nb14x")
-
-[node name="Tree3" type="Sprite2D" parent="." unique_id=1181105129]
-position = Vector2(184, -24)
-texture = ExtResource("6_nb14x")
-
-[node name="Tree4" type="Sprite2D" parent="." unique_id=840079861]
-position = Vector2(-8, 192)
-texture = ExtResource("6_nb14x")
-
-[node name="Tree5" type="Sprite2D" parent="." unique_id=1608817409]
-position = Vector2(64, 168)
-texture = ExtResource("6_nb14x")
-
-[node name="Tree6" type="Sprite2D" parent="." unique_id=1110848644]
-position = Vector2(328, 56)
-texture = ExtResource("6_nb14x")
-
-[node name="Tree7" type="Sprite2D" parent="." unique_id=336499012]
-position = Vector2(-88, -8)
-texture = ExtResource("6_nb14x")
-
 [node name="pause_menu" parent="." unique_id=463649552 instance=ExtResource("7_csoal")]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1584923213]
-environment = SubResource("Environment_csoal")
+[node name="Tree" parent="." unique_id=587637675 instance=ExtResource("7_epvvo")]
+position = Vector2(-64, 56)
 
-[node name="HeavyPistol" parent="." unique_id=2106572378 instance=ExtResource("8_epvvo")]
-position = Vector2(88, 56)
+[node name="Tree" parent="Tree" unique_id=707072484 instance=ExtResource("7_epvvo")]
+position = Vector2(208, -64)
+
+[node name="Tree" parent="Tree/Tree" unique_id=1435641577 instance=ExtResource("7_epvvo")]
+position = Vector2(-48, 136)
+
+[node name="Tree" parent="Tree/Tree/Tree" unique_id=1613895735 instance=ExtResource("7_epvvo")]
+position = Vector2(152, 8)
+
+[node name="Tree" parent="Tree/Tree/Tree/Tree" unique_id=1334161050 instance=ExtResource("7_epvvo")]
+position = Vector2(-48, -96)
+
+[node name="Tree" parent="Tree/Tree/Tree/Tree/Tree" unique_id=384899705 instance=ExtResource("7_epvvo")]
+position = Vector2(-136, -40)
+
+[node name="Tree" parent="Tree/Tree/Tree/Tree/Tree/Tree" unique_id=111453840 instance=ExtResource("7_epvvo")]
+position = Vector2(-56, 80)

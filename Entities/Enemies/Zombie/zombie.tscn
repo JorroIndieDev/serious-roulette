@@ -6,15 +6,22 @@
 [ext_resource type="LabelSettings" path="res://Entities/Weapons/standard_damage_label_settings.tres" id="3_4yx7f"]
 [ext_resource type="PackedScene" uid="uid://bsnv6acgqi2fe" path="res://Entities/Components/hit_box_component.tscn" id="3_gob2a"]
 [ext_resource type="Script" uid="uid://dfrb5an6t75hv" path="res://Entities/Components/DamageNumberSpawner.gd" id="4_gob2a"]
+[ext_resource type="Shader" uid="uid://bnfe2fmvmb1bk" path="res://Entities/hit_effect.gdshader" id="4_ih2x4"]
 [ext_resource type="Script" uid="uid://b5qwjrl1n3qxg" path="res://Entities/SpriteAnimatino.gd" id="5_rrjk5"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_unmje"]
+shader = ExtResource("4_ih2x4")
+shader_parameter/flash = 0.0
+shader_parameter/brightness = 1.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5rx78"]
-size = Vector2(16, 16)
+size = Vector2(11, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1odr"]
-size = Vector2(16, 16)
+size = Vector2(15, 16)
 
 [node name="Zombie" type="CharacterBody2D" unique_id=928013042 node_paths=PackedStringArray("hitbox")]
+collision_mask = 9
 script = ExtResource("1_a1odr")
 max_speed = 50.0
 hitbox = NodePath("HitBoxComponent")
@@ -24,6 +31,7 @@ script = ExtResource("4_gob2a")
 label_settings = ExtResource("3_4yx7f")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1979417337]
+material = SubResource("ShaderMaterial_unmje")
 position = Vector2(-7.1525574e-07, 0)
 scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("1_5rx78")
@@ -32,11 +40,12 @@ walk_amplitude = 0.15
 sway_speed = 6.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1649317382]
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_5rx78")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=983203079]
 script = ExtResource("2_1kokx")
-BASE_MAX_HEALTH = 5.0
+BASE_MAX_HEALTH = 50.0
 metadata/_custom_type_script = "uid://cafqysag83qgy"
 
 [node name="HitBoxComponent" parent="." unique_id=390649418 node_paths=PackedStringArray("health_component") instance=ExtResource("3_gob2a")]
@@ -45,5 +54,6 @@ collision_mask = 6
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" unique_id=1654512284]
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_a1odr")
 debug_color = Color(0.9379107, 1.2899041e-05, 0.6280861, 0.41960785)
