@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://k5juvq8egci7"]
 
-[ext_resource type="Texture2D" uid="uid://3sunjwdrmjhj" path="res://Entities/Gambling/Slot Machine/Sprites/slot-background.png" id="1_1ky1d"]
+[ext_resource type="Texture2D" uid="uid://ddfbkutgdigla" path="res://Entities/Gambling/Slot Machine/Sprites/slot-background.png" id="1_1ky1d"]
 [ext_resource type="Script" uid="uid://d2gmadphcmt78" path="res://Entities/Gambling/Slot Machine/slot_machine.gd" id="1_hartl"]
-[ext_resource type="Texture2D" uid="uid://dpo6xddw3bssv" path="res://Entities/Gambling/Slot Machine/Sprites/slot-numbers.png" id="2_hartl"]
-[ext_resource type="Texture2D" uid="uid://crhkhy2esdgbk" path="res://Entities/Gambling/Slot Machine/Sprites/slot-machine.png" id="3_n8uwf"]
+[ext_resource type="Texture2D" uid="uid://ckxi6qhke76ww" path="res://Entities/Gambling/Slot Machine/Sprites/slot-numbers.png" id="2_hartl"]
+[ext_resource type="Texture2D" uid="uid://dlp67xrkf4eb" path="res://Entities/Gambling/Slot Machine/Sprites/slot-machine.png" id="3_n8uwf"]
+[ext_resource type="AudioStream" uid="uid://x77ol1t85ybr" path="res://Entities/Gambling/Prize Wheel/spin.wav" id="5_n8uwf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tjoe7"]
 atlas = ExtResource("1_1ky1d")
@@ -199,6 +200,7 @@ animations = [{
 script = ExtResource("1_hartl")
 
 [node name="Background" type="AnimatedSprite2D" parent="." unique_id=1985166926]
+position = Vector2(0, -0.305)
 sprite_frames = SubResource("SpriteFrames_s1cpq")
 animation = &"Stop"
 
@@ -226,3 +228,6 @@ scale = Vector2(0.4, 0.4)
 [node name="Prize1" type="Sprite2D" parent="PrizeContainer" unique_id=373720587]
 position = Vector2(17.83, 0)
 scale = Vector2(0.4, 0.4)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1003703604]
+stream = ExtResource("5_n8uwf")

@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @onready var menu_ui: Control = $menu_UI
+@onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 
 func _ready() -> void:
 	menu_ui.visible=false
@@ -18,10 +19,12 @@ func toggle_pause():
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	menu_ui.visible = is_paused
 
-
 func _on_continue_pressed() -> void:
+	audio_player.play()
 	toggle_pause()
-
+	
 
 func _on_quit_pressed() -> void:
+	audio_player.play()
+	await get_tree().create_timer(0.2).timeout
 	get_tree().quit()

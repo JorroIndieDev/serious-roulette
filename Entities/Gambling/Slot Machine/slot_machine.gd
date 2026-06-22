@@ -11,6 +11,7 @@ signal prize_won(reward: Upgrade)
 @export var time_to_slide: float = 0.5
 @export var display_duration: float = 2.5
 @export var gambling_node: GamblingNode
+@onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 
 
 var offscreen_y: float
@@ -35,7 +36,6 @@ func _ready() -> void:
 	
 
 func spin():
-	
 	winning_prize = UpgradeDB._populate_random(1)[0]
 	
 	numbers.visible = true
@@ -46,13 +46,16 @@ func spin():
 		
 	background.play("Spinning")
 	numbers.play("Spin")
+	audio_player.play()
 	var tween = create_tween()
 	tween.tween_property(self, "position:y", onscreen_y, time_to_slide).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	await tween.finished
 	
+	
 	await get_tree().create_timer(spin_duration).timeout
 	
 	background.play("Stop")
+	audio_player.stop()
 	numbers.visible = false
 	
 	icons_container.visible = true
