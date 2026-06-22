@@ -11,6 +11,9 @@ class_name GunResource extends Resource
 var current_ammo: int
 @export var reload_time: float
 
+## Strength of the "Kick" on the camera shake
+@export_range(0.5, 5.0, 0.1) var gun_strength: float = 0.5
+
 @export_category("Recoil")
 @export var recoil_angle_degrees: float = 5.0      # upward tilt (positive = clockwise, negative = counter‑clockwise)
 @export var recoil_distance_pixels: float = 10.0   # how far the gun kicks back

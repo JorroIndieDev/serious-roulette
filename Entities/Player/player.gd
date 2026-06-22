@@ -8,6 +8,8 @@ class_name Player extends CharacterBody2D
 
 @onready var GunPivot: Marker2D = %GunPivot
 @onready var GunAnchor: Node2D = $GunPivot/GunAnchor
+@onready var camera: PlayerCamera = $Camera2D
+@onready var character_sprite: Sprite2D = $Sprite2D
 
 @export var gun_data: GunResource
 var equiped_gun: BaseGun
@@ -17,7 +19,8 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("attack") and not input_attack:
 		if equiped_gun:
 			input_attack = true
-			equiped_gun.try_shoot()
+			if equiped_gun.try_shoot(): 
+				camera.shake(0.5, gun_data.gun_strength)
 
 #then record the you raise you mouse button
 func _unhandled_input(_event) -> void:
@@ -25,6 +28,8 @@ func _unhandled_input(_event) -> void:
 		input_attack = false
 
 func _damaged(dmg: float) -> void:
+	camera.shake(.5,1.0)
+	flash_sprite(character_sprite)
 	$DamageNumberSpawner.spawn_label(dmg)
 
 func _ready() -> void:
@@ -91,7 +96,38 @@ func _recalculate_stats(upgrade: Upgrade) -> void:
 	# regen and the rest
 
 
+func flash_sprite(sprite: Sprite2D) -> void:
+	var mat = sprite.material as ShaderMaterial
+	if not mat:
+		return
 
+	# Store original values (flash is 0, brightness is 1)
+	var orig_flash = mat.get_shader_parameter("flash")
+	var orig_brightness = mat.get_shader_parameter("brightness")
+
+	var tween = create_tween()
+	tween.set_parallel(true)   # run both animations at the same time
+
+	# Flash: 0 → 1 → 0
+	tween.tween_method(
+		func(value): mat.set_shader_parameter("flash", value),
+		0.0, 1.0, 0.05
+	)
+	tween.tween_method(
+		func(value): mat.set_shader_parameter("flash", value),
+		1.0, 0.0, 0.1
+	)
+
+	# Brightness: 1 → 3 → 1  (boost for glow)
+	tween.tween_method(
+		func(value): mat.set_shader_parameter("brightness", value),
+		1.0, 3.0, 0.05
+	)
+	tween.tween_method(
+		func(value): mat.set_shader_parameter("brightness", value),
+		3.0, 1.0, 0.1
+	)
+	
 
 
 

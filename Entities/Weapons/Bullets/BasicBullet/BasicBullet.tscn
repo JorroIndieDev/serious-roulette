@@ -7,10 +7,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d07l8"]
 size = Vector2(2, 1)
 
-[node name="BasicBullet" type="Node2D" unique_id=69629363 node_paths=PackedStringArray("hitbox")]
+[node name="BasicBullet" type="Node2D" unique_id=69629363 node_paths=PackedStringArray("hitbox", "timer", "visible_on_screen_notifier_2d")]
 self_modulate = Color(18.892, 18.892, 18.892, 1)
 script = ExtResource("1_3enu8")
 hitbox = NodePath("HitBoxComponent")
+timer = NodePath("VisibleOnScreenNotifier2D/Timer")
+visible_on_screen_notifier_2d = NodePath("VisibleOnScreenNotifier2D")
 
 [node name="HitBoxComponent" parent="." unique_id=390649418 instance=ExtResource("1_d07l8")]
 
@@ -19,3 +21,9 @@ shape = SubResource("RectangleShape2D_d07l8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1878858284]
 texture = ExtResource("1_rbriu")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1642650315]
+
+[node name="Timer" type="Timer" parent="VisibleOnScreenNotifier2D" unique_id=1578634598]
+wait_time = 0.5
+one_shot = true
