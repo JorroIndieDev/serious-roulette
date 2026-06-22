@@ -91,8 +91,8 @@ func _shoot() -> void:
 	# Base direction from gun pivot to mouse
 	var base_dir := gun_pivot.global_position.direction_to(get_global_mouse_position())
 	
-	#shooting_particle.gravity.x *= sign(base_dir.x)
-	print(shooting_particle.global_position)
+	shooting_particle.scale.x = -1 if global_position.x > get_global_mouse_position().x else 1
+	
 	shooting_particle.emitting = true
 	
 	# Spread (static version)
@@ -137,16 +137,19 @@ func _apply_recoil() -> void:
 	var recoil_pos := Vector2(-gun_data.recoil_distance_pixels, 0.0)
 	var recoil_angle := deg_to_rad(-gun_data.recoil_angle_degrees)
 
+	if global_position.x > get_global_mouse_position().x:
+		recoil_angle = -recoil_angle
+
 	# Kick
-	tween.tween_property(self, "position", start_pos + recoil_pos, gun_data.recoil_duration)\
+	tween.tween_property(gun_sprite, "position", start_pos + recoil_pos, gun_data.recoil_duration)\
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
-	tween.parallel().tween_property(self, "rotation", start_rot + recoil_angle, gun_data.recoil_duration)\
+	tween.parallel().tween_property(gun_sprite, "rotation", start_rot + recoil_angle, gun_data.recoil_duration)\
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
 
 	# Return
-	tween.tween_property(self, "position", start_pos, gun_data.return_duration)\
+	tween.tween_property(gun_sprite, "position", start_pos, gun_data.return_duration)\
 		.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUINT)
-	tween.parallel().tween_property(self, "rotation", start_rot, gun_data.return_duration)\
+	tween.parallel().tween_property(gun_sprite, "rotation", start_rot, gun_data.return_duration)\
 		.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUINT)
 
 #EOF

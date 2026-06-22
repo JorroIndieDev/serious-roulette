@@ -71,10 +71,12 @@ func _gun_movement() -> void:
 	if mouse_direction.x <= 0:
 		equiped_gun.gun_sprite.flip_v = true
 		equiped_gun.muzzle.position.y = abs(equiped_gun.muzzle.position.y)
+		equiped_gun.shooting_particle.position.x = abs(equiped_gun.shooting_particle.position.x)
 		equiped_gun.muzzle.rotation = PI
 	else:
 		equiped_gun.gun_sprite.flip_v = false
 		equiped_gun.muzzle.position.y = -abs(equiped_gun.muzzle.position.y)
+		equiped_gun.shooting_particle.position.x = -abs(equiped_gun.shooting_particle.position.x)
 		equiped_gun.muzzle.rotation = 0
 	
 	GunPivot.rotation = mouse_direction.angle()

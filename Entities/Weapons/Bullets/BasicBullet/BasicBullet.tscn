@@ -8,6 +8,7 @@
 size = Vector2(2, 1)
 
 [node name="BasicBullet" type="Node2D" unique_id=69629363 node_paths=PackedStringArray("hitbox")]
+self_modulate = Color(18.892, 18.892, 18.892, 1)
 script = ExtResource("1_3enu8")
 hitbox = NodePath("HitBoxComponent")
 
