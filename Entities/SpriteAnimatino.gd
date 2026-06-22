@@ -5,11 +5,19 @@ extends Sprite2D
 @export var walk_amplitude: float = 0.12    # radians (≈6.9°)
 @export var sway_speed: float = 4.0         # cycles per second
 
+const HIT_EFFECT = preload("uid://bnfe2fmvmb1bk")
+
 var sway_time: float = 0.0
 
 # Reference to the parent (your CharacterBody2D)
 @onready var parent: CharacterBody2D = get_parent()
 var current_amplitude: float = 0.0
+
+func _ready() -> void:
+	if HIT_EFFECT:
+		var mat := ShaderMaterial.new()
+		mat.shader = HIT_EFFECT
+		self.material = mat
 
 func _process(delta: float) -> void:
 	sway_time += delta

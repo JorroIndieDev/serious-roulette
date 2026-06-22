@@ -9,11 +9,6 @@
 [ext_resource type="Shader" uid="uid://bnfe2fmvmb1bk" path="res://Entities/hit_effect.gdshader" id="4_ih2x4"]
 [ext_resource type="Script" uid="uid://b5qwjrl1n3qxg" path="res://Entities/SpriteAnimatino.gd" id="5_rrjk5"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_unmje"]
-shader = ExtResource("4_ih2x4")
-shader_parameter/flash = 0.0
-shader_parameter/brightness = 1.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5rx78"]
 size = Vector2(11, 14)
 
@@ -31,13 +26,13 @@ script = ExtResource("4_gob2a")
 label_settings = ExtResource("3_4yx7f")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1979417337]
-material = SubResource("ShaderMaterial_unmje")
 position = Vector2(-5.684342e-14, 0)
 scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("1_5rx78")
 script = ExtResource("5_rrjk5")
 walk_amplitude = 0.15
 sway_speed = 6.0
+shader = ExtResource("4_ih2x4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1649317382]
 position = Vector2(0.5, 1)

@@ -39,12 +39,14 @@ position = Vector2(272, 40)
 value_points = 100
 
 [node name="GamblingUI" type="CanvasLayer" parent="." unique_id=1482808314]
+unique_name_in_owner = true
 process_mode = 3
 visible = false
 
 [node name="Gambling" parent="GamblingUI" unique_id=405436325 instance=ExtResource("5_6j03f")]
 
 [node name="HUD" parent="." unique_id=668063283 instance=ExtResource("7_x1u7j")]
+unique_name_in_owner = true
 
 [node name="pause_menu" parent="." unique_id=463649552 instance=ExtResource("7_csoal")]
 
@@ -68,3 +70,8 @@ position = Vector2(-136, -40)
 
 [node name="Tree" parent="Tree/Tree/Tree/Tree/Tree/Tree" unique_id=111453840 instance=ExtResource("7_epvvo")]
 position = Vector2(-56, 80)
+
+[node name="Zombie2" parent="." unique_id=74014403 instance=ExtResource("2_fw5fx")]
+
+[editable path="Zombie"]
+[editable path="Zombie2"]

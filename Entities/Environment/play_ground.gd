@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var gambling_ui: CanvasLayer = $GamblingUI
-@onready var hud: CanvasLayer = $HUD
+@onready var gambling_ui: CanvasLayer = %GamblingUI
+@onready var hud: CanvasLayer = %HUD
 
 
 func _input(event: InputEvent) -> void:
