@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://cim8jli1y73hs"]
 
-[ext_resource type="Texture2D" uid="uid://dby7k428p1h72" path="res://Entities/Environment/tree/Sprites/tree.png" id="1_5qdvr"]
+[ext_resource type="Texture2D" uid="uid://b7o43k6x2fvpj" path="res://Entities/Environment/tree/Sprites/casino-machine.png" id="1_5qdvr"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbwsq"]
-size = Vector2(8, 10)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dbwsq"]
+radius = 4.0
+height = 10.0
 
 [node name="Tree" type="StaticBody2D" unique_id=587637675]
 collision_layer = 8
@@ -15,4 +16,4 @@ texture = ExtResource("1_5qdvr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1401939110]
 position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_dbwsq")
+shape = SubResource("CapsuleShape2D_dbwsq")

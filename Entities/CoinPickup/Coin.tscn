@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d20n0p480avhs" path="res://Entities/CoinPickup/Coin.gd" id="1_1xx8f"]
 [ext_resource type="Texture2D" uid="uid://celgidn44dk1f" path="res://Entities/CoinPickup/coin.png" id="2_5gf2y"]
+[ext_resource type="Texture2D" uid="uid://bgcsl1s6rngoj" path="res://Entities/CoinPickup/light_gradient.tres" id="2_k1j0u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5gf2y"]
 radius = 20.0
@@ -9,27 +10,110 @@ radius = 20.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_k1j0u"]
 radius = 8.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1j0u"]
+atlas = ExtResource("2_5gf2y")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4uno"]
+atlas = ExtResource("2_5gf2y")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umj80"]
+atlas = ExtResource("2_5gf2y")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drmsc"]
+atlas = ExtResource("2_5gf2y")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcnw4"]
+atlas = ExtResource("2_5gf2y")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5pp1"]
+atlas = ExtResource("2_5gf2y")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rp55p"]
+atlas = ExtResource("2_5gf2y")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cq0xn"]
+atlas = ExtResource("2_5gf2y")
+region = Rect2(8, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4m1p5"]
+atlas = ExtResource("2_5gf2y")
+region = Rect2(16, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kibfk"]
+atlas = ExtResource("2_5gf2y")
+region = Rect2(24, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6ctc"]
+atlas = ExtResource("2_5gf2y")
+region = Rect2(32, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vr81"]
+atlas = ExtResource("2_5gf2y")
+region = Rect2(40, 8, 8, 8)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_k1j0u"]
 animations = [{
 "frames": [{
+"duration": 15.0,
+"texture": SubResource("AtlasTexture_k1j0u")
+}, {
 "duration": 1.0,
-"texture": ExtResource("2_5gf2y")
+"texture": SubResource("AtlasTexture_y4uno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umj80")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drmsc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcnw4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5pp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rp55p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cq0xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4m1p5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kibfk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6ctc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vr81")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="Coin" type="Node2D" unique_id=202301317]
 script = ExtResource("1_1xx8f")
 
 [node name="pick_up_area" type="Area2D" parent="." unique_id=174918310]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pick_up_area" unique_id=13699289]
 shape = SubResource("CircleShape2D_5gf2y")
 debug_color = Color(0.78750074, 0.43172672, 3.85046e-07, 0.41960785)
 
 [node name="pick_up" type="Area2D" parent="." unique_id=998806398]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pick_up" unique_id=1905039314]
 shape = SubResource("CircleShape2D_k1j0u")
@@ -37,6 +121,13 @@ shape = SubResource("CircleShape2D_k1j0u")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1131235861]
 scale = Vector2(0.85595703, 0.85595703)
 sprite_frames = SubResource("SpriteFrames_k1j0u")
+autoplay = "default"
+frame_progress = 0.47090805
+
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D" unique_id=1099857223]
+scale = Vector2(1.168283, 1.168283)
+texture = ExtResource("2_k1j0u")
+texture_scale = 0.1
 
 [connection signal="body_entered" from="pick_up_area" to="." method="_on_pick_up_area_body_entered"]
 [connection signal="body_entered" from="pick_up" to="." method="_on_pick_up_body_entered"]

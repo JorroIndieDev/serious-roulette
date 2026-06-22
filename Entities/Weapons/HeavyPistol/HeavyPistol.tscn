@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dk7g6xi1vwwb2"]
 
 [ext_resource type="Script" uid="uid://do8jbqq0dudwe" path="res://Entities/Weapons/HeavyPistol/heavy_pistol.gd" id="1_m838o"]
-[ext_resource type="Texture2D" uid="uid://c0itn8wyh7o38" path="res://Entities/Weapons/Sprites/gun.png" id="1_ubue2"]
+[ext_resource type="Texture2D" uid="uid://e0j0aalwlq86" path="res://Entities/Weapons/HeavyPistol/heavy-pistol.png" id="2_m838o"]
 
 [sub_resource type="Curve" id="Curve_m838o"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.69264066, 1), 0.0, 0.0, 0, 0]
@@ -18,12 +18,13 @@ shooting_particle = NodePath("Muzzle/CPUParticles2D")
 muzzle = NodePath("Muzzle")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=144915434]
-self_modulate = Color(0.43854162, 0.9755102, 0.61422783, 1)
-texture = ExtResource("1_ubue2")
+position = Vector2(-0.054445744, 2.2649765e-06)
+scale = Vector2(0.3383639, 0.30083597)
+texture = ExtResource("2_m838o")
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=67614177]
 unique_name_in_owner = true
-position = Vector2(4, -1)
+position = Vector2(4.859623, -1.6877022)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Muzzle" unique_id=573128588]
 self_modulate = Color(1.499905, 1.499905, 1.499905, 1)
