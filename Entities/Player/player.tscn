@@ -64,8 +64,8 @@ unique_name_in_owner = true
 position = Vector2(16, 0)
 
 [node name="HitBoxComponent" parent="." unique_id=390649418 node_paths=PackedStringArray("health_component") instance=ExtResource("4_tekja")]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 0
+collision_mask = 0
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" unique_id=1323915501]
