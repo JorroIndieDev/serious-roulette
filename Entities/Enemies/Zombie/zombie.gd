@@ -10,13 +10,13 @@ extends CharacterBody2D
 
 var can_damage : bool = true
 
+@export var texture_variants: Array[Texture2D]
 
 func _ready() -> void:
 	$HealthComponent.connect("damaged", _damaged)
 	$HealthComponent.connect("died", _died)
 	if hitbox:
 		hitbox.connect("area_entered", melee)
-
 
 func _physics_process(_delta: float) -> void:
 	pathfind()
@@ -28,7 +28,7 @@ func _died() -> void:
 
 
 func _damaged(dmg:float) -> void:
-	flash_sprite(sprite_2d)
+	flash_sprite(self.sprite_2d)
 	$DamageNumberSpawner.spawn_label(dmg)
 
 
@@ -39,6 +39,7 @@ func pathfind():
 	
 	velocity = raw_velocity.limit_length(max_speed)
 	
+	sprite_2d.flip_h = PlayerData.player_ref.global_position.x < global_position.x
 	move_and_slide()
 
 
