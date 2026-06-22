@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dex6xabsgs45s" path="res://UI/pause_menu.tscn" id="7_csoal"]
 [ext_resource type="PackedScene" uid="uid://cim8jli1y73hs" path="res://Entities/Environment/tree/tree.tscn" id="7_epvvo"]
 [ext_resource type="PackedScene" uid="uid://qlp3vehirojc" path="res://UI/hud.tscn" id="7_x1u7j"]
+[ext_resource type="Script" uid="uid://c7jpq8xfog7am" path="res://UI/crosshair/crosshair.gd" id="11_hjt80"]
 
 [sub_resource type="Environment" id="Environment_csoal"]
 background_mode = 3
@@ -72,3 +73,6 @@ position = Vector2(-136, -40)
 
 [node name="Tree" parent="Tree/Tree/Tree/Tree/Tree/Tree" unique_id=111453840 instance=ExtResource("7_epvvo")]
 position = Vector2(-56, 80)
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="." unique_id=459097094]
+script = ExtResource("11_hjt80")
