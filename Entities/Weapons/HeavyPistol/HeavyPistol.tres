@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://u4ky25ao1wmw" path="res://Entities/Weapons/GunResource.gd" id="1_23wox"]
 [ext_resource type="PackedScene" uid="uid://dk7g6xi1vwwb2" path="res://Entities/Weapons/HeavyPistol/HeavyPistol.tscn" id="1_fy7tv"]
 [ext_resource type="Resource" uid="uid://cgrlbpjp51ygy" path="res://Entities/Weapons/Bullets/BasicBullet/basic_bullet.tres" id="2_i5c2x"]
+[ext_resource type="AudioStream" uid="uid://b0tlce3xaomfb" path="res://Entities/Weapons/HeavyPistol/heavy-pistol-shoot.wav" id="4_i5c2x"]
 
 [resource]
 script = ExtResource("1_23wox")
@@ -17,5 +18,6 @@ recoil_duration = 0.05
 return_duration = 0.1
 spread_degrees = 5.0
 loaded_bullet = ExtResource("2_i5c2x")
+shot_sound = ExtResource("4_i5c2x")
 gun_scene = ExtResource("1_fy7tv")
 metadata/_custom_type_script = "uid://u4ky25ao1wmw"

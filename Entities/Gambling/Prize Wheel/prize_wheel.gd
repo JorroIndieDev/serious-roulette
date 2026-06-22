@@ -20,6 +20,7 @@ var offscreen_y: float
 var onscreen_y: float
 var winning_prize: Upgrade
 #var winning_texture: Texture2D
+@onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 
 func _ready() -> void:
 	
@@ -57,11 +58,16 @@ func spin():
 	
 	var target_angle = rotation + (spins * TAU) + distance_to_target - slice_angle/2
 	
+	var move_tween = create_tween()
+	move_tween.tween_property(self, "position:y", onscreen_y, time_to_slide).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	await move_tween.finished
+	audio_player.play()
 	var tween = create_tween()
-	tween.tween_property(self, "position:y", onscreen_y, time_to_slide).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	tween.tween_property(background, "rotation", target_angle, spin_duration).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	
+	
 	await tween.finished
+	audio_player.stop()
 	prize_won.emit(winning_prize)
 	gambling_node.show_prize(winning_prize.texture, winning_prize.name, winning_prize.description)
 	await get_tree().create_timer(display_duration).timeout
@@ -69,7 +75,6 @@ func spin():
 	
 	var tween_out = create_tween()
 	tween_out.tween_property(self, "position:y", offscreen_y, time_to_slide).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-	background.rotation == 0
 
 
 	
