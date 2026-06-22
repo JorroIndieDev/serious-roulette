@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cluy8nlyvm6sd"]
+
+[ext_resource type="Script" uid="uid://d20n0p480avhs" path="res://Entities/CoinPickup/Coin.gd" id="1_1xx8f"]
+[ext_resource type="Texture2D" uid="uid://celgidn44dk1f" path="res://Entities/CoinPickup/coin.png" id="2_5gf2y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5gf2y"]
+radius = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k1j0u"]
+radius = 8.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k1j0u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5gf2y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Coin" type="Node2D" unique_id=202301317]
+script = ExtResource("1_1xx8f")
+
+[node name="pick_up_area" type="Area2D" parent="." unique_id=174918310]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pick_up_area" unique_id=13699289]
+shape = SubResource("CircleShape2D_5gf2y")
+debug_color = Color(0.78750074, 0.43172672, 3.85046e-07, 0.41960785)
+
+[node name="pick_up" type="Area2D" parent="." unique_id=998806398]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pick_up" unique_id=1905039314]
+shape = SubResource("CircleShape2D_k1j0u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1131235861]
+scale = Vector2(0.85595703, 0.85595703)
+sprite_frames = SubResource("SpriteFrames_k1j0u")
+
+[connection signal="body_entered" from="pick_up_area" to="." method="_on_pick_up_area_body_entered"]
+[connection signal="body_entered" from="pick_up" to="." method="_on_pick_up_body_entered"]

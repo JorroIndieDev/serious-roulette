@@ -22,15 +22,21 @@ func _input(_event: InputEvent) -> void:
 			if equiped_gun.try_shoot(): 
 				camera.shake(0.5, gun_data.gun_strength)
 
-#then record the you raise you mouse button
+
 func _unhandled_input(_event) -> void:
 	if not Input.is_action_just_pressed("attack"):
 		input_attack = false
+
 
 func _damaged(dmg: float) -> void:
 	camera.shake(.5,1.0)
 	flash_sprite(character_sprite)
 	$DamageNumberSpawner.spawn_label(dmg)
+
+
+func died() -> void:
+	PlayerData.emit_signal("player_died")
+
 
 func _ready() -> void:
 	
@@ -127,7 +133,7 @@ func flash_sprite(sprite: Sprite2D) -> void:
 		func(value): mat.set_shader_parameter("brightness", value),
 		3.0, 1.0, 0.1
 	)
-	
+
 
 
 

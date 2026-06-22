@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var follow_k: float = 3.0
 @export var max_speed: float = 150.0
 @export var hitbox: HitBoxComponent
+@export var value_points: int = 10
+@export var value_coins: int = 5
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
@@ -11,17 +13,24 @@ var can_damage : bool = true
 
 func _ready() -> void:
 	$HealthComponent.connect("damaged", _damaged)
+	$HealthComponent.connect("died", _died)
 	if hitbox:
 		hitbox.connect("area_entered", melee)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	pathfind()
+
+
+func _died() -> void:
+	GameManager.spawn_coin(position, value_coins)
+	PlayerData.player_points = value_points
 
 
 func _damaged(dmg:float) -> void:
 	flash_sprite(sprite_2d)
 	$DamageNumberSpawner.spawn_label(dmg)
+
 
 func pathfind():
 	var distance = PlayerData.player_ref.global_position - global_position
@@ -49,6 +58,7 @@ func melee(area: Area2D) -> void:
 		can_damage = true
 		hitbox.set_deferred("monitorable", can_damage)
 		hitbox.set_deferred("monitoring", can_damage)
+
 
 func flash_sprite(sprite: Sprite2D) -> void:
 	var mat = sprite.material as ShaderMaterial

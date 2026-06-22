@@ -15,10 +15,10 @@ shader_parameter/flash = 0.0
 shader_parameter/brightness = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5rx78"]
-size = Vector2(11, 16)
+size = Vector2(11, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1odr"]
-size = Vector2(15, 16)
+size = Vector2(15, 14)
 
 [node name="Zombie" type="CharacterBody2D" unique_id=928013042 node_paths=PackedStringArray("hitbox")]
 collision_mask = 9
@@ -32,7 +32,7 @@ label_settings = ExtResource("3_4yx7f")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1979417337]
 material = SubResource("ShaderMaterial_unmje")
-position = Vector2(-7.1525574e-07, 0)
+position = Vector2(-5.684342e-14, 0)
 scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("1_5rx78")
 script = ExtResource("5_rrjk5")
@@ -40,7 +40,7 @@ walk_amplitude = 0.15
 sway_speed = 6.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1649317382]
-position = Vector2(0.5, 0)
+position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_5rx78")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=983203079]
@@ -54,6 +54,6 @@ collision_mask = 6
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" unique_id=1654512284]
-position = Vector2(0.5, 0)
+position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_a1odr")
 debug_color = Color(0.9379107, 1.2899041e-05, 0.6280861, 0.41960785)
