@@ -66,8 +66,8 @@ func flash_sprite(sprite: Sprite2D) -> void:
 		return
 
 	# Store original values (flash is 0, brightness is 1)
-	var orig_flash = mat.get_shader_parameter("flash")
-	var orig_brightness = mat.get_shader_parameter("brightness")
+	var _orig_flash = mat.get_shader_parameter("flash")
+	var _orig_brightness = mat.get_shader_parameter("brightness")
 
 	var tween = create_tween()
 	tween.set_parallel(true)   # run both animations at the same time
