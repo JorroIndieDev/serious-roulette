@@ -40,8 +40,11 @@ script = ExtResource("3_x1u7j")
 position = Vector2(64, 48)
 
 [node name="Zombie" parent="." unique_id=928013042 instance=ExtResource("2_fw5fx")]
-position = Vector2(272, 40)
+position = Vector2(104, 24)
 value_points = 100
+
+[node name="Zombie2" parent="." unique_id=1984486004 instance=ExtResource("2_fw5fx")]
+position = Vector2(136, 40)
 
 [node name="GamblingUI" type="CanvasLayer" parent="." unique_id=1482808314]
 process_mode = 3

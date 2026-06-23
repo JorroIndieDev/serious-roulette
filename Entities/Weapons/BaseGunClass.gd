@@ -9,7 +9,6 @@ var gun_data: GunResource
 var _shot_timer: Timer
 var _reload_timer: Timer
 var _is_reloading: bool = false  
-var _shoot_audio_player: AudioStreamPlayer2D
 
 func _ready() -> void:
 	# Create the timer node
@@ -21,7 +20,7 @@ func _ready() -> void:
 	_reload_timer.one_shot = true
 	_reload_timer.timeout.connect(_on_reload_finished)   # connect signal
 	add_child(_reload_timer)
-	
+
 func setup(data: GunResource) -> void:
 	gun_data = data
 	if gun_data:
@@ -111,7 +110,6 @@ func _shoot() -> void:
 
 	play_shoot_sound(gun_data.shot_sound)
 	
-	GameManager.ProjectileContainer.call_deferred("add_child", bullet)
 	bullet.direction = gun_pivot.global_position.direction_to(get_global_mouse_position())
 	bullet.position = %Muzzle.global_position
 	bullet.rotation = %Muzzle.global_rotation
@@ -140,7 +138,7 @@ func _calculate_attack(b_data: BulletResource) -> Attack:
 	
 	attack.attack_damage = new_damage
 	attack.attack_position = self.global_position
-	attack.knockback_force = 0 # knockback should be defined as bullet variables
+	attack.knockback_force = b_data.knock_back_force # knockback should be defined as bullet variables
 	
 	return attack
 

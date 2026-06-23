@@ -5,7 +5,7 @@ var max_health: float
 var health : float
 var parent: Node2D
 
-signal damaged(dmg:float)
+signal damaged(attack: Attack)
 signal died
 
 func _ready() -> void:
@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func damage(attack: Attack):
 	health -= attack.attack_damage
-	emit_signal("damaged", attack.attack_damage)
+	emit_signal("damaged", attack)
 	if health <= 0:
 		#get_parent().queue_free()
 		emit_signal("died")

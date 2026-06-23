@@ -1,5 +1,5 @@
-class_name Attack
+class_name Attack extends Resource
 
-var attack_damage: float
-var knockback_force: float
+@export var attack_damage: float
+@export var knockback_force: float
 var attack_position: Vector2
