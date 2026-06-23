@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cim8jli1y73hs" path="res://Entities/Environment/tree/tree.tscn" id="7_epvvo"]
 [ext_resource type="PackedScene" uid="uid://qlp3vehirojc" path="res://UI/hud.tscn" id="7_x1u7j"]
 [ext_resource type="Script" uid="uid://c7jpq8xfog7am" path="res://UI/crosshair/crosshair.gd" id="11_hjt80"]
+[ext_resource type="PackedScene" uid="uid://cnk606gocm561" path="res://UI/RespawnMenu/respawn_menu.tscn" id="12_sjfbu"]
 
 [sub_resource type="Environment" id="Environment_csoal"]
 background_mode = 3
@@ -46,16 +47,6 @@ value_points = 100
 [node name="Zombie2" parent="." unique_id=1984486004 instance=ExtResource("2_fw5fx")]
 position = Vector2(136, 40)
 
-[node name="GamblingUI" type="CanvasLayer" parent="." unique_id=1482808314]
-process_mode = 3
-visible = false
-
-[node name="Gambling" parent="GamblingUI" unique_id=405436325 instance=ExtResource("5_6j03f")]
-
-[node name="HUD" parent="." unique_id=668063283 instance=ExtResource("7_x1u7j")]
-
-[node name="pause_menu" parent="." unique_id=463649552 instance=ExtResource("7_csoal")]
-
 [node name="Tree" parent="." unique_id=587637675 instance=ExtResource("7_epvvo")]
 position = Vector2(-64, 56)
 
@@ -79,3 +70,15 @@ position = Vector2(-56, 80)
 
 [node name="AnimatedSprite2D" type="Sprite2D" parent="." unique_id=459097094]
 script = ExtResource("11_hjt80")
+
+[node name="GamblingUI" type="CanvasLayer" parent="." unique_id=1482808314]
+process_mode = 3
+visible = false
+
+[node name="Gambling" parent="GamblingUI" unique_id=405436325 instance=ExtResource("5_6j03f")]
+
+[node name="HUD" parent="." unique_id=668063283 instance=ExtResource("7_x1u7j")]
+
+[node name="pause_menu" parent="." unique_id=463649552 instance=ExtResource("7_csoal")]
+
+[node name="RespawnMenu" parent="." unique_id=711910102 instance=ExtResource("12_sjfbu")]

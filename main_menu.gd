@@ -22,7 +22,7 @@ func _on_quit_button_pressed() -> void:
 	audio.stream = UI_CLICK
 	audio.play()
 	await get_tree().create_timer(0.2).timeout
-	get_tree().quit()
+	GameManager.quit_game()
 	
 
 func _intro_anim() -> void:

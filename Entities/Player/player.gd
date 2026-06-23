@@ -7,6 +7,7 @@ class_name Player extends CharacterBody2D
 @export var knockback_decay: float = 5.0
 
 @onready var health_component: HealthComponent = $HealthComponent
+@onready var hit_box_component: HitBoxComponent = $HitBoxComponent
 
 @onready var GunPivot: Marker2D = %GunPivot
 @onready var GunAnchor: Node2D = $GunPivot/GunAnchor
@@ -38,7 +39,7 @@ func _damaged(attack: Attack) -> void:
 	$DamageNumberSpawner.spawn_label(attack.attack_damage)
 
 func died() -> void:
-	PlayerData.emit_signal("player_died")
+	PlayerData._player_died()
 
 func _ready() -> void:
 	
@@ -105,36 +106,39 @@ func _recalculate_stats(upgrade: Upgrade) -> void:
 	health_component.max_health += u.add_health
 	# regen and the rest
 
-func flash_sprite(sprite: Sprite2D) -> void:
+func flash_sprite(sprite: Sprite2D, flash_count: int = 1, flash_duration: float = 0.15, glow_strength: float = 3.0) -> void:
 	var mat = sprite.material as ShaderMaterial
 	if not mat:
-		return
-
-	# Store original values (flash is 0, brightness is 1)
-	var _orig_flash = mat.get_shader_parameter("flash")
-	var _orig_brightness = mat.get_shader_parameter("brightness")
+		return  # No shader material; do nothing
 
 	var tween = create_tween()
-	tween.set_parallel(true)   # run both animations at the same time
 
-	# Flash: 0 → 1 → 0
-	tween.tween_method(
-		func(value): mat.set_shader_parameter("flash", value),
-		0.0, 1.0, 0.05
-	)
-	tween.tween_method(
-		func(value): mat.set_shader_parameter("flash", value),
-		1.0, 0.0, 0.1
-	)
+	for i in range(flash_count):
+		# ---- Flash ON ----
+		tween.tween_method(
+			func(v): mat.set_shader_parameter("flash", v), 0.0, 1.0, flash_duration)
+		tween.parallel().tween_method(
+			func(v): mat.set_shader_parameter("brightness", v), 1.0, glow_strength, flash_duration)
 
-	# Brightness: 1 → 3 → 1  (boost for glow)
-	tween.tween_method(
-		func(value): mat.set_shader_parameter("brightness", value),
-		1.0, 3.0, 0.05
-	)
-	tween.tween_method(
-		func(value): mat.set_shader_parameter("brightness", value),
-		3.0, 1.0, 0.1
-	)
+		# ---- Flash OFF ----
+		tween.tween_method(
+			func(v): mat.set_shader_parameter("flash", v), 1.0, 0.0, flash_duration)
+		tween.parallel().tween_method(
+			func(v): mat.set_shader_parameter("brightness", v), glow_strength, 1.0, flash_duration)
+
+func _immunity() -> void:
+	# disable hitboxes && movement
+	set_physics_process(false)
+	hit_box_component.monitorable = false
+	hit_box_component.monitoring = false
+	# flash sprite
+	flash_sprite(character_sprite, 5)
+	# await timmer timeout
+	await get_tree().create_timer(1.5).timeout
+	# reenable hitboxes && movement
+	set_physics_process(true)
+	await get_tree().create_timer(1).timeout
+	hit_box_component.monitorable = true
+	hit_box_component.monitoring = true
 
 #EOF
