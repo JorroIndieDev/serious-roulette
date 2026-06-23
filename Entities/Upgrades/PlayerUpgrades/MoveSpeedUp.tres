@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="PlayerUpgrade" format=3 uid="uid://b0q2hx5ddp5of"]
 
 [ext_resource type="Script" uid="uid://c118wcr0nowgu" path="res://Entities/Upgrades/PlayerUpgrades/PlayerUpgrade.gd" id="1_wmf4c"]
-[ext_resource type="Texture2D" uid="uid://dsq6t0mxsvcuw" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/walk-speed-upgrade.png" id="2_dn7mu"]
+[ext_resource type="Texture2D" uid="uid://cj2w1tuolc4lc" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/walk-speed-upgrade.png" id="2_dn7mu"]
 
 [resource]
 script = ExtResource("1_wmf4c")

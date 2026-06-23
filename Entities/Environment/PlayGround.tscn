@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dex6xabsgs45s" path="res://UI/pause_menu.tscn" id="7_csoal"]
 [ext_resource type="PackedScene" uid="uid://cim8jli1y73hs" path="res://Entities/Environment/tree/tree.tscn" id="7_epvvo"]
 [ext_resource type="PackedScene" uid="uid://qlp3vehirojc" path="res://UI/hud.tscn" id="7_x1u7j"]
+[ext_resource type="Script" uid="uid://kj4jli7q8nt8" path="res://Entities/Environment/enemy_spawner.gd" id="12_sjfbu"]
+[ext_resource type="Script" uid="uid://b6wpkgaw804js" path="res://Entities/Environment/casino_maker.gd" id="13_4n1d8"]
 [ext_resource type="Script" uid="uid://dgaugx2k5sclg" path="res://Entities/Environment/crosshair.gd" id="11_4n1d8"]
 [ext_resource type="Texture2D" uid="uid://cmmalb46mlgfw" path="res://UI/crosshair/Sprites/crosshair.png" id="12_4n1d8"]
 [ext_resource type="Texture2D" uid="uid://cuuxn4tsts2uk" path="res://UI/crosshair/Sprites/crosshair-shot.png" id="13_u573t"]
@@ -59,6 +61,7 @@ visible = false
 [node name="pause_menu" parent="." unique_id=463649552 instance=ExtResource("7_csoal")]
 
 [node name="Tree" parent="." unique_id=587637675 instance=ExtResource("7_epvvo")]
+visible = false
 position = Vector2(-64, 56)
 
 [node name="Tree" parent="Tree" unique_id=707072484 instance=ExtResource("7_epvvo")]
@@ -79,6 +82,21 @@ position = Vector2(-136, -40)
 [node name="Tree" parent="Tree/Tree/Tree/Tree/Tree/Tree" unique_id=111453840 instance=ExtResource("7_epvvo")]
 position = Vector2(-56, 80)
 
+[node name="EnemySpawner" type="Node2D" parent="." unique_id=1790501619]
+script = ExtResource("12_sjfbu")
+enemy_scene = ExtResource("2_fw5fx")
+
+[node name="spawnTimer" type="Timer" parent="EnemySpawner" unique_id=626812308]
+wait_time = 1.5
+autostart = true
+
+[node name="CasinoMaker" type="Node2D" parent="." unique_id=1253271354]
+position = Vector2(-518, -267)
+script = ExtResource("13_4n1d8")
+slot_machine_scene = ExtResource("7_epvvo")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=362828517]
+color = Color(0.86234206, 0.64104456, 0.99927324, 1)
 [node name="crosshair" type="Node2D" parent="." unique_id=1972867763]
 script = ExtResource("11_4n1d8")
 

@@ -18,13 +18,13 @@ var knockback: Vector2 = Vector2.ZERO
 
 var can_damage : bool = true
 
+@export var texture_variants: Array[Texture2D]
 
 func _ready() -> void:
 	$HealthComponent.connect("damaged", _damaged)
 	$HealthComponent.connect("died", _died)
 	if hitbox:
 		hitbox.connect("area_entered", melee)
-
 
 func _physics_process(_delta: float) -> void:
 	pathfind(_delta)
@@ -48,6 +48,7 @@ func pathfind(delta: float):
 	
 	velocity = raw_velocity.limit_length(max_speed)
 	
+	sprite_2d.flip_h = PlayerData.player_ref.global_position.x < global_position.x
 	velocity += knockback
 	move_and_slide()
 	knockback = knockback.lerp(Vector2.ZERO, 1.0 - exp(-knockback_decay * delta))
