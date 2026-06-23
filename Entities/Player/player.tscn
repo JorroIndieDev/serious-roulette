@@ -4,6 +4,7 @@
 [ext_resource type="Resource" uid="uid://278g4rptvq6j" path="res://Entities/Weapons/HeavyPistol/HeavyPistol.tres" id="2_4wf4l"]
 [ext_resource type="Texture2D" uid="uid://boi054mlp8027" path="res://Entities/Player/Sprites/player.png" id="2_5c2io"]
 [ext_resource type="Script" uid="uid://dfrb5an6t75hv" path="res://Entities/Components/DamageNumberSpawner.gd" id="3_01a4e"]
+[ext_resource type="Texture2D" uid="uid://djulc5p23p3sq" path="res://Entities/Environment/tree/shadow.tres" id="3_ap3xn"]
 [ext_resource type="Script" uid="uid://cafqysag83qgy" path="res://Entities/Components/health_component.gd" id="3_lu8i8"]
 [ext_resource type="PackedScene" uid="uid://bsnv6acgqi2fe" path="res://Entities/Components/hit_box_component.tscn" id="4_tekja"]
 [ext_resource type="Script" uid="uid://8du7544f6aen" path="res://Entities/Player/player_stats.gd" id="6_4wf4l"]
@@ -36,6 +37,12 @@ motion_mode = 1
 script = ExtResource("1_3uyv8")
 stats = NodePath("PlayerStats")
 gun_data = ExtResource("2_4wf4l")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=767677495]
+energy = 0.2
+blend_mode = 1
+texture = ExtResource("3_ap3xn")
+texture_scale = 0.1
 
 [node name="DamageNumberSpawner" type="Node2D" parent="." unique_id=1915771119]
 script = ExtResource("3_01a4e")
