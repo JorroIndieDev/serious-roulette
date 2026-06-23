@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://wg5qctifa1yg"]
 
-[ext_resource type="Texture2D" uid="uid://cigj131xloc00" path="res://Entities/Gambling/Common/Sprites/shine.png" id="1_nxqgx"]
+[ext_resource type="Texture2D" uid="uid://lxmmpmknyqg6" path="res://Entities/Gambling/Common/Sprites/shine.png" id="1_nxqgx"]
+[ext_resource type="Texture2D" uid="uid://de3h6ad4ar5bh" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/infinte-bullets.png" id="2_n2ngc"]
 
 [node name="Prize" type="Control" unique_id=1936118158]
 layout_mode = 3
@@ -26,18 +27,22 @@ texture = ExtResource("1_nxqgx")
 stretch_mode = 3
 
 [node name="Prize" type="TextureRect" parent="." unique_id=383803044]
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 99.0
-offset_top = 26.0
-offset_right = 190.0
-offset_bottom = 117.0
+offset_left = 109.5
+offset_top = 32.0
+offset_right = 179.5
+offset_bottom = 102.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_n2ngc")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="text" type="VBoxContainer" parent="." unique_id=2020183154]
 layout_mode = 1
