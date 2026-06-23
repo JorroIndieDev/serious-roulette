@@ -13,7 +13,7 @@ func _ready() -> void:
 	health = max_health
 	parent = get_parent()
 
-func damage(attack: Attack):
+func damage(attack: Attack) -> void:
 	health -= attack.attack_damage
 	emit_signal("damaged", attack)
 	if health <= 0:
@@ -24,3 +24,6 @@ func damage(attack: Attack):
 			p.died()
 		else:
 			parent.queue_free()
+
+func reset() -> void:
+	health = max_health
