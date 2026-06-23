@@ -6,9 +6,7 @@ extends Sprite2D
 @export var sway_speed: float = 4.0         # cycles per second
 
 var sway_time: float = 0.0
-
 const HIT_EFFECT = preload("uid://bnfe2fmvmb1bk")
-
 # Reference to the parent (your CharacterBody2D)
 @onready var parent: CharacterBody2D = get_parent()
 var current_amplitude: float = 0.0
