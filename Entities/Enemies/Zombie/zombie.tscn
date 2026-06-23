@@ -1,13 +1,20 @@
 [gd_scene format=3 uid="uid://bbalrjoxm3lhw"]
 
 [ext_resource type="Texture2D" uid="uid://b632muw3xvagt" path="res://Entities/Enemies/Zombie/Sprites/enemy.png" id="1_5rx78"]
-[ext_resource type="Script" path="res://Entities/Enemies/Zombie/zombie.gd" id="1_a1odr"]
+[ext_resource type="Script" uid="uid://cvg6bvdhwpg2q" path="res://Entities/Enemies/Zombie/zombie.gd" id="1_a1odr"]
 [ext_resource type="Script" uid="uid://cafqysag83qgy" path="res://Entities/Components/health_component.gd" id="2_1kokx"]
+[ext_resource type="Script" uid="uid://6bviyqatcafw" path="res://Entities/Weapons/Attack.gd" id="2_unmje"]
 [ext_resource type="LabelSettings" path="res://Entities/Weapons/standard_damage_label_settings.tres" id="3_4yx7f"]
 [ext_resource type="PackedScene" uid="uid://bsnv6acgqi2fe" path="res://Entities/Components/hit_box_component.tscn" id="3_gob2a"]
 [ext_resource type="Script" uid="uid://dfrb5an6t75hv" path="res://Entities/Components/DamageNumberSpawner.gd" id="4_gob2a"]
 [ext_resource type="Shader" uid="uid://bnfe2fmvmb1bk" path="res://Entities/hit_effect.gdshader" id="4_ih2x4"]
 [ext_resource type="Script" uid="uid://b5qwjrl1n3qxg" path="res://Entities/SpriteAnimatino.gd" id="5_rrjk5"]
+
+[sub_resource type="Resource" id="Resource_002w2"]
+script = ExtResource("2_unmje")
+attack_damage = 10.0
+knockback_force = 25.0
+metadata/_custom_type_script = "uid://6bviyqatcafw"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_unmje"]
 shader = ExtResource("4_ih2x4")
@@ -18,13 +25,15 @@ shader_parameter/brightness = 1.0
 size = Vector2(11, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1odr"]
-size = Vector2(15, 14)
+size = Vector2(15, 14.0312195)
 
 [node name="Zombie" type="CharacterBody2D" unique_id=928013042 node_paths=PackedStringArray("hitbox")]
 collision_mask = 9
+motion_mode = 1
 script = ExtResource("1_a1odr")
 max_speed = 50.0
 hitbox = NodePath("HitBoxComponent")
+attack = SubResource("Resource_002w2")
 
 [node name="DamageNumberSpawner" type="Node2D" parent="." unique_id=883605978]
 script = ExtResource("4_gob2a")
@@ -49,11 +58,11 @@ BASE_MAX_HEALTH = 50.0
 metadata/_custom_type_script = "uid://cafqysag83qgy"
 
 [node name="HitBoxComponent" parent="." unique_id=390649418 node_paths=PackedStringArray("health_component") instance=ExtResource("3_gob2a")]
-collision_layer = 6
-collision_mask = 6
+collision_layer = 2
+collision_mask = 1
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" unique_id=1654512284]
-position = Vector2(0.5, 1)
+position = Vector2(0.5, 1.0156097)
 shape = SubResource("RectangleShape2D_a1odr")
 debug_color = Color(0.9379107, 1.2899041e-05, 0.6280861, 0.41960785)

@@ -2,10 +2,21 @@ extends Node
 
 var player_ref: Player
 
+var level_up_step: int = 0
+var level_up_milestone: int = 100
+
+var leveled_up: bool:
+	get: return leveled_up
+	set(value):
+		leveled_up = value
+		if value: emit_signal("_player_leveled")
+
 var player_points: int:
 	set(value): 
 		player_points += value
-		if player_points % 100 == 0:
+		var temp = player_points / level_up_milestone
+		if temp > level_up_step:
+			level_up_step = temp
 			leveled_up = true
 		emit_signal("points_gained", player_points)
 		print_debug(player_points)
@@ -24,12 +35,9 @@ signal points_gained(ammount: int)
 signal coins_gained(ammount: int)
 
 signal _player_leveled
+signal player_died
 
-var leveled_up: bool:
-	get: return leveled_up
-	set(value):
-		leveled_up = value
-		if value: emit_signal("_player_leveled")
+
 
 func _ready() -> void:
 	connect("_player_leveled", GameManager._player_leveled)
@@ -88,5 +96,5 @@ func _append_upgrade(upgrade: Upgrade) -> void:
 			pass
 	print(upgrade.name)
 
-func player_died() -> void:
-	pass
+#func player_died() -> void:
+	#pass

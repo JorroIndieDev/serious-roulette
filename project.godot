@@ -15,8 +15,9 @@ splashscreen_cumulet/next_scene="res://Main Menu/main_menu.tscn"
 [application]
 
 config/name="SeriousRoulete"
-run/main_scene="res://addons/splashscreen_easier/splash_screen.tscn"
+run/main_scene="uid://igjhpigpxlag"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/image="uid://bc2mqng50mvj8"
 config/icon="res://icon.svg"
 
 [autoload]
@@ -47,7 +48,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/fancy_folder_colors/plugin.cfg", "res://addons/splashscreen_easier/plugin.cfg")
+enabled=PackedStringArray("res://addons/fancy_folder_colors/plugin.cfg")
 
 [input]
 
