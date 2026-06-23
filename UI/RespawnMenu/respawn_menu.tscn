@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cnk606gocm561"]
+
+[ext_resource type="Script" uid="uid://cvxuucxwv1cb3" path="res://UI/RespawnMenu/respawn_menu.gd" id="1_yadlk"]
+
+[node name="RespawnMenu" type="CanvasLayer" unique_id=711910102]
+process_mode = 3
+script = ExtResource("1_yadlk")
+
+[node name="Respawn" type="Button" parent="." unique_id=853797350]
+offset_left = 192.0
+offset_top = 144.0
+offset_right = 319.0
+offset_bottom = 175.0
+text = "Pay to respawn"
+
+[node name="BackToMenu" type="Button" parent="." unique_id=1587153034]
+offset_left = 64.0
+offset_top = 144.0
+offset_right = 179.0
+offset_bottom = 175.0
+text = "Back to menu"
+
+[node name="Quit" type="Button" parent="." unique_id=1829662235]
+offset_top = 144.0
+offset_right = 42.0
+offset_bottom = 175.0
+text = "Quit"
+
+[connection signal="pressed" from="Respawn" to="." method="_on_respawn_pressed"]
+[connection signal="pressed" from="BackToMenu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

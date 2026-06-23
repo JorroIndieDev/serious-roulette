@@ -35,8 +35,6 @@ signal points_gained(ammount: int)
 signal coins_gained(ammount: int)
 
 signal _player_leveled
-signal player_died
-
 
 
 func _ready() -> void:
@@ -98,3 +96,19 @@ func _append_upgrade(upgrade: Upgrade) -> void:
 
 #func player_died() -> void:
 	#pass
+
+func _player_died() -> void:
+	GameManager.player_score = player_points
+	GameManager.player_died()
+
+func _respawn_player() -> void:
+	# Kill all enemies, by deleting them
+	# "Spawn" player
+	player_ref.health_component.reset()
+	player_ref._immunity()
+
+
+
+
+
+#EOF

@@ -27,4 +27,4 @@ func _on_continue_pressed() -> void:
 func _on_quit_pressed() -> void:
 	audio_player.play()
 	await get_tree().create_timer(0.2).timeout
-	get_tree().quit()
+	GameManager.quit_game()
