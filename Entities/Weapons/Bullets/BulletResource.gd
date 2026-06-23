@@ -7,6 +7,8 @@ class_name BulletResource extends Resource
 @export var multiplicative: bool = false
 ## How many bodies it can pierce
 @export var max_pierce: int = 0
+## knockback of the bullet
+@export var knock_back_force: int = 0
 
 ## Bullet base speed
 @export var base_speed: float

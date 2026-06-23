@@ -6,7 +6,15 @@ extends CharacterBody2D
 @export var value_points: int = 10
 @export var value_coins: int = 5
 
+@export var attack: Attack
+
+
 @onready var sprite_2d: Sprite2D = $Sprite2D
+
+
+var knockback: Vector2 = Vector2.ZERO
+## units per second
+@export var knockback_decay: float = 5.0
 
 var can_damage : bool = true
 
@@ -19,7 +27,7 @@ func _ready() -> void:
 		hitbox.connect("area_entered", melee)
 
 func _physics_process(_delta: float) -> void:
-	pathfind()
+	pathfind(_delta)
 
 
 func _died() -> void:
@@ -27,12 +35,13 @@ func _died() -> void:
 	PlayerData.player_points = value_points
 
 
-func _damaged(dmg:float) -> void:
-	flash_sprite(self.sprite_2d)
-	$DamageNumberSpawner.spawn_label(dmg)
+func _damaged(attack: Attack) -> void:
+	flash_sprite(sprite_2d)
+	apply_knockback(-position.direction_to(attack.attack_position), attack.knockback_force)
+	$DamageNumberSpawner.spawn_label(attack.attack_damage)
 
 
-func pathfind():
+func pathfind(delta: float):
 	var distance = PlayerData.player_ref.global_position - global_position
 	
 	var raw_velocity = distance * follow_k
@@ -40,15 +49,17 @@ func pathfind():
 	velocity = raw_velocity.limit_length(max_speed)
 	
 	sprite_2d.flip_h = PlayerData.player_ref.global_position.x < global_position.x
+	velocity += knockback
 	move_and_slide()
+	knockback = knockback.lerp(Vector2.ZERO, 1.0 - exp(-knockback_decay * delta))
 
 
 func melee(area: Area2D) -> void: 
-	print("melee")
-	if can_damage and area is HitBoxComponent and area.owner is Player:
+	if area.owner is BaseBullet: return
+	if can_damage and area is HitBoxComponent:
 		var enemy_attack = Attack.new()
-		enemy_attack.attack_damage = 10.0
-		enemy_attack.knockback_force = 10.0
+		enemy_attack.attack_damage = attack.attack_damage
+		enemy_attack.knockback_force = attack.knockback_force
 		enemy_attack.attack_position = global_position
 		area.damage(enemy_attack)
 		print("Get damaged")
@@ -60,6 +71,8 @@ func melee(area: Area2D) -> void:
 		hitbox.set_deferred("monitorable", can_damage)
 		hitbox.set_deferred("monitoring", can_damage)
 
+func apply_knockback(direction: Vector2, strength: float) -> void:
+	knockback = direction.normalized() * strength
 
 func flash_sprite(sprite: Sprite2D) -> void:
 	var mat = sprite.material as ShaderMaterial
