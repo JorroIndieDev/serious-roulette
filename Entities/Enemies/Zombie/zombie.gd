@@ -23,6 +23,8 @@ func _ready() -> void:
 	$HealthComponent.connect("died", _died)
 	if hitbox:
 		hitbox.connect("area_entered", melee)
+	if texture_variants.size() > 0:
+		sprite_2d.texture = texture_variants.pick_random()
 
 func _physics_process(_delta: float) -> void:
 	pathfind(_delta)
