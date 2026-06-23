@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://delkjho11x61n" path="res://main_menu.gd" id="1_npuod"]
 [ext_resource type="PackedScene" uid="uid://ddpedmcxgtsjb" path="res://Entities/Environment/PlayGround.tscn" id="2_2ekim"]
-[ext_resource type="Texture2D" uid="uid://c6qa00wkx1hcr" path="res://Main Menu/Sprites/back-ground.png" id="2_ft8e8"]
-[ext_resource type="Texture2D" uid="uid://bgn6xo78vikac" path="res://Main Menu/Sprites/logo-v2.png" id="3_2ekim"]
-[ext_resource type="Texture2D" uid="uid://dq2no6bj8tutf" path="res://UI/Sprites/Button.png" id="4_hd3la"]
-[ext_resource type="Texture2D" uid="uid://cetf87tynwlma" path="res://UI/Sprites/Button-press.png" id="5_b6svo"]
-[ext_resource type="Texture2D" uid="uid://ct60h4ftit4tc" path="res://UI/Sprites/Button-hover.png" id="6_tgyvh"]
-[ext_resource type="AudioStream" uid="uid://fh8ddx4bbs22" path="res://UI/Audio/ui-click.wav" id="8_2ekim"]
+[ext_resource type="Texture2D" uid="uid://dvohqb43kskq4" path="res://Main Menu/Sprites/back-ground.png" id="2_ft8e8"]
+[ext_resource type="Texture2D" uid="uid://uomjko2va6f2" path="res://Main Menu/Sprites/logo-v2.png" id="3_2ekim"]
+[ext_resource type="Texture2D" uid="uid://cfaix6em6ekp8" path="res://UI/Sprites/Button.png" id="4_hd3la"]
+[ext_resource type="Texture2D" uid="uid://6qjjur51vt6k" path="res://UI/Sprites/Button-press.png" id="5_b6svo"]
+[ext_resource type="Texture2D" uid="uid://c1s1bddcb1p5k" path="res://UI/Sprites/Button-hover.png" id="6_tgyvh"]
+[ext_resource type="AudioStream" uid="uid://0kxc7ycx2x0j" path="res://UI/Audio/ui-click.wav" id="8_2ekim"]
 
 [sub_resource type="Animation" id="Animation_ft8e8"]
 length = 0.001
@@ -46,7 +46,7 @@ tracks/0/path = NodePath("ColorRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0.033333335, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -58,7 +58,7 @@ tracks/1/path = NodePath("ColorRect:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0.033333335, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]

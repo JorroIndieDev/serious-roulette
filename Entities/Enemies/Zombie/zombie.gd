@@ -8,9 +8,7 @@ extends CharacterBody2D
 
 @export var attack: Attack
 
-
 @onready var sprite_2d: Sprite2D = $Sprite2D
-
 
 var knockback: Vector2 = Vector2.ZERO
 ## units per second
@@ -35,10 +33,10 @@ func _died() -> void:
 	PlayerData.player_points = value_points
 
 
-func _damaged(attack: Attack) -> void:
+func _damaged(_attack: Attack) -> void:
 	flash_sprite(sprite_2d)
-	apply_knockback(-position.direction_to(attack.attack_position), attack.knockback_force)
-	$DamageNumberSpawner.spawn_label(attack.attack_damage)
+	apply_knockback(-position.direction_to(_attack.attack_position), _attack.knockback_force)
+	$DamageNumberSpawner.spawn_label(_attack.attack_damage)
 
 
 func pathfind(delta: float):

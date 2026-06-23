@@ -10,11 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://dex6xabsgs45s" path="res://UI/pause_menu.tscn" id="7_csoal"]
 [ext_resource type="PackedScene" uid="uid://cim8jli1y73hs" path="res://Entities/Environment/tree/tree.tscn" id="7_epvvo"]
 [ext_resource type="PackedScene" uid="uid://qlp3vehirojc" path="res://UI/hud.tscn" id="7_x1u7j"]
+[ext_resource type="Script" uid="uid://dgaugx2k5sclg" path="res://Entities/Environment/crosshair.gd" id="11_4n1d8"]
+[ext_resource type="Texture2D" uid="uid://diswjtyk33sqf" path="res://UI/crosshair/Sprites/crosshair.png" id="12_4n1d8"]
 [ext_resource type="Script" uid="uid://kj4jli7q8nt8" path="res://Entities/Environment/enemy_spawner.gd" id="12_sjfbu"]
 [ext_resource type="Script" uid="uid://b6wpkgaw804js" path="res://Entities/Environment/casino_maker.gd" id="13_4n1d8"]
-[ext_resource type="Script" uid="uid://dgaugx2k5sclg" path="res://Entities/Environment/crosshair.gd" id="11_4n1d8"]
-[ext_resource type="Texture2D" uid="uid://cmmalb46mlgfw" path="res://UI/crosshair/Sprites/crosshair.png" id="12_4n1d8"]
 [ext_resource type="Texture2D" uid="uid://cuuxn4tsts2uk" path="res://UI/crosshair/Sprites/crosshair-shot.png" id="13_u573t"]
+[ext_resource type="PackedScene" uid="uid://cnk606gocm561" path="res://UI/RespawnMenu/respawn_menu.tscn" id="14_7cehy"]
 
 [sub_resource type="Environment" id="Environment_csoal"]
 background_mode = 3
@@ -30,6 +31,8 @@ script = ExtResource("1_chst8")
 
 [node name="World" parent="." unique_id=959458457 instance=ExtResource("2_ui1sl")]
 position = Vector2(-552, -304)
+collision_layer = 8
+collision_mask = 3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1584923213]
 environment = SubResource("Environment_csoal")
@@ -46,31 +49,11 @@ position = Vector2(64, 48)
 [node name="Zombie" parent="." unique_id=928013042 instance=ExtResource("2_fw5fx")]
 position = Vector2(104, 24)
 value_points = 100
+texture_variants = Array[Texture2D]([])
 
 [node name="Zombie2" parent="." unique_id=1984486004 instance=ExtResource("2_fw5fx")]
 position = Vector2(136, 40)
-
-[node name="Tree" parent="." unique_id=587637675 instance=ExtResource("7_epvvo")]
-visible = false
-position = Vector2(-64, 56)
-
-[node name="Tree" parent="Tree" unique_id=707072484 instance=ExtResource("7_epvvo")]
-position = Vector2(208, -64)
-
-[node name="Tree" parent="Tree/Tree" unique_id=1435641577 instance=ExtResource("7_epvvo")]
-position = Vector2(-48, 136)
-
-[node name="Tree" parent="Tree/Tree/Tree" unique_id=1613895735 instance=ExtResource("7_epvvo")]
-position = Vector2(152, 8)
-
-[node name="Tree" parent="Tree/Tree/Tree/Tree" unique_id=1334161050 instance=ExtResource("7_epvvo")]
-position = Vector2(-48, -96)
-
-[node name="Tree" parent="Tree/Tree/Tree/Tree/Tree" unique_id=384899705 instance=ExtResource("7_epvvo")]
-position = Vector2(-136, -40)
-
-[node name="Tree" parent="Tree/Tree/Tree/Tree/Tree/Tree" unique_id=111453840 instance=ExtResource("7_epvvo")]
-position = Vector2(-56, 80)
+texture_variants = Array[Texture2D]([])
 
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=1790501619]
 script = ExtResource("12_sjfbu")
@@ -87,6 +70,7 @@ slot_machine_scene = ExtResource("7_epvvo")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=362828517]
 color = Color(0.86234206, 0.64104456, 0.99927324, 1)
+
 [node name="crosshair" type="Node2D" parent="." unique_id=1972867763]
 script = ExtResource("11_4n1d8")
 
@@ -96,3 +80,15 @@ texture = ExtResource("12_4n1d8")
 [node name="CrosshairShoot" type="Sprite2D" parent="crosshair" unique_id=1932667888]
 visible = false
 texture = ExtResource("13_u573t")
+
+[node name="pause_menu" parent="." unique_id=463649552 instance=ExtResource("7_csoal")]
+
+[node name="GamblingUI" type="CanvasLayer" parent="." unique_id=2102500072]
+process_mode = 3
+
+[node name="Gambling" parent="GamblingUI" unique_id=405436325 instance=ExtResource("5_6j03f")]
+
+[node name="HUD" parent="." unique_id=668063283 instance=ExtResource("7_x1u7j")]
+process_mode = 1
+
+[node name="RespawnMenu" parent="." unique_id=711910102 instance=ExtResource("14_7cehy")]

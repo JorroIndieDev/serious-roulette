@@ -4,22 +4,22 @@ class_name MainMenu extends Control
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
 @onready var play_button: TextureButton = $MarginContainer/VBoxContainer/play_button
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var ap: AnimationPlayer = $AnimationPlayer
 
-signal play_pressed
 
 func _ready() -> void:
 	GameManager.main_menu = self
-	connect("play_pressed", GameManager._play_button)
 
 func _on_play_button_pressed() -> void:
 	GlobalAudio.get_node("UI_sounds").play()
-	emit_signal("play_pressed")
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+	GameManager.change_scene(game_scene, false)
 
 func _on_quit_button_pressed() -> void:
 	audio.play()
 	await get_tree().create_timer(0.2).timeout
 	GameManager.quit_game()
-	
 
 func _intro_anim() -> void:
-	pass
+	animation_player.play("fade")

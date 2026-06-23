@@ -119,6 +119,7 @@ visible = false
 shape = SubResource("CircleShape2D_k1j0u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1131235861]
+self_modulate = Color(1.0954857, 1.0954857, 1.0954857, 1)
 scale = Vector2(0.85595703, 0.85595703)
 sprite_frames = SubResource("SpriteFrames_k1j0u")
 autoplay = "default"

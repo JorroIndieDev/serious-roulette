@@ -24,9 +24,11 @@ var leaderboard_track: Dictionary[int,Dictionary] = {}
 func _play_button() -> void:
 	change_scene(main_menu.game_scene)
 
-func change_scene(scene: PackedScene) -> void:
+func change_scene(scene: PackedScene, change_mouse_mode: bool = true) -> void:
+	if get_tree().paused: get_tree().paused = false
 	get_tree().change_scene_to_packed(scene)
-	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)   
+	if change_mouse_mode:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)   
 
 func _player_leveled() -> void:
 	PlayerData.leveled_up = false

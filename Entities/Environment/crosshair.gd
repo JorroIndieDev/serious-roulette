@@ -4,7 +4,7 @@ extends Node2D
 @onready var crosshair_shoot: Sprite2D = $CrosshairShoot
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 	crosshair_normal.visible = true
 	crosshair_shoot.visible = false
 
