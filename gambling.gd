@@ -26,6 +26,10 @@ func show_prize(win_texture : Texture2D, win_title : String, win_desc : String):
 	var desc:Label = $Prize/text/Description
 	#prize.scale = Vector2(0.1,0.1)
 	texture.texture = win_texture
+	texture.size = Vector2(70,70)
+	texture.position = Vector2(70,50)
+	texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	texture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	title.text = win_title
 	desc.text = win_desc
 	prize.visible = true
