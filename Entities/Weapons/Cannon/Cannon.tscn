@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://bhphfar5smof8"]
+
+[ext_resource type="Texture2D" uid="uid://cq41y6dv05cj" path="res://Entities/Particles/smoke.png" id="1_cx1md"]
+[ext_resource type="Texture2D" uid="uid://nlqc8cph5uro" path="res://Entities/Weapons/Cannon/cannon-animated.png" id="2_oh854"]
+
+[sub_resource type="Curve" id="Curve_pruw5"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.68770766, 0.39555264), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_0kvtj"]
+offsets = PackedFloat32Array(0.18909091, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.26657522, 0.2665752, 0.2665752, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjk75"]
+atlas = ExtResource("2_oh854")
+region = Rect2(0, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cgqn"]
+atlas = ExtResource("2_oh854")
+region = Rect2(0, 0, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxxff"]
+atlas = ExtResource("2_oh854")
+region = Rect2(0, 8, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4d5u"]
+atlas = ExtResource("2_oh854")
+region = Rect2(0, 16, 16, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kxg5c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjk75")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cgqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxxff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4d5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxxff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cgqn")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 15.0
+}]
+
+[node name="Cannon" type="Node2D" unique_id=1821837584]
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1870872937]
+unique_name_in_owner = true
+position = Vector2(7.66774, 0.43271255)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Muzzle" unique_id=330844682]
+self_modulate = Color(1.499905, 1.499905, 1.499905, 1)
+position = Vector2(-3.0315552, -0.286541)
+emitting = false
+amount = 50
+texture = ExtResource("1_cx1md")
+lifetime = 0.26
+one_shot = true
+spread = 25.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+angular_velocity_max = 365.9
+damping_max = 10.656
+angle_max = 212.5
+scale_amount_min = 0.0
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_pruw5")
+color_ramp = SubResource("Gradient_0kvtj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1965804364]
+sprite_frames = SubResource("SpriteFrames_kxg5c")
+animation = &"normal"

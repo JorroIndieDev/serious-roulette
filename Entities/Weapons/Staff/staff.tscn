@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cce22qyor71a"]
+
+[ext_resource type="Texture2D" uid="uid://wqairrclr74m" path="res://Entities/Weapons/Staff/staff.png" id="1_57udq"]
+
+[sub_resource type="Curve" id="Curve_513xw"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.69264066, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_i4tr2"]
+offsets = PackedFloat32Array(0, 0.5609756, 0.7268293, 0.9073171)
+colors = PackedColorArray(0.12891915, 0.12819526, 0.6955436, 1, 0.43230915, 0.50146437, 0.92261606, 1, 0.2707354, 0.59308314, 0.978398, 1, 1.92523e-07, 0.48653162, 0.7101418, 1)
+
+[node name="Staff" type="Node2D" unique_id=442753937]
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=939437645]
+unique_name_in_owner = true
+position = Vector2(3.687395, -0.05154705)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Muzzle" unique_id=67321554]
+self_modulate = Color(1.499905, 1.499905, 1.499905, 1)
+emitting = false
+amount = 50
+lifetime = 0.19
+one_shot = true
+spread = 25.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+angular_velocity_max = 365.9
+damping_max = 10.656
+angle_max = 229.3
+scale_amount_min = 0.0
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_513xw")
+color_ramp = SubResource("Gradient_i4tr2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=402322379]
+position = Vector2(-0.054445744, 2.2649765e-06)
+scale = Vector2(0.3383639, 0.30083597)
+texture = ExtResource("1_57udq")
