@@ -8,6 +8,12 @@ class_name GamblingNode extends Control
 
 signal finished_gambling
 
+signal esc_pressed()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel") and get_parent().visible:
+		esc_pressed.emit()
+
 func _ready() -> void:
 	prize.visible = false
 
@@ -24,9 +30,10 @@ func show_prize(win_texture : Texture2D, win_title : String, win_desc : String):
 	var shine:TextureRect =$Prize/Shine
 	var title:Label = $Prize/text/Title
 	var desc:Label = $Prize/text/Description
+	
 	#prize.scale = Vector2(0.1,0.1)
 	texture.texture = win_texture
-	texture.size = Vector2(70,70)
+	texture.size = Vector2(70,70) ##TODO Change ?
 	texture.position = Vector2(70,50)
 	texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	texture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED

@@ -81,8 +81,6 @@ texture = ExtResource("12_4n1d8")
 visible = false
 texture = ExtResource("13_u573t")
 
-[node name="pause_menu" parent="." unique_id=463649552 instance=ExtResource("7_csoal")]
-
 [node name="GamblingUI" type="CanvasLayer" parent="." unique_id=2102500072]
 process_mode = 3
 
@@ -92,3 +90,5 @@ process_mode = 3
 process_mode = 1
 
 [node name="RespawnMenu" parent="." unique_id=711910102 instance=ExtResource("14_7cehy")]
+
+[node name="pause_menu" parent="." unique_id=463649552 instance=ExtResource("7_csoal")]

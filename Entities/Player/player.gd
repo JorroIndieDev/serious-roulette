@@ -129,6 +129,7 @@ func flash_sprite(sprite: Sprite2D, flash_count: int = 1, flash_duration: float 
 func _immunity() -> void:
 	# disable hitboxes && movement
 	set_physics_process(false)
+	set_process_input(false)
 	hit_box_component.monitorable = false
 	hit_box_component.monitoring = false
 	# flash sprite
@@ -136,6 +137,7 @@ func _immunity() -> void:
 	# await timmer timeout
 	await get_tree().create_timer(1.5).timeout
 	# reenable hitboxes && movement
+	set_process_input(true)
 	set_physics_process(true)
 	await get_tree().create_timer(1).timeout
 	hit_box_component.monitorable = true

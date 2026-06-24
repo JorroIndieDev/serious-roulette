@@ -5,6 +5,9 @@ var CoinContainer: Node
 var main_menu: MainMenu
 var _HUD: HUD
 var _RespawnMenu: RespawnMenu 
+var _PauseMenu: PauseMenu
+
+var SubUI_Opened: bool = false
 
 #region Leaderboard content
 var player_id: int = 0
@@ -31,8 +34,8 @@ func change_scene(scene: PackedScene, change_mouse_mode: bool = true) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)   
 
 func _player_leveled() -> void:
+	#PauseManager.set_state(PauseManager.PauseState.PAUSED)
 	PlayerData.leveled_up = false
-	print("Player Leveled")
 
 func spawn_coin(pos: Vector2, coin_val: int = 0) -> void:
 	
@@ -44,12 +47,13 @@ func spawn_coin(pos: Vector2, coin_val: int = 0) -> void:
 	coin.position = pos
 
 func _update_hud_coins(ammount: int) -> void:
-	_HUD._update_coins(ammount)
+	if _HUD:
+		_HUD._update_coins(ammount)
 func _update_hud_points(ammount: int) -> void:
-	_HUD._update_points(ammount)
+	if _HUD:
+		_HUD._update_points(ammount)
 
 func _update_leaderboard() -> void:
-	print(player_name.left(max_name_legth))
 	previews_player_score = player_score
 	if leaderboard_track.is_empty():
 		leaderboard_track[player_id] = {player_name:player_score}
@@ -60,16 +64,25 @@ func _update_leaderboard() -> void:
 
 func player_died() -> void:
 	get_tree().paused = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	_RespawnMenu.visible = true
 
 func _player_respawn() -> void:
 	if get_tree().paused:
 		get_tree().paused = false
 	PlayerData._respawn_player()
+	#_PauseMenu.process_mode = Node.PROCESS_MODE_DISABLED
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
+
 
 func quit_game() -> void:
 	get_tree().quit()
 
+func reset_game() -> void:
+	_update_leaderboard()
+	PlayerData.reset_data()
+	_update_hud_coins(0)
+	_update_hud_points(0)
 
 
 

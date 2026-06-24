@@ -11,23 +11,25 @@ var leveled_up: bool:
 		leveled_up = value
 		if value: emit_signal("_player_leveled")
 
+var _player_points: int = 0
 var player_points: int:
 	set(value): 
-		player_points += value
-		var temp = player_points / level_up_milestone
+		_player_points += value
+		var temp = _player_points / level_up_milestone
 		if temp > level_up_step:
 			level_up_step = temp
 			leveled_up = true
-		emit_signal("points_gained", player_points)
-		print_debug(player_points)
-	get: return player_points
+		emit_signal("points_gained", _player_points)
+		#print_debug(_player_points)
+	get: return _player_points
 
+var _player_coins: int = 0
 var player_coins: int:
 	set(value): 
-		player_coins += value
-		emit_signal("coins_gained", player_coins)
-		print_debug(player_coins)
-	get: return player_coins
+		_player_coins += value
+		emit_signal("coins_gained", _player_coins)
+		#print_debug(_player_coins)
+	get: return _player_coins
 
 var upgrades_list: Array[Upgrade] = []
 
@@ -108,7 +110,13 @@ func _respawn_player() -> void:
 	player_ref._immunity()
 
 
-
+func reset_data() -> void:
+	upgrades_list = []
+	level_up_step = 0
+	leveled_up = false
+	_player_points = 0
+	_player_coins = 0
+	pass
 
 
 #EOF

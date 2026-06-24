@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*uid://cfi4kh8mvyhlw"
+PauseManager="*uid://ckfiacjwgirym"
 PlayerData="*uid://c2uxukglrbmyk"
 UpgradeDB="*uid://cohd2gkan27ts"
 GlobalAudio="*uid://cb6bx56jstjut"

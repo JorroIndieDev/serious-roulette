@@ -34,10 +34,10 @@ func _apply_upgrade(object: Variant) -> void:
 	
 	var bullet: BulletResource = object as BulletResource
 	
-	print_debug("
-	bullet damage: "+str(bullet.bullet_damage)+"\n
-	bullet upgrade: "+str(inc_damage)+"\n 
-	dmg+upgrade: "+str(bullet.bullet_damage+inc_damage))
+	#print_debug("
+	#bullet damage: "+str(bullet.bullet_damage)+"\n
+	#bullet upgrade: "+str(inc_damage)+"\n 
+	#dmg+upgrade: "+str(bullet.bullet_damage+inc_damage))
 	
 	
 	bullet.bullet_damage += inc_damage

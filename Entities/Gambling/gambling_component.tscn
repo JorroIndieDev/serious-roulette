@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ysw4i6ejx6bi" path="res://Entities/Gambling/Prize Wheel/prize_wheel.tscn" id="2_e5k3t"]
 [ext_resource type="PackedScene" uid="uid://k5juvq8egci7" path="res://Entities/Gambling/Slot Machine/slot_machine.tscn" id="3_e3umc"]
 [ext_resource type="Script" uid="uid://bc5ple8gnuaxt" path="res://Entities/Upgrades/Upgrade.gd" id="3_p0klh"]
-[ext_resource type="Texture2D" uid="uid://lxmmpmknyqg6" path="res://Entities/Gambling/Common/Sprites/shine.png" id="4_rcxeg"]
+[ext_resource type="Texture2D" uid="uid://dw2cipnji7gtc" path="res://Entities/Gambling/Common/Sprites/shine.png" id="4_rcxeg"]
 [ext_resource type="AudioStream" uid="uid://t2xnnebmnbxa" path="res://Entities/Gambling/Common/prize.wav" id="6_xjapu"]
 
 [node name="Gambling" type="Control" unique_id=405436325]
