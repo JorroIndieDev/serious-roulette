@@ -16,9 +16,10 @@
 [ext_resource type="Script" uid="uid://b6wpkgaw804js" path="res://Entities/Environment/casino_maker.gd" id="13_4n1d8"]
 [ext_resource type="Texture2D" uid="uid://cuuxn4tsts2uk" path="res://UI/crosshair/Sprites/crosshair-shot.png" id="13_u573t"]
 [ext_resource type="PackedScene" uid="uid://cnk606gocm561" path="res://UI/RespawnMenu/respawn_menu.tscn" id="14_7cehy"]
+[ext_resource type="Script" uid="uid://b4r32eo1q04ud" path="res://Entities/Environment/ArrowPointer.gd" id="17_menmn"]
+[ext_resource type="Texture2D" uid="uid://ktlteof88gt0" path="res://UI/Sprites/arrow.png" id="18_258df"]
 
 [sub_resource type="Environment" id="Environment_csoal"]
-background_mode = 3
 tonemap_mode = 4
 glow_enabled = true
 glow_bloom = 0.2
@@ -61,7 +62,6 @@ enemy_scene = ExtResource("2_fw5fx")
 
 [node name="spawnTimer" type="Timer" parent="EnemySpawner" unique_id=626812308]
 wait_time = 1.5
-autostart = true
 
 [node name="CasinoMaker" type="Node2D" parent="." unique_id=1253271354]
 position = Vector2(-518, -267)
@@ -80,6 +80,17 @@ texture = ExtResource("12_4n1d8")
 [node name="CrosshairShoot" type="Sprite2D" parent="crosshair" unique_id=1932667888]
 visible = false
 texture = ExtResource("13_u573t")
+
+[node name="ArrowPointer" type="CanvasLayer" parent="." unique_id=1320246660 node_paths=PackedStringArray("sprite")]
+script = ExtResource("17_menmn")
+rotation_offset = 0.6
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="ArrowPointer" unique_id=1307362457]
+top_level = true
+z_index = -1
+rotation = -1.0471976
+texture = ExtResource("18_258df")
 
 [node name="GamblingUI" type="CanvasLayer" parent="." unique_id=2102500072]
 process_mode = 3

@@ -1,19 +1,59 @@
 [gd_scene format=3 uid="uid://cim8jli1y73hs"]
 
 [ext_resource type="Texture2D" uid="uid://b7o43k6x2fvpj" path="res://Entities/Environment/tree/Sprites/casino-machine.png" id="1_5qdvr"]
+[ext_resource type="Script" uid="uid://50j0o722mo0k" path="res://Entities/Environment/tree/slot_machine_obj.gd" id="1_dbwsq"]
+[ext_resource type="Texture2D" uid="uid://bgcsl1s6rngoj" path="res://Entities/CoinPickup/light_gradient.tres" id="3_qxpn1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dbwsq"]
 radius = 4.0
 height = 10.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_5qdvr"]
+
 [node name="Tree" type="StaticBody2D" unique_id=587637675]
 collision_layer = 8
 collision_mask = 7
+script = ExtResource("1_dbwsq")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=631147027]
 texture_filter = 1
 texture = ExtResource("1_5qdvr")
 
+[node name="ColorRect" type="ColorRect" parent="Sprite2D" unique_id=408970842]
+visible = false
+self_modulate = Color(1.353256, 1.353256, 1.353256, 1)
+anchors_preset = -1
+anchor_left = 0.312
+anchor_top = 0.312
+anchor_right = 0.68700004
+anchor_bottom = 0.56200004
+offset_left = -7.992
+offset_top = -7.992
+offset_right = -7.9920006
+offset_bottom = -7.9920006
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5358027, 0.7642158, 0.8096305, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=1462633651]
+visible = false
+position = Vector2(-2.3841858e-07, -0.9999997)
+scale = Vector2(0.62500006, 0.546875)
+texture = ExtResource("3_qxpn1")
+texture_scale = 0.1
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1401939110]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_dbwsq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1291483587]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1047523298]
+shape = SubResource("CircleShape2D_5qdvr")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=340667653]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

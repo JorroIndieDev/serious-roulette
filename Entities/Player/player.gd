@@ -48,6 +48,8 @@ func _ready() -> void:
 	
 	health_component.connect("damaged", _damaged)
 	
+	get_parent().player_camera = self.camera
+	
 	if gun_data:
 		PlayerData._change_gun(gun_data)
 

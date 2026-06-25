@@ -5,11 +5,15 @@ extends Node2D
 @onready var gambling: GamblingNode = $GamblingUI/Gambling
 @onready var pause_menu: PauseMenu = $pause_menu
 @onready var respawn_menu: RespawnMenu = $RespawnMenu
+@onready var casino_maker: SlotMachineSpawner = $CasinoMaker
+@onready var arrow_pointer: ArrowPointer = $ArrowPointer
 
+var current_mach: SlotMachineOBJ
+var player_camera: Camera2D
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		PlayerData.leveled_up = true
+	#if event.is_action_pressed("ui_accept"):
+		#PlayerData.leveled_up = true
 	
 	if event.is_action_pressed("ui_cancel"):
 		if PauseManager.respawn_active:
@@ -31,6 +35,7 @@ func _ready() -> void:
 func _level_up_reward() -> void:
 	GameManager.SubUI_Opened = true
 	PauseManager.add_pause_source()
+	_pick_random_slot_machine()
 	gambling_ui.show()
 
 func _back_from_gambling() -> void:
@@ -71,3 +76,33 @@ func _on_pause_menu_quit() -> void:
 
 func _on_gambling_esc_pressed():
 	open_pause_menu()
+
+func _pick_random_slot_machine() -> void:
+	var mach: Node2D = casino_maker.get_children().pick_random() as Node2D
+	if mach is SlotMachineOBJ:
+		if current_mach:
+			current_mach.stop_flicker()
+		current_mach = mach
+		current_mach.turn_on()
+		current_mach.is_chosen = true
+		arrow_pointer.set_target(current_mach)
+
+func chosen_machine_visible(visible: bool) -> void:
+	if visible:
+		arrow_pointer.hide()
+	else:
+		arrow_pointer.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+#EOF
