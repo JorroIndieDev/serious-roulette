@@ -70,7 +70,6 @@ slot_machine_scene = ExtResource("7_epvvo")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=362828517]
 color = Color(0.86234206, 0.64104456, 0.99927324, 1)
-
 [node name="crosshair" type="Node2D" parent="." unique_id=1972867763]
 script = ExtResource("11_4n1d8")
 
