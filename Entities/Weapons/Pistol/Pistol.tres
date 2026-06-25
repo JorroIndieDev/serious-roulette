@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://dmgj08kiyb5bx" path="res://Entities/Weapons/reload.wav" id="3_3oyj8"]
 [ext_resource type="Script" uid="uid://u4ky25ao1wmw" path="res://Entities/Weapons/GunResource.gd" id="3_pn64k"]
 [ext_resource type="AudioStream" uid="uid://d2nqhslsavr0k" path="res://Entities/Weapons/Pistol/pisto-shoot.wav" id="4_5cxc1"]
+[ext_resource type="Texture2D" uid="uid://yc06i3vw627j" path="res://Entities/Weapons/Pistol/pistol.png" id="5_3oyj8"]
 
 [resource]
 script = ExtResource("3_pn64k")
@@ -17,4 +18,5 @@ loaded_bullet = ExtResource("2_meide")
 shot_sound = ExtResource("4_5cxc1")
 reload_sound = ExtResource("3_3oyj8")
 gun_scene = ExtResource("1_pmsk4")
+texture = ExtResource("5_3oyj8")
 metadata/_custom_type_script = "uid://u4ky25ao1wmw"

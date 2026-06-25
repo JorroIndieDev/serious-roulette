@@ -1,4 +1,4 @@
-extends Node2D
+class_name SlotMachineSpawner extends Node2D
 
 @export var slot_machine_scene: PackedScene
 

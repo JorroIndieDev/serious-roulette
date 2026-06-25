@@ -83,7 +83,7 @@ debug_color = Color(0.964333, 0, 0.4962629, 0.41960785)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2055349467]
 limit_enabled = false
 position_smoothing_enabled = true
-position_smoothing_speed = 2.0
+rotation_smoothing_enabled = true
 editor_draw_limits = true
 script = ExtResource("8_7a1se")
 default_strength = 0.3

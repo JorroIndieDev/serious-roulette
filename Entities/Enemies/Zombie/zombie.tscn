@@ -5,11 +5,11 @@
 [ext_resource type="Script" uid="uid://cafqysag83qgy" path="res://Entities/Components/health_component.gd" id="2_1kokx"]
 [ext_resource type="Texture2D" uid="uid://dciknhla6x83b" path="res://Entities/Enemies/Zombie/Sprites/business-1.png" id="2_45ars"]
 [ext_resource type="Script" uid="uid://6bviyqatcafw" path="res://Entities/Weapons/Attack.gd" id="2_unmje"]
-[ext_resource type="LabelSettings" uid="uid://dqbwnlhfqpwhv" path="res://Entities/Weapons/standard_damage_label_settings.tres" id="3_4yx7f"]
+[ext_resource type="LabelSettings" path="res://Entities/Weapons/standard_damage_label_settings.tres" id="3_4yx7f"]
 [ext_resource type="PackedScene" uid="uid://bsnv6acgqi2fe" path="res://Entities/Components/hit_box_component.tscn" id="3_gob2a"]
-[ext_resource type="Texture2D" uid="uid://bcomid08nnsuf" path="res://Entities/Enemies/Zombie/Sprites/business-2.png" id="3_to48s"]
+[ext_resource type="Texture2D" uid="uid://c628dbqpf3fja" path="res://Entities/Enemies/Zombie/Sprites/enemy-3.png" id="3_to48s"]
 [ext_resource type="Script" uid="uid://dfrb5an6t75hv" path="res://Entities/Components/DamageNumberSpawner.gd" id="4_gob2a"]
-[ext_resource type="Texture2D" uid="uid://cep67q8rxgujw" path="res://Entities/Enemies/Zombie/Sprites/business-3.png" id="4_hxgpp"]
+[ext_resource type="Texture2D" uid="uid://0k5dtw6ppk5m" path="res://Entities/Enemies/Zombie/Sprites/enemy-2.png" id="4_hxgpp"]
 [ext_resource type="Shader" uid="uid://bnfe2fmvmb1bk" path="res://Entities/hit_effect.gdshader" id="4_ih2x4"]
 [ext_resource type="Script" uid="uid://b5qwjrl1n3qxg" path="res://Entities/SpriteAnimatino.gd" id="5_rrjk5"]
 [ext_resource type="Texture2D" uid="uid://djulc5p23p3sq" path="res://Entities/Environment/tree/shadow.tres" id="5_to48s"]
@@ -17,7 +17,7 @@
 [sub_resource type="Resource" id="Resource_hxgpp"]
 script = ExtResource("2_unmje")
 attack_damage = 10.0
-knockback_force = 1.0
+knockback_force = 10.0
 metadata/_custom_type_script = "uid://6bviyqatcafw"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_unmje"]
@@ -38,7 +38,7 @@ script = ExtResource("1_a1odr")
 max_speed = 50.0
 hitbox = NodePath("HitBoxComponent")
 attack = SubResource("Resource_hxgpp")
-texture_variants = Array[Texture2D]([ExtResource("2_45ars"), ExtResource("3_to48s"), ExtResource("4_hxgpp")])
+texture_variants = Array[Texture2D]([ExtResource("3_to48s"), ExtResource("4_hxgpp"), ExtResource("1_5rx78")])
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1275849106]
 energy = 0.2

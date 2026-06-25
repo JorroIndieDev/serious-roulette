@@ -1,6 +1,18 @@
 class_name GunResource extends Resource
 
+enum ID {
+	PISTOL,
+	HEAVYPISTOL,
+	CANNON,
+	FLINTLOCK,
+	SHOTGUN,
+	ROCKETLAUNCHER,
+	STAFF,
+	RIFFLE
+}
+
 @export_category("Base stats")
+@export var name: String
 ## Base damage to be multiplied or added to a bullet damage
 @export var base_damage: float
 ## Bullets per second
@@ -29,7 +41,6 @@ var current_ammo: int
 @export_category("Extra resources")
 ## Bullet Resource that the gun will fire
 @export var loaded_bullet: BulletResource
-
 ## Sound of the gun
 @export var shot_sound: AudioStream
 
@@ -41,3 +52,5 @@ var current_ammo: int
 
 ## Gun scene
 @export var gun_scene: PackedScene
+## Gun texture
+@export var texture: Texture2D

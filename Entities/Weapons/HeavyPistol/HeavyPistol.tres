@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://cgrlbpjp51ygy" path="res://Entities/Weapons/Bullets/BasicBullet/basic_bullet.tres" id="2_i5c2x"]
 [ext_resource type="AudioStream" uid="uid://dmgj08kiyb5bx" path="res://Entities/Weapons/reload.wav" id="3_wjilr"]
 [ext_resource type="AudioStream" uid="uid://b0tlce3xaomfb" path="res://Entities/Weapons/HeavyPistol/heavy-pistol-shoot.wav" id="4_i5c2x"]
+[ext_resource type="Texture2D" uid="uid://e0j0aalwlq86" path="res://Entities/Weapons/HeavyPistol/heavy-pistol.png" id="5_wjilr"]
 
 [resource]
 script = ExtResource("1_23wox")
@@ -17,9 +18,13 @@ recoil_angle_degrees = 25.0
 recoil_distance_pixels = 2.0
 recoil_duration = 0.05
 return_duration = 0.1
+max_spread_degrees = null
+spread_increment = null
+spread_decay = null
 spread_degrees = 5.0
 loaded_bullet = ExtResource("2_i5c2x")
 shot_sound = ExtResource("4_i5c2x")
 reload_sound = ExtResource("3_wjilr")
 gun_scene = ExtResource("1_fy7tv")
+texture = ExtResource("5_wjilr")
 metadata/_custom_type_script = "uid://u4ky25ao1wmw"

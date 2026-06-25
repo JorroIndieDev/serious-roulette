@@ -39,10 +39,10 @@ func _apply_upgrade(object: Variant) -> void:
 	
 	var gun: GunResource = object as GunResource
 	
-	print_debug("
-	Gun damage: "+str(gun.base_damage)+"\n
-	Gun upgrade: "+str(inc_base_damage)+"\n 
-	dmg+upgrade: "+str(gun.base_damage+inc_base_damage))
+	#print_debug("
+	#Gun damage: "+str(gun.base_damage)+"\n
+	#Gun upgrade: "+str(inc_base_damage)+"\n 
+	#dmg+upgrade: "+str(gun.base_damage+inc_base_damage))
 	
 	
 	gun.base_damage += inc_base_damage

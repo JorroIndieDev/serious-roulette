@@ -20,5 +20,5 @@ func _stack_upgrade(_u: Upgrade) -> Upgrade:
 	assert(false, "Abstract function")
 	return null
 
-func _apply_upgrade(object: Variant) -> void:
+func _apply_upgrade(_object: Variant) -> void:
 	assert(false, "Abstract function")

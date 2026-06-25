@@ -1,6 +1,6 @@
 class_name PlayerCamera extends Camera2D
 
-const MAX_DISTANCE: int = 40
+const MAX_DISTANCE: int = 15
 
 var target_distance: int = 0
 var center_pos: Vector2 = self.position
@@ -23,9 +23,7 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		target_distance = center_pos.distance_to(get_local_mouse_position())/2
-
-
+		target_distance = center_pos.distance_to(get_local_mouse_position()) / 2
 
 
 func shake(duration: float = default_duration, strength: float = default_strength) -> void:
