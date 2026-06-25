@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bqgq6rspaixdb"]
 
+[ext_resource type="Script" uid="uid://jenyjqddxvlq" path="res://Entities/Weapons/RocketLauncher/rocket_launcher.gd" id="1_lqtm7"]
 [ext_resource type="Texture2D" uid="uid://bwnoaa3gdat2e" path="res://Entities/Weapons/RocketLauncher/rocket-launcher.png" id="1_vshbg"]
 
 [sub_resource type="Curve" id="Curve_lqtm7"]
@@ -10,11 +11,16 @@ point_count = 2
 offsets = PackedFloat32Array(1)
 colors = PackedColorArray(1, 1, 1, 1)
 
-[node name="RocketLauncher" type="Node2D" unique_id=127398463]
+[node name="RocketLauncher" type="Node2D" unique_id=151632652 node_paths=PackedStringArray("gun_sprite_static", "shooting_particle", "muzzle")]
+script = ExtResource("1_lqtm7")
+gun_sprite_static = NodePath("Sprite2D")
+shooting_particle = NodePath("Muzzle/CPUParticles2D")
+muzzle = NodePath("Muzzle")
+metadata/_custom_type_script = "uid://cat6t8wyxdh4s"
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=1031371747]
 unique_name_in_owner = true
-position = Vector2(-4.048609, -0.562521)
+position = Vector2(-9.048609, -0.562521)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Muzzle" unique_id=1252420667]
 self_modulate = Color(1.499905, 1.499905, 1.499905, 1)
@@ -37,6 +43,6 @@ scale_amount_curve = SubResource("Curve_lqtm7")
 color_ramp = SubResource("Gradient_5bpir")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=750933507]
-position = Vector2(-0.0035190582, -0.02430439)
-scale = Vector2(0.39413136, 0.3504182)
+position = Vector2(-0.07853937, -0.08734357)
+scale = Vector2(0.70610595, 0.6277916)
 texture = ExtResource("1_vshbg")

@@ -47,6 +47,8 @@ texture = ExtResource("4_6ml2t")
 sources/0 = SubResource("TileSetAtlasSource_6luuj")
 
 [node name="World" type="StaticBody2D" unique_id=959458457]
+collision_layer = 8
+collision_mask = 3
 script = ExtResource("1_lvqaq")
 
 [node name="Ground-Texture" type="TileMapLayer" parent="." unique_id=1601630502]

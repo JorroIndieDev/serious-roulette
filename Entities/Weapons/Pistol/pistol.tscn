@@ -11,9 +11,11 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.31707317, 0.5609756, 0.7268293, 0.9073171)
 colors = PackedColorArray(1, 1, 1, 1, 0.9886072, 0.4961682, 0.42385334, 1, 0.9960622, 0.66553485, 0.4620641, 1, 0.82021034, 0.4973464, 0.28790146, 1, 0.7258813, 0.31319332, 0, 1)
 
-[node name="Pistol" type="Node2D" unique_id=1346476372 node_paths=PackedStringArray("gun_sprite")]
+[node name="Pistol" type="Node2D" unique_id=1346476372 node_paths=PackedStringArray("gun_sprite_static", "shooting_particle", "muzzle")]
 script = ExtResource("1_mjjjf")
-gun_sprite = NodePath("Icon")
+gun_sprite_static = NodePath("Icon")
+shooting_particle = NodePath("Muzzle/CPUParticles2D2")
+muzzle = NodePath("Muzzle")
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=1316599992]
 unique_name_in_owner = true
@@ -21,7 +23,7 @@ position = Vector2(4, -1)
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="Muzzle" unique_id=1490671486]
 self_modulate = Color(1.499905, 1.499905, 1.499905, 1)
-position = Vector2(-2, 0)
+position = Vector2(-1, 0)
 emitting = false
 amount = 50
 lifetime = 0.05

@@ -1,26 +1,34 @@
 [gd_scene format=3 uid="uid://dsia44156uyxl"]
 
 [ext_resource type="Texture2D" uid="uid://i2guo8o7kjqx" path="res://Entities/Weapons/Flintlock/flintlock-lowres.png" id="1_751ab"]
+[ext_resource type="Script" uid="uid://cat6t8wyxdh4s" path="res://Entities/Weapons/BaseGunClass.gd" id="1_najjr"]
+[ext_resource type="Texture2D" uid="uid://cq41y6dv05cj" path="res://Entities/Particles/smoke.png" id="2_m0rgi"]
 
 [sub_resource type="Curve" id="Curve_najjr"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.69264066, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.21348321), 0.0, 0.0, 0, 0, Vector2(0.6197917, 0.8651686), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_m0rgi"]
 offsets = PackedFloat32Array(0, 0.31707317, 0.49818182, 0.9073171)
 colors = PackedColorArray(1, 1, 1, 1, 0.4745947, 0.07028025, 0.035351556, 1, 0.48665142, 0.22841156, 0.0090056965, 1, 0.07340542, 0.013565514, 7.52043e-09, 1)
 
-[node name="Flintlock" type="Node2D" unique_id=1281927555]
+[node name="Flintlock" type="Node2D" unique_id=377930580 node_paths=PackedStringArray("gun_sprite_static", "shooting_particle", "muzzle")]
+script = ExtResource("1_najjr")
+gun_sprite_static = NodePath("Sprite2D")
+shooting_particle = NodePath("Muzzle/CPUParticles2D")
+muzzle = NodePath("Muzzle")
+metadata/_custom_type_script = "uid://cat6t8wyxdh4s"
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=1222452565]
 unique_name_in_owner = true
-position = Vector2(2.5398312, -0.31578255)
+position = Vector2(4.539831, -0.31578255)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Muzzle" unique_id=819750411]
 self_modulate = Color(1.499905, 1.499905, 1.499905, 1)
-position = Vector2(-1.3162804, 0.07483196)
+position = Vector2(-0.11683464, -0.31659317)
 emitting = false
 amount = 50
+texture = ExtResource("2_m0rgi")
 lifetime = 0.19
 one_shot = true
 spread = 25.0
@@ -31,11 +39,11 @@ angular_velocity_max = 365.9
 damping_max = 10.656
 angle_max = 212.5
 scale_amount_min = 0.0
-scale_amount_max = 1.5
+scale_amount_max = 0.75
 scale_amount_curve = SubResource("Curve_najjr")
 color_ramp = SubResource("Gradient_m0rgi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=698948532]
-position = Vector2(0.005918026, 0.0150932055)
-scale = Vector2(0.3383639, 0.30083597)
+position = Vector2(-0.027758121, 0.00038838387)
+scale = Vector2(0.6649981, 0.5912432)
 texture = ExtResource("1_751ab")

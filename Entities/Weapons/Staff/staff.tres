@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="GunResource" format=3 uid="uid://y8pt10hxo2fn"]
+
+[ext_resource type="Script" uid="uid://u4ky25ao1wmw" path="res://Entities/Weapons/GunResource.gd" id="1_cpwoj"]
+[ext_resource type="PackedScene" uid="uid://cce22qyor71a" path="res://Entities/Weapons/Staff/staff.tscn" id="1_lbsgj"]
+[ext_resource type="Resource" uid="uid://cj8sgeri3855k" path="res://Entities/Weapons/Bullets/Rocket/Rocket.tres" id="2_lbsgj"]
+[ext_resource type="AudioStream" uid="uid://bf0jytlvo8q3f" path="res://Entities/Weapons/Staff/staff.wav" id="4_31mgi"]
+
+[resource]
+script = ExtResource("1_cpwoj")
+base_damage = 20.0
+fire_rate = 4
+base_ammo = 1
+recoil_angle_degrees = 0.0
+recoil_distance_pixels = 1.0
+loaded_bullet = ExtResource("2_lbsgj")
+shot_sound = ExtResource("4_31mgi")
+gun_scene = ExtResource("1_lbsgj")
+metadata/_custom_type_script = "uid://u4ky25ao1wmw"

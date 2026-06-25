@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cce22qyor71a"]
 
 [ext_resource type="Texture2D" uid="uid://wqairrclr74m" path="res://Entities/Weapons/Staff/staff.png" id="1_57udq"]
+[ext_resource type="Script" uid="uid://bf5w6nrqukrqo" path="res://Entities/Weapons/Staff/staff.gd" id="1_513xw"]
 
 [sub_resource type="Curve" id="Curve_513xw"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.69264066, 1), 0.0, 0.0, 0, 0]
@@ -10,7 +11,12 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.5609756, 0.7268293, 0.9073171)
 colors = PackedColorArray(0.12891915, 0.12819526, 0.6955436, 1, 0.43230915, 0.50146437, 0.92261606, 1, 0.2707354, 0.59308314, 0.978398, 1, 1.92523e-07, 0.48653162, 0.7101418, 1)
 
-[node name="Staff" type="Node2D" unique_id=442753937]
+[node name="Staff" type="Node2D" unique_id=359749015 node_paths=PackedStringArray("gun_sprite_static", "shooting_particle", "muzzle")]
+script = ExtResource("1_513xw")
+gun_sprite_static = NodePath("Sprite2D")
+shooting_particle = NodePath("Muzzle/CPUParticles2D")
+muzzle = NodePath("Muzzle")
+metadata/_custom_type_script = "uid://cat6t8wyxdh4s"
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=939437645]
 unique_name_in_owner = true

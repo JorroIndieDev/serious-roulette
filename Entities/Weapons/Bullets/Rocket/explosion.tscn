@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cefxga3letwry"]
+
+[ext_resource type="Script" uid="uid://drkh2g1wu000g" path="res://Entities/Weapons/Bullets/Rocket/explosion.gd" id="1_sgtpj"]
+[ext_resource type="Texture2D" uid="uid://cq41y6dv05cj" path="res://Entities/Particles/smoke.png" id="2_1v4x3"]
+[ext_resource type="AudioStream" uid="uid://decse6x2xn1vq" path="res://Entities/Weapons/Bullets/Rocket/rocket-explode.wav" id="3_f3bqy"]
+
+[sub_resource type="Curve" id="Curve_4qpro"]
+_data = [Vector2(0, 0.9662922), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_sastd"]
+offsets = PackedFloat32Array(0, 0.5180723, 0.813253)
+colors = PackedColorArray(0.8745098, 1, 0, 1, 0.5707621, 0.11045093, 1.4439226e-07, 1, 0.1801427, 0.16726744, 0.15133306, 1)
+
+[node name="Explosion" type="Node2D" unique_id=436188607]
+script = ExtResource("1_sgtpj")
+
+[node name="ExplosionParticles" type="CPUParticles2D" parent="." unique_id=309885931]
+emitting = false
+amount = 50
+texture = ExtResource("2_1v4x3")
+lifetime = 0.71
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.57
+initial_velocity_max = 47.57
+damping_min = 49.515
+damping_max = 79.611
+scale_amount_max = 2.05
+scale_amount_curve = SubResource("Curve_4qpro")
+color_ramp = SubResource("Gradient_sastd")
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="." unique_id=640032011]
+stream = ExtResource("3_f3bqy")

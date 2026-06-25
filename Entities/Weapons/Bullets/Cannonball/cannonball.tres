@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BulletResource" format=3 uid="uid://0cbn04ndbl0s"]
+
+[ext_resource type="Script" uid="uid://bue7151g0fud" path="res://Entities/Weapons/Bullets/BulletResource.gd" id="1_c2fda"]
+[ext_resource type="PackedScene" uid="uid://b5fgd663636gp" path="res://Entities/Weapons/Bullets/Cannonball/Cannonball.tscn" id="1_fib2c"]
+
+[resource]
+script = ExtResource("1_c2fda")
+max_pierce = 1
+knock_back_force = 40
+base_speed = 180.0
+bullet_scene = ExtResource("1_fib2c")
+metadata/_custom_type_script = "uid://bue7151g0fud"

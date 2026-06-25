@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://cvg6bvdhwpg2q" path="res://Entities/Enemies/Zombie/zombie.gd" id="1_a1odr"]
 [ext_resource type="Script" uid="uid://cafqysag83qgy" path="res://Entities/Components/health_component.gd" id="2_1kokx"]
 [ext_resource type="Texture2D" uid="uid://dciknhla6x83b" path="res://Entities/Enemies/Zombie/Sprites/business-1.png" id="2_45ars"]
-[ext_resource type="LabelSettings" uid="uid://dqbwnlhfqpwhv" path="res://Entities/Weapons/standard_damage_label_settings.tres" id="3_4yx7f"]
 [ext_resource type="Script" uid="uid://6bviyqatcafw" path="res://Entities/Weapons/Attack.gd" id="2_unmje"]
+[ext_resource type="LabelSettings" uid="uid://dqbwnlhfqpwhv" path="res://Entities/Weapons/standard_damage_label_settings.tres" id="3_4yx7f"]
 [ext_resource type="PackedScene" uid="uid://bsnv6acgqi2fe" path="res://Entities/Components/hit_box_component.tscn" id="3_gob2a"]
 [ext_resource type="Texture2D" uid="uid://bcomid08nnsuf" path="res://Entities/Enemies/Zombie/Sprites/business-2.png" id="3_to48s"]
 [ext_resource type="Script" uid="uid://dfrb5an6t75hv" path="res://Entities/Components/DamageNumberSpawner.gd" id="4_gob2a"]
@@ -14,10 +14,10 @@
 [ext_resource type="Script" uid="uid://b5qwjrl1n3qxg" path="res://Entities/SpriteAnimatino.gd" id="5_rrjk5"]
 [ext_resource type="Texture2D" uid="uid://djulc5p23p3sq" path="res://Entities/Environment/tree/shadow.tres" id="5_to48s"]
 
-[sub_resource type="Resource" id="Resource_002w2"]
+[sub_resource type="Resource" id="Resource_hxgpp"]
 script = ExtResource("2_unmje")
 attack_damage = 10.0
-knockback_force = 25.0
+knockback_force = 1.0
 metadata/_custom_type_script = "uid://6bviyqatcafw"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_unmje"]
@@ -37,6 +37,7 @@ motion_mode = 1
 script = ExtResource("1_a1odr")
 max_speed = 50.0
 hitbox = NodePath("HitBoxComponent")
+attack = SubResource("Resource_hxgpp")
 texture_variants = Array[Texture2D]([ExtResource("2_45ars"), ExtResource("3_to48s"), ExtResource("4_hxgpp")])
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1275849106]
@@ -44,7 +45,6 @@ energy = 0.2
 blend_mode = 1
 texture = ExtResource("5_to48s")
 texture_scale = 0.1
-attack = SubResource("Resource_002w2")
 
 [node name="DamageNumberSpawner" type="Node2D" parent="." unique_id=883605978]
 script = ExtResource("4_gob2a")

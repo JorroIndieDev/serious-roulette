@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="GunResource" format=3 uid="uid://bca5s574r1q2p"]
+
+[ext_resource type="Script" uid="uid://u4ky25ao1wmw" path="res://Entities/Weapons/GunResource.gd" id="1_kj1bb"]
+[ext_resource type="PackedScene" uid="uid://bd5au76s6u2m3" path="res://Entities/Weapons/Shotgun/Shotgun.tscn" id="1_tp0gh"]
+[ext_resource type="Resource" uid="uid://cgrlbpjp51ygy" path="res://Entities/Weapons/Bullets/BasicBullet/basic_bullet.tres" id="2_o1h8p"]
+[ext_resource type="AudioStream" uid="uid://dmgj08kiyb5bx" path="res://Entities/Weapons/reload.wav" id="3_qi6sv"]
+[ext_resource type="AudioStream" uid="uid://dkqct7q0nlu88" path="res://Entities/Weapons/Shotgun/shotgun-shoot.wav" id="5_7c446"]
+
+[resource]
+script = ExtResource("1_kj1bb")
+base_damage = 5.0
+fire_rate = 3
+base_ammo = 1
+reload_time = 1.0
+gun_strength = 1.0
+spread_degrees = 45.0
+loaded_bullet = ExtResource("2_o1h8p")
+shot_sound = ExtResource("5_7c446")
+reload_sound = ExtResource("3_qi6sv")
+gun_scene = ExtResource("1_tp0gh")
+metadata/_custom_type_script = "uid://u4ky25ao1wmw"

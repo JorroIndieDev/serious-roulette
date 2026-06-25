@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bd5au76s6u2m3"]
 
+[ext_resource type="Script" uid="uid://dbprfhpx3ocnc" path="res://Entities/Weapons/Shotgun/shotgun.gd" id="1_uoema"]
 [ext_resource type="Texture2D" uid="uid://c8gjvngtr318t" path="res://Entities/Weapons/Shotgun/shotgun.png" id="1_wpur8"]
 
 [sub_resource type="Curve" id="Curve_uoema"]
@@ -10,7 +11,13 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.31707317, 0.5609756, 0.7268293, 0.9073171)
 colors = PackedColorArray(1, 1, 1, 1, 0.9886072, 0.4961682, 0.42385334, 1, 0.9960622, 0.66553485, 0.4620641, 1, 0.82021034, 0.4973464, 0.28790146, 1, 0.7258813, 0.31319332, 0, 1)
 
-[node name="Shotgun" type="Node2D" unique_id=1628112484]
+[node name="Shotgun" type="Node2D" unique_id=30276001 node_paths=PackedStringArray("gun_sprite_static", "shooting_particle", "muzzle")]
+script = ExtResource("1_uoema")
+bullet_amount = 5
+gun_sprite_static = NodePath("Sprite2D")
+shooting_particle = NodePath("Muzzle/CPUParticles2D")
+muzzle = NodePath("Muzzle")
+metadata/_custom_type_script = "uid://cat6t8wyxdh4s"
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=1502904545]
 unique_name_in_owner = true

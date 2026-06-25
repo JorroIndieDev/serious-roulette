@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bhphfar5smof8"]
 
 [ext_resource type="Texture2D" uid="uid://cq41y6dv05cj" path="res://Entities/Particles/smoke.png" id="1_cx1md"]
+[ext_resource type="Script" uid="uid://cqjqt8m6r858f" path="res://Entities/Weapons/Cannon/cannon.gd" id="1_oh854"]
 [ext_resource type="Texture2D" uid="uid://nlqc8cph5uro" path="res://Entities/Weapons/Cannon/cannon-animated.png" id="2_oh854"]
 
 [sub_resource type="Curve" id="Curve_pruw5"]
@@ -11,27 +12,27 @@ point_count = 2
 offsets = PackedFloat32Array(0.18909091, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.26657522, 0.2665752, 0.2665752, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_oh854"]
+atlas = ExtResource("2_oh854")
+region = Rect2(0, 0, 16, 8)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_rjk75"]
-atlas = ExtResource("2_oh854")
-region = Rect2(0, 0, 16, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6cgqn"]
-atlas = ExtResource("2_oh854")
-region = Rect2(0, 0, 16, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mxxff"]
-atlas = ExtResource("2_oh854")
-region = Rect2(0, 8, 16, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f4d5u"]
 atlas = ExtResource("2_oh854")
 region = Rect2(0, 16, 16, 8)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_kxg5c"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kvtj"]
+atlas = ExtResource("2_oh854")
+region = Rect2(0, 8, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pruw5"]
+atlas = ExtResource("2_oh854")
+region = Rect2(0, 0, 16, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6cgqn"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rjk75")
+"texture": SubResource("AtlasTexture_oh854")
 }],
 "loop": true,
 "name": &"normal",
@@ -39,26 +40,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6cgqn")
+"texture": SubResource("AtlasTexture_rjk75")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mxxff")
+"texture": SubResource("AtlasTexture_0kvtj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f4d5u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mxxff")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6cgqn")
+"texture": SubResource("AtlasTexture_pruw5")
 }],
-"loop": true,
+"loop": false,
 "name": &"shoot",
-"speed": 15.0
+"speed": 5.0
 }]
 
-[node name="Cannon" type="Node2D" unique_id=1821837584]
+[node name="Cannon" type="Node2D" unique_id=951089590 node_paths=PackedStringArray("gun_sprite_animated", "shooting_particle", "muzzle")]
+script = ExtResource("1_oh854")
+gun_sprite_animated = NodePath("Sprite2D")
+shooting_particle = NodePath("Muzzle/CPUParticles2D")
+muzzle = NodePath("Muzzle")
+metadata/_custom_type_script = "uid://cat6t8wyxdh4s"
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=1870872937]
 unique_name_in_owner = true
@@ -84,6 +84,10 @@ scale_amount_max = 1.5
 scale_amount_curve = SubResource("Curve_pruw5")
 color_ramp = SubResource("Gradient_0kvtj")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1965804364]
-sprite_frames = SubResource("SpriteFrames_kxg5c")
-animation = &"normal"
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=151219263]
+sprite_frames = SubResource("SpriteFrames_6cgqn")
+animation = &"shoot"
+frame = 2
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]

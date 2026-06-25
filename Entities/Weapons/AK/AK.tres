@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="GunResource" format=3 uid="uid://iuguev1b64bm"]
+
+[ext_resource type="Script" uid="uid://u4ky25ao1wmw" path="res://Entities/Weapons/GunResource.gd" id="1_8uru5"]
+[ext_resource type="PackedScene" uid="uid://dkmdjnohs2ggt" path="res://Entities/Weapons/AK/AK.tscn" id="1_yv2y2"]
+[ext_resource type="Resource" uid="uid://cgrlbpjp51ygy" path="res://Entities/Weapons/Bullets/BasicBullet/basic_bullet.tres" id="2_hvi0y"]
+[ext_resource type="AudioStream" uid="uid://dmgj08kiyb5bx" path="res://Entities/Weapons/reload.wav" id="3_xul7h"]
+[ext_resource type="AudioStream" uid="uid://cteeh4hogm4qy" path="res://Entities/Weapons/AK/ak-shoot.wav" id="5_j2k4n"]
+
+[resource]
+script = ExtResource("1_8uru5")
+base_damage = 10.0
+fire_rate = 15
+base_ammo = 32
+reload_time = 1.0
+recoil_distance_pixels = 1.0
+recoil_duration = 0.05
+return_duration = 0.1
+spread_degrees = 5.0
+loaded_bullet = ExtResource("2_hvi0y")
+shot_sound = ExtResource("5_j2k4n")
+reload_sound = ExtResource("3_xul7h")
+gun_scene = ExtResource("1_yv2y2")
+metadata/_custom_type_script = "uid://u4ky25ao1wmw"

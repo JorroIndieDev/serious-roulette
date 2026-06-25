@@ -11,9 +11,9 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.31707317, 0.5609756, 0.7268293, 0.9073171)
 colors = PackedColorArray(1, 1, 1, 1, 0.9886072, 0.4961682, 0.42385334, 1, 0.9960622, 0.66553485, 0.4620641, 1, 0.82021034, 0.4973464, 0.28790146, 1, 0.7258813, 0.31319332, 0, 1)
 
-[node name="HeavyPistol" type="Node2D" unique_id=2106572378 node_paths=PackedStringArray("gun_sprite", "shooting_particle", "muzzle")]
+[node name="HeavyPistol" type="Node2D" unique_id=2106572378 node_paths=PackedStringArray("gun_sprite_static", "shooting_particle", "muzzle")]
 script = ExtResource("1_m838o")
-gun_sprite = NodePath("Sprite2D")
+gun_sprite_static = NodePath("Sprite2D")
 shooting_particle = NodePath("Muzzle/CPUParticles2D")
 muzzle = NodePath("Muzzle")
 

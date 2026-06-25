@@ -1,6 +1,7 @@
 class_name BaseGun extends Node2D
 
-@export var gun_sprite: Sprite2D
+@export var gun_sprite_static: Sprite2D
+@export var gun_sprite_animated: AnimatedSprite2D
 @export var shooting_particle: CPUParticles2D
 @export var muzzle: Marker2D
 var gun_pivot: Marker2D
@@ -9,8 +10,14 @@ var gun_data: GunResource
 var _shot_timer: Timer
 var _reload_timer: Timer
 var _is_reloading: bool = false  
+var gun_sprite
 
 func _ready() -> void:
+	if gun_sprite_static != null:
+		gun_sprite = gun_sprite_static
+	elif gun_sprite_animated != null:
+		gun_sprite = gun_sprite_animated
+		gun_sprite_animated.play("normal")
 	# Create the timer node
 	_shot_timer = Timer.new()
 	_shot_timer.one_shot = true          # auto-stop after firing
@@ -50,10 +57,10 @@ func try_reload() -> bool:
 		return false   # already full
 	#if gun_data.reserve_ammo <= 0:
 		#return false   # no spare ammo
-
 	_is_reloading = true
 	_reload_timer.wait_time = _get_reload_time()
 	_reload_timer.start()
+	play_sound(gun_data.reload_sound)
 	# Optionally play reload animation/sound
 	return true
 
@@ -62,10 +69,7 @@ func try_shoot() -> bool:
 	# Can't shoot if reloading or ammo empty
 	if _is_reloading:
 		return false
-	if gun_data == null or gun_data.current_ammo <= 0:
-		# Auto‑reload when empty (optional)
-		try_reload()
-		return false
+	
 
 	# Cooldown check
 	if _shot_timer.time_left > 0.0:
@@ -77,14 +81,18 @@ func try_shoot() -> bool:
 	# Start shot cooldown
 	_shot_timer.wait_time = _get_fire_delay()
 	_shot_timer.start()
-
+	
 	# Perform the actual shooting (implemented in child)
 	_shoot()
+	if gun_data == null or gun_data.current_ammo <= 0:
+		try_reload()
 	return true
 
 func _shoot() -> void:
 	var bullet_data := _apply_bullet_modifiers(gun_data.loaded_bullet)
 	var bullet: BaseBullet = bullet_data.bullet_scene.instantiate()
+	if "isRocket" in bullet:
+		bullet.isRocket = gun_data.is_rocket
 	bullet.bullet_resource = bullet_data
 	bullet.attack = _calculate_attack(bullet_data)
 
@@ -108,13 +116,13 @@ func _shoot() -> void:
 	# Visual recoil (your existing method)
 	_apply_recoil()
 
-	play_shoot_sound(gun_data.shot_sound)
+	play_sound(gun_data.shot_sound)
 	
 	bullet.direction = gun_pivot.global_position.direction_to(get_global_mouse_position())
 	bullet.position = %Muzzle.global_position
 	bullet.rotation = %Muzzle.global_rotation
 	
-func play_shoot_sound(stream: AudioStream) -> void:
+func play_sound(stream: AudioStream) -> void:
 	if not stream:
 		return
 	

@@ -1,10 +1,27 @@
 [gd_scene format=3 uid="uid://bsa1np01webv0"]
 
+[ext_resource type="Script" uid="uid://da07s2ovhmoso" path="res://Entities/Weapons/Bullets/Rocket/rocket.gd" id="1_1bw3w"]
 [ext_resource type="PackedScene" uid="uid://bsnv6acgqi2fe" path="res://Entities/Components/hit_box_component.tscn" id="1_rvm5c"]
+[ext_resource type="PackedScene" uid="uid://cefxga3letwry" path="res://Entities/Weapons/Bullets/Rocket/explosion.tscn" id="2_1bw3w"]
 [ext_resource type="Texture2D" uid="uid://1tmk6of5s0qd" path="res://Entities/Weapons/Sprites/rocket.png" id="2_esdbd"]
+[ext_resource type="AudioStream" uid="uid://cp07obyma4tct" path="res://Entities/Weapons/Bullets/Rocket/fireball-explosion.wav" id="4_cirpd"]
+[ext_resource type="AudioStream" uid="uid://cb7dobhjamx0j" path="res://Entities/Weapons/Bullets/Rocket/rocket-explode.wav" id="5_ehwm5"]
+[ext_resource type="Texture2D" uid="uid://cjlyrfy6tjc5a" path="res://Entities/Weapons/Sprites/fireball.png" id="6_4iy7y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bw3w"]
 size = Vector2(2, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0w5ky"]
+atlas = ExtResource("6_4iy7y")
+region = Rect2(0, 0, 24, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmxic"]
+atlas = ExtResource("6_4iy7y")
+region = Rect2(0, 9, 24, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bqhf"]
+atlas = ExtResource("6_4iy7y")
+region = Rect2(0, 18, 24, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ehwm5"]
 atlas = ExtResource("2_esdbd")
@@ -18,17 +35,40 @@ region = Rect2(0, 7, 20, 7)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_0w5ky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmxic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bqhf")
+}],
+"loop": true,
+"name": &"fireball",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ehwm5")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3h0ah")
 }],
 "loop": true,
-"name": &"fly",
+"name": &"rocket",
 "speed": 8.0
 }]
 
-[node name="Rocket" type="Node2D" unique_id=642309105]
+[node name="Rocket" type="Node2D" unique_id=1809457442 node_paths=PackedStringArray("hitbox", "timer", "visible_on_screen_notifier_2d")]
+z_index = -1
+script = ExtResource("1_1bw3w")
+explosion = ExtResource("2_1bw3w")
+rocketBoom = ExtResource("5_ehwm5")
+fireballBoom = ExtResource("4_cirpd")
+hitbox = NodePath("HitBoxComponent")
+timer = NodePath("VisibleOnScreenNotifier2D/Timer")
+visible_on_screen_notifier_2d = NodePath("VisibleOnScreenNotifier2D")
+metadata/_custom_type_script = "uid://ia5lwuttkmj0"
 
 [node name="HitBoxComponent" parent="." unique_id=390649418 instance=ExtResource("1_rvm5c")]
 collision_layer = 1
@@ -39,9 +79,9 @@ shape = SubResource("RectangleShape2D_1bw3w")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=989455035]
 sprite_frames = SubResource("SpriteFrames_cirpd")
-animation = &"fly"
-autoplay = "fly"
-frame_progress = 0.09045584
+animation = &"fireball"
+frame = 2
+frame_progress = 0.95437497
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=897127764]
 
