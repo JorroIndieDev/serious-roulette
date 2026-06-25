@@ -48,8 +48,6 @@ func _ready() -> void:
 	
 	health_component.connect("damaged", _damaged)
 	
-	get_parent().player_camera = self.camera
-	
 	if gun_data:
 		PlayerData._change_gun(gun_data)
 
@@ -82,6 +80,7 @@ func _movement(delta: float) -> void:
 		velocity = velocity.move_toward(Vector2.ZERO, stats.friction * delta)
 
 func _gun_movement() -> void:
+	if !gun_data: return
 	var mouse_direction := GunPivot.global_position.direction_to(get_global_mouse_position())
 	GunAnchor.global_position = GunPivot.global_position + mouse_direction * gun_hold_distance
 	if mouse_direction.x <= 0:

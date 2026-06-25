@@ -34,6 +34,7 @@ scale = Vector2(2.925, 2.925)
 gambling_node = NodePath("..")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=85783609]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

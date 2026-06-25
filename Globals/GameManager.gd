@@ -5,7 +5,6 @@ var CoinContainer: Node
 var main_menu: MainMenu
 var _HUD: HUD
 var _RespawnMenu: RespawnMenu 
-var _PauseMenu: PauseMenu
 
 var SubUI_Opened: bool = false
 

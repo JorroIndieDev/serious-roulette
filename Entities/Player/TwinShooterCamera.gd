@@ -23,7 +23,7 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		target_distance = center_pos.distance_to(get_local_mouse_position())/2
+		target_distance = center_pos.distance_to(get_local_mouse_position()) / 2
 
 
 func shake(duration: float = default_duration, strength: float = default_strength) -> void:

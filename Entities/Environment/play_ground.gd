@@ -9,12 +9,16 @@ extends Node2D
 @onready var arrow_pointer: ArrowPointer = $ArrowPointer
 
 var current_mach: SlotMachineOBJ
-var player_camera: Camera2D
+var player_near_mach: bool
 
 func _input(event: InputEvent) -> void:
 	#if event.is_action_pressed("ui_accept"):
 		#PlayerData.leveled_up = true
-	
+	if event.is_action_pressed("interact"):
+		if player_near_mach:
+			_gamble_for_weapon()
+			arrow_pointer.clear_target()
+			current_mach.turn_off()
 	if event.is_action_pressed("ui_cancel"):
 		if PauseManager.respawn_active:
 			return
@@ -32,11 +36,18 @@ func _ready() -> void:
 	pause_menu.connect("continue_pressed", _on_pause_menu_continue)
 	respawn_menu.connect("respawn_pressed", close_respawn_menu)
 
+func _gamble_for_weapon() -> void:
+	GameManager.SubUI_Opened = true
+	PauseManager.add_pause_source()
+	gambling_ui.show()
+	gambling._spin_slot_machine()
+
 func _level_up_reward() -> void:
 	GameManager.SubUI_Opened = true
 	PauseManager.add_pause_source()
 	_pick_random_slot_machine()
 	gambling_ui.show()
+	gambling._spin_prize_wheel()
 
 func _back_from_gambling() -> void:
 	GameManager.SubUI_Opened = false
@@ -81,16 +92,16 @@ func _pick_random_slot_machine() -> void:
 	var mach: Node2D = casino_maker.get_children().pick_random() as Node2D
 	if mach is SlotMachineOBJ:
 		if current_mach:
-			current_mach.stop_flicker()
+			current_mach.turn_off()
 		current_mach = mach
 		current_mach.turn_on()
 		current_mach.is_chosen = true
 		arrow_pointer.set_target(current_mach)
 
-func chosen_machine_visible(visible: bool) -> void:
-	if visible:
+func chosen_machine_visible(_visible: bool) -> void:
+	if _visible and arrow_pointer._target:
 		arrow_pointer.hide()
-	else:
+	elif arrow_pointer._target:
 		arrow_pointer.show()
 
 

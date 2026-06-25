@@ -25,6 +25,13 @@ func _on_button_2_pressed() -> void:
 	slot_machine.spin()
 	buttons.visible = false
 
+func _spin_slot_machine() -> void:
+	slot_machine.spin()
+
+func _spin_prize_wheel() -> void:
+	prize_wheel.spin()
+
+
 func show_prize(win_texture : Texture2D, win_title : String, win_desc : String):
 	var texture:TextureRect = $Prize/Prize
 	var shine:TextureRect =$Prize/Shine
@@ -47,5 +54,5 @@ func show_prize(win_texture : Texture2D, win_title : String, win_desc : String):
 	
 	await get_tree().create_timer(1.5).timeout
 	prize.visible = false
-	buttons.visible = true
+	#buttons.visible = true
 	finished_gambling.emit()

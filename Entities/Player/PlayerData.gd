@@ -57,7 +57,11 @@ func _change_gun(gun: GunResource) -> void:
 	player_ref.equiped_gun = gun.gun_scene.instantiate()
 	player_ref.equiped_gun.setup(gun)
 	player_ref.equiped_gun.gun_pivot = player_ref.GunPivot
-	player_ref.GunAnchor.add_child(player_ref.equiped_gun)
+	var _g
+	if player_ref.GunAnchor.get_children().size() >= 1:
+		_g = player_ref.GunAnchor.get_child(0)
+		player_ref.GunAnchor.remove_child(_g)
+	player_ref.GunAnchor.call_deferred("add_child", player_ref.equiped_gun)
 
 func _append_upgrade(upgrade: Upgrade) -> void:
 	# 1. Duplicate the DB resource immediately so we don't mutate the original.

@@ -3,9 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://c0itn8wyh7o38" path="res://Entities/Weapons/Sprites/gun.png" id="1_kl2qt"]
 [ext_resource type="Script" uid="uid://bqq3pifvwht4y" path="res://Entities/Weapons/Pistol/pistol.gd" id="1_mjjjf"]
 
-[node name="Pistol" type="Node2D" unique_id=1346476372 node_paths=PackedStringArray("gun_sprite")]
+[node name="Pistol" type="Node2D" unique_id=1346476372 node_paths=PackedStringArray("gun_sprite", "shooting_particle", "muzzle")]
 script = ExtResource("1_mjjjf")
 gun_sprite = NodePath("Icon")
+shooting_particle = NodePath("Muzzle/CPUParticles2D")
+muzzle = NodePath("Muzzle")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=168221217]
 texture = ExtResource("1_kl2qt")
@@ -14,5 +16,7 @@ texture = ExtResource("1_kl2qt")
 unique_name_in_owner = true
 position = Vector2(4, -1)
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1158335056]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Muzzle" unique_id=1158335056]
+position = Vector2(-4, 1)
+emitting = false
 gravity = Vector2(-980, 0)

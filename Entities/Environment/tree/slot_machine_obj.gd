@@ -1,9 +1,5 @@
 class_name SlotMachineOBJ extends StaticBody2D
 
-
-@onready var color_rect: ColorRect = $Sprite2D/ColorRect
-@onready var point_light: PointLight2D = $Sprite2D/PointLight2D
-
 @export var min_energy : float = 0.6
 @export var max_energy : float = 1.0
 @export var flicker_speed : float = 60.0   # base frequency (Hz)
@@ -11,6 +7,10 @@ class_name SlotMachineOBJ extends StaticBody2D
 # For colour shifts
 @export var min_temperature : float = 0.9   # 1.0 = neutral, lower = warmer?
 @export var max_temperature : float = 1.1
+
+@onready var color_rect: ColorRect = $Sprite2D/ColorRect
+@onready var point_light: PointLight2D = $Sprite2D/PointLight2D
+@onready var area_2d: Area2D = $Area2D
 
 var rng = RandomNumberGenerator.new()
 var tween : Tween
@@ -25,16 +25,22 @@ signal visible_machine(visible: bool)
 func _ready() -> void:
 	current_scene = get_parent().get_parent() # Not a good way but works
 	connect("visible_machine", current_scene.chosen_machine_visible)
+	area_2d.set_deferred("monitorable", false)
+	area_2d.set_deferred("monitoring", false)
 	rng.randomize()
 
 func turn_on() -> void:
 	color_rect.show()
 	point_light.show()
+	area_2d.set_deferred("monitorable", true)
+	area_2d.set_deferred("monitoring", true)
 	start_flicker()
 
 func turn_off() -> void:
 	color_rect.hide()
 	point_light.hide()
+	area_2d.set_deferred("monitorable", false)
+	area_2d.set_deferred("monitoring", false)
 	stop_flicker()
 
 func start_flicker():
@@ -100,20 +106,21 @@ func _temperature_to_color(temp : float) -> Color:
 func _exit_tree():
 	stop_flicker()
 
-
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	if is_chosen:
 		visible_machine.emit(true)
-
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	if is_chosen:
 		visible_machine.emit(false)
 
+func _on_area_2d_body_entered(_body: Node2D) -> void:
+	if _body is Player:
+		current_scene.player_near_mach = true
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
-
+func _on_area_2d_body_exited(_body: Node2D) -> void:
+	if _body is Player:
+		current_scene.player_near_mach = false
 
 
 

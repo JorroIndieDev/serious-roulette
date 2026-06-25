@@ -4,7 +4,7 @@ signal continue_pressed()
 
 @onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	#if event.is_action_pressed("ui_cancel"):
 		## If respawn is active, do nothing (shouldn't happen, but safety)
 		#if PauseManager.respawn_active:
@@ -14,7 +14,7 @@ func _input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	hide()
-	GameManager._PauseMenu = self
+	#GameManager._PauseMenu = self
 	pass
 
 func _on_continue_pressed() -> void:

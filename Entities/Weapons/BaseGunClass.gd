@@ -111,8 +111,8 @@ func _shoot() -> void:
 	play_shoot_sound(gun_data.shot_sound)
 	
 	bullet.direction = gun_pivot.global_position.direction_to(get_global_mouse_position())
-	bullet.position = %Muzzle.global_position
-	bullet.rotation = %Muzzle.global_rotation
+	bullet.position = muzzle.global_position
+	bullet.rotation = muzzle.global_rotation
 	
 func play_shoot_sound(stream: AudioStream) -> void:
 	if not stream:
