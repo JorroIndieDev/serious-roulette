@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="GunResource" format=3 uid="uid://bn2r12evh5mn0"]
+
+[ext_resource type="PackedScene" uid="uid://dsia44156uyxl" path="res://Entities/Weapons/Flintlock/flintlock.tscn" id="1_1r3r1"]
+[ext_resource type="Script" uid="uid://u4ky25ao1wmw" path="res://Entities/Weapons/GunResource.gd" id="1_vu6my"]
+[ext_resource type="Resource" uid="uid://cgrlbpjp51ygy" path="res://Entities/Weapons/Bullets/BasicBullet/basic_bullet.tres" id="2_owbs1"]
+[ext_resource type="AudioStream" uid="uid://dmgj08kiyb5bx" path="res://Entities/Weapons/reload.wav" id="3_7fsop"]
+[ext_resource type="AudioStream" uid="uid://b8xjwvny2bgjk" path="res://Entities/Weapons/Flintlock/Flintlock-shoot.wav" id="5_q0u67"]
+
+[resource]
+script = ExtResource("1_vu6my")
+base_damage = 25.0
+fire_rate = 4
+base_ammo = 1
+reload_time = 1.0
+gun_strength = 1.5
+recoil_distance_pixels = 2.0
+spread_degrees = 2.5
+loaded_bullet = ExtResource("2_owbs1")
+shot_sound = ExtResource("5_q0u67")
+reload_sound = ExtResource("3_7fsop")
+gun_scene = ExtResource("1_1r3r1")
+metadata/_custom_type_script = "uid://u4ky25ao1wmw"

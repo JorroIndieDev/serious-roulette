@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bqgq6rspaixdb"]
+
+[ext_resource type="Script" uid="uid://jenyjqddxvlq" path="res://Entities/Weapons/RocketLauncher/rocket_launcher.gd" id="1_lqtm7"]
+[ext_resource type="Texture2D" uid="uid://bwnoaa3gdat2e" path="res://Entities/Weapons/RocketLauncher/rocket-launcher.png" id="1_vshbg"]
+
+[sub_resource type="Curve" id="Curve_lqtm7"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.69264066, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_5bpir"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[node name="RocketLauncher" type="Node2D" unique_id=151632652 node_paths=PackedStringArray("gun_sprite_static", "shooting_particle", "muzzle")]
+script = ExtResource("1_lqtm7")
+gun_sprite_static = NodePath("Sprite2D")
+shooting_particle = NodePath("Muzzle/CPUParticles2D")
+muzzle = NodePath("Muzzle")
+metadata/_custom_type_script = "uid://cat6t8wyxdh4s"
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1031371747]
+unique_name_in_owner = true
+position = Vector2(-9.048609, -0.562521)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Muzzle" unique_id=1252420667]
+self_modulate = Color(1.499905, 1.499905, 1.499905, 1)
+rotation = 3.1415927
+emitting = false
+amount = 50
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.71
+spread = 25.0
+gravity = Vector2(0, -126.095)
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+angular_velocity_max = 365.9
+damping_max = 10.656
+angle_max = 212.5
+scale_amount_min = 0.0
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_lqtm7")
+color_ramp = SubResource("Gradient_5bpir")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=750933507]
+position = Vector2(-0.07853937, -0.08734357)
+scale = Vector2(0.70610595, 0.6277916)
+texture = ExtResource("1_vshbg")

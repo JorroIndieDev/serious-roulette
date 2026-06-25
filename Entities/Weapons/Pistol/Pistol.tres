@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bhf6rlpaq2rph" path="res://Entities/Weapons/Pistol/pistol.tscn" id="1_pmsk4"]
 [ext_resource type="Resource" uid="uid://cgrlbpjp51ygy" path="res://Entities/Weapons/Bullets/BasicBullet/basic_bullet.tres" id="2_meide"]
+[ext_resource type="AudioStream" uid="uid://dmgj08kiyb5bx" path="res://Entities/Weapons/reload.wav" id="3_3oyj8"]
 [ext_resource type="Script" uid="uid://u4ky25ao1wmw" path="res://Entities/Weapons/GunResource.gd" id="3_pn64k"]
 [ext_resource type="AudioStream" uid="uid://d2nqhslsavr0k" path="res://Entities/Weapons/Pistol/pisto-shoot.wav" id="4_5cxc1"]
 [ext_resource type="Texture2D" uid="uid://yc06i3vw627j" path="res://Entities/Weapons/Pistol/pistol.png" id="5_3oyj8"]
@@ -12,8 +13,10 @@ base_damage = 10.0
 fire_rate = 5
 base_ammo = 15
 reload_time = 0.5
+recoil_distance_pixels = 1.0
 loaded_bullet = ExtResource("2_meide")
 shot_sound = ExtResource("4_5cxc1")
+reload_sound = ExtResource("3_3oyj8")
 gun_scene = ExtResource("1_pmsk4")
 texture = ExtResource("5_3oyj8")
 metadata/_custom_type_script = "uid://u4ky25ao1wmw"

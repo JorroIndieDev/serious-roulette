@@ -43,6 +43,13 @@ var current_ammo: int
 @export var loaded_bullet: BulletResource
 ## Sound of the gun
 @export var shot_sound: AudioStream
+
+## Sound of reload
+@export var reload_sound: AudioStream
+
+## Is a rocket?
+@export var is_rocket: bool
+
 ## Gun scene
 @export var gun_scene: PackedScene
 ## Gun texture
