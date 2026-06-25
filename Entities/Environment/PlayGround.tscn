@@ -62,6 +62,7 @@ enemy_scene = ExtResource("2_fw5fx")
 
 [node name="spawnTimer" type="Timer" parent="EnemySpawner" unique_id=626812308]
 wait_time = 1.5
+autostart = true
 
 [node name="CasinoMaker" type="Node2D" parent="." unique_id=1253271354]
 position = Vector2(-518, -267)
