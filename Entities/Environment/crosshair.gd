@@ -8,7 +8,7 @@ func _ready() -> void:
 	crosshair_normal.visible = true
 	crosshair_shoot.visible = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	global_position = get_global_mouse_position()
 
 func _input(event):

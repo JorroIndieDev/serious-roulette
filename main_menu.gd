@@ -14,6 +14,7 @@ func _ready() -> void:
 func _on_play_button_pressed() -> void:
 	GlobalAudio.get_node("UI_sounds").play()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+	GameManager.reset_game()
 	GameManager.change_scene(game_scene, false)
 
 func _on_quit_button_pressed() -> void:

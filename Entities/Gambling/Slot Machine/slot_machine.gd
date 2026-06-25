@@ -1,6 +1,6 @@
 extends Node2D
 
-signal prize_won(reward: Upgrade)
+signal prize_won(reward: GunResource)
 
 @onready var background: AnimatedSprite2D = $Background
 @onready var numbers: AnimatedSprite2D = $Numbers
@@ -16,13 +16,13 @@ signal prize_won(reward: Upgrade)
 
 var offscreen_y: float
 var onscreen_y: float
-var winning_prize: Upgrade
+var winning_prize: GunResource
 var num_prizes: int = 3
 @onready var icons_container: Node2D = $PrizeContainer
 
 func _ready() -> void:
 	
-	connect("prize_won", PlayerData._append_upgrade)
+	connect("prize_won", PlayerData._change_gun)
 	
 	offscreen_y = position.y
 	onscreen_y = offscreen_y - height_to_slide
@@ -36,7 +36,7 @@ func _ready() -> void:
 	
 
 func spin():
-	winning_prize = UpgradeDB._populate_random(1)[0]
+	winning_prize = GunsDB._populate_random(1)[0]
 	
 	numbers.visible = true
 	icons_container.visible = false
@@ -64,7 +64,7 @@ func spin():
 		prize_sprite.texture = winning_prize.texture
 		await get_tree().create_timer(0.2).timeout
 		
-	gambling_node.show_prize(winning_prize.texture, winning_prize.name, winning_prize.description)
+	gambling_node.show_prize(winning_prize.texture, winning_prize.name,"")
 	await get_tree().create_timer(display_duration).timeout
 	
 	prize_won.emit(winning_prize)

@@ -23,8 +23,10 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*uid://cfi4kh8mvyhlw"
+PauseManager="*uid://ckfiacjwgirym"
 PlayerData="*uid://c2uxukglrbmyk"
 UpgradeDB="*uid://cohd2gkan27ts"
+GunsDB="*uid://clreinc8y0xx5"
 GlobalAudio="*uid://cb6bx56jstjut"
 
 [display]
@@ -75,6 +77,11 @@ move_down={
 attack={
 "deadzone": 0.2,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(453, 17),"global_position":Vector2(462, 65),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+interact={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"key_label":0,"unicode":102,"location":0,"echo":false,"script":null)
 ]
 }
 
