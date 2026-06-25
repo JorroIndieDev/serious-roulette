@@ -44,8 +44,3 @@ scale_amount_min = 0.0
 scale_amount_max = 1.5
 scale_amount_curve = SubResource("Curve_m838o")
 color_ramp = SubResource("Gradient_h7y6m")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=144915434]
-position = Vector2(-0.054445744, 2.2649765e-06)
-scale = Vector2(0.3383639, 0.30083597)
-texture = ExtResource("2_m838o")
