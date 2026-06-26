@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cim8jli1y73hs" path="res://Entities/Environment/tree/tree.tscn" id="7_epvvo"]
 [ext_resource type="PackedScene" uid="uid://qlp3vehirojc" path="res://UI/hud.tscn" id="7_x1u7j"]
 [ext_resource type="Script" uid="uid://dgaugx2k5sclg" path="res://Entities/Environment/crosshair.gd" id="11_4n1d8"]
-[ext_resource type="Texture2D" uid="uid://diswjtyk33sqf" path="res://UI/crosshair/Sprites/crosshair.png" id="12_4n1d8"]
+[ext_resource type="Texture2D" uid="uid://cmmalb46mlgfw" path="res://UI/crosshair/Sprites/crosshair.png" id="12_4n1d8"]
 [ext_resource type="Script" uid="uid://kj4jli7q8nt8" path="res://Entities/Environment/enemy_spawner.gd" id="12_sjfbu"]
 [ext_resource type="Script" uid="uid://b6wpkgaw804js" path="res://Entities/Environment/casino_maker.gd" id="13_4n1d8"]
 [ext_resource type="Texture2D" uid="uid://cuuxn4tsts2uk" path="res://UI/crosshair/Sprites/crosshair-shot.png" id="13_u573t"]

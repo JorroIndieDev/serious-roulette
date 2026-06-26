@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b66igukj623im" path="res://Entities/Player/player.gd" id="1_3uyv8"]
 [ext_resource type="Texture2D" uid="uid://boi054mlp8027" path="res://Entities/Player/Sprites/player.png" id="2_5c2io"]
-[ext_resource type="Resource" uid="uid://bca5s574r1q2p" path="res://Entities/Weapons/Shotgun/shotgun.tres" id="2_ap3xn"]
+[ext_resource type="Resource" uid="uid://um2xjx88afcv" path="res://Entities/Weapons/Pistol/Pistol.tres" id="2_ap3xn"]
 [ext_resource type="Script" uid="uid://dfrb5an6t75hv" path="res://Entities/Components/DamageNumberSpawner.gd" id="3_01a4e"]
 [ext_resource type="Texture2D" uid="uid://djulc5p23p3sq" path="res://Entities/Environment/tree/shadow.tres" id="3_ap3xn"]
 [ext_resource type="Script" uid="uid://cafqysag83qgy" path="res://Entities/Components/health_component.gd" id="3_lu8i8"]

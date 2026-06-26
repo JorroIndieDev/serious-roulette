@@ -38,6 +38,7 @@ func _on_pick_up_body_entered(body: Node2D) -> void:
 	if body is Player and coin_data:
 		PlayerData.player_coins = coin_data.coin_value
 		GlobalAudio.get_node("UI_sounds").stream = COIN_PICKUP
+		GlobalAudio.get_node("UI_sounds").volume = 0.8
 		GlobalAudio.get_node("UI_sounds").play()
 		self.queue_free()
 
