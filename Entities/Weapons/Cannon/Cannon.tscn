@@ -53,9 +53,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Cannon" type="Node2D" unique_id=951089590 node_paths=PackedStringArray("gun_sprite_animated", "shooting_particle", "muzzle")]
+[node name="Cannon" type="Node2D" unique_id=951089590 node_paths=PackedStringArray("gun_sprite", "shooting_particle", "muzzle")]
 script = ExtResource("1_oh854")
-gun_sprite_animated = NodePath("Sprite2D")
+gun_sprite = NodePath("Sprite2D")
 shooting_particle = NodePath("Muzzle/CPUParticles2D")
 muzzle = NodePath("Muzzle")
 metadata/_custom_type_script = "uid://cat6t8wyxdh4s"

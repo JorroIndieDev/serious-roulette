@@ -1,7 +1,7 @@
 class_name BaseGun extends Node2D
 
-@export var gun_sprite_static: Sprite2D
-@export var gun_sprite_animated: AnimatedSprite2D
+@export var gun_sprite: AnimatedSprite2D
+#@export var gun_sprite_animated: AnimatedSprite2D
 @export var shooting_particle: CPUParticles2D
 @export var muzzle: Marker2D
 var gun_pivot: Marker2D
@@ -10,15 +10,10 @@ var gun_data: GunResource
 var _shot_timer: Timer
 var _reload_timer: Timer
 var _is_reloading: bool = false  
-var gun_sprite
+#var gun_sprite
 
 func _ready() -> void:
-	if gun_sprite_static != null:
-		gun_sprite = gun_sprite_static
-	elif gun_sprite_animated != null:
-		gun_sprite = gun_sprite_animated
-		gun_sprite_animated.play("normal")
-	# Create the timer node
+	gun_sprite.play("normal")
 	_shot_timer = Timer.new()
 	_shot_timer.one_shot = true          # auto-stop after firing
 	add_child(_shot_timer)               # add as child so it processes automatically
