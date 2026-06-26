@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func _on_respawn_pressed() -> void:
 	GameManager._player_respawn()
-	GameManager._PauseMenu.process_mode = Node.PROCESS_MODE_ALWAYS
+	#GameManager._PauseMenu.process_mode = Node.PROCESS_MODE_ALWAYS
 	respawn_pressed.emit()
 	#self.visible = false
 

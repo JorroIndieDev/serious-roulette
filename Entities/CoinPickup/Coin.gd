@@ -1,6 +1,7 @@
 class_name Coin extends Node2D
 
 @export var coin_data: CoinData
+const COIN_PICKUP = preload("uid://dklmfw7mgbufa")
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 # Bobbing parameters (you can export them to tweak in the inspector)
@@ -36,6 +37,8 @@ func animate_bobbing() -> void:
 func _on_pick_up_body_entered(body: Node2D) -> void:
 	if body is Player and coin_data:
 		PlayerData.player_coins = coin_data.coin_value
+		GlobalAudio.get_node("UI_sounds").stream = COIN_PICKUP
+		GlobalAudio.get_node("UI_sounds").play()
 		self.queue_free()
 
 

@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://btj0tv6byo4v4"]
+
+[ext_resource type="Texture2D" uid="uid://ba13tuedrgbbi" path="res://Entities/CoinPickup/coin.png" id="1_amgj3"]
+[ext_resource type="Script" uid="uid://c008qbls6n4bs" path="res://UI/Tutorial/tutorial.gd" id="1_rkgh8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkgh8"]
+content_margin_left = 16.0
+content_margin_top = 1.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.74509805)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3tl4"]
+atlas = ExtResource("1_amgj3")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_id1ve"]
+atlas = ExtResource("1_amgj3")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuh1x"]
+atlas = ExtResource("1_amgj3")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0e6ha"]
+atlas = ExtResource("1_amgj3")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jm7ib"]
+atlas = ExtResource("1_amgj3")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kinnl"]
+atlas = ExtResource("1_amgj3")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvspr"]
+atlas = ExtResource("1_amgj3")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l10y7"]
+atlas = ExtResource("1_amgj3")
+region = Rect2(8, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe7kf"]
+atlas = ExtResource("1_amgj3")
+region = Rect2(16, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylh1n"]
+atlas = ExtResource("1_amgj3")
+region = Rect2(24, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ix2of"]
+atlas = ExtResource("1_amgj3")
+region = Rect2(32, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjd24"]
+atlas = ExtResource("1_amgj3")
+region = Rect2(40, 8, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_67fpc"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_v3tl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_id1ve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuh1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0e6ha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jm7ib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kinnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvspr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l10y7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oe7kf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylh1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ix2of")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjd24")
+}],
+"loop": true,
+"name": &"Basic",
+"speed": 10.0
+}]
+
+[node name="Tutorial" type="Control" unique_id=1094425411]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rkgh8")
+
+[node name="ColorRect" type="PanelContainer" parent="." unique_id=2053631710]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -76.0
+offset_right = 125.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_rkgh8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect" unique_id=1017308484]
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="ImageWrapper" type="Control" parent="ColorRect/VBoxContainer" unique_id=891444821]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="AnimatedSprite2D" parent="ColorRect/VBoxContainer/ImageWrapper" unique_id=2087566584]
+position = Vector2(25, 25)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_67fpc")
+animation = &"Basic"
+autoplay = "Basic"
+frame_progress = 0.37118232
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer" unique_id=1660950781]
+custom_minimum_size = Vector2(39.71, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 4
+theme_override_font_sizes/bold_font_size = 6
+theme_override_font_sizes/italics_font_size = 5
+theme_override_font_sizes/mono_font_size = 5
+bbcode_enabled = true
+text = "[center][b]Tutorial[/b][/center]
+[i]Who are you?[/i]
+You are a gambling addict, who needs more money to continue gambling. And who has money for gambling? Zombies of course! Afterall its not like they need the money for anything else, right?
+
+[i]How do play.[/i]
+Use  WASD to move.
+ The mouse to aim and left click to shoot.
+\"f\" to gamble when you approach a gambling machine that is turned on.
+
+The gambling machines might turn on with time and an indicator will be shown on screen to showcase where these might be. After killing enough zombies you will level up, allowing you to use a prize wheel to get upgrades.
+
+[center][ Press space to continue ][/center]"
+fit_content = true

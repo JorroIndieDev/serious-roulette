@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dex6xabsgs45s"]
 
-[ext_resource type="Script" uid="uid://d3xc5w43r46lf" path="res://UI/pause_menu.gd" id="1_0b5ob"]
+[ext_resource type="Script" uid="uid://d3xc5w43r46lf" path="res://UI/PauseMenu/pause_menu.gd" id="1_0b5ob"]
 [ext_resource type="Texture2D" uid="uid://dq2no6bj8tutf" path="res://UI/Sprites/Button.png" id="1_03fe5"]
 [ext_resource type="Texture2D" uid="uid://cetf87tynwlma" path="res://UI/Sprites/Button-press.png" id="2_0b5ob"]
 [ext_resource type="Texture2D" uid="uid://ct60h4ftit4tc" path="res://UI/Sprites/Button-hover.png" id="3_pqlge"]
-[ext_resource type="AudioStream" uid="uid://fh8ddx4bbs22" path="res://UI/Audio/ui-click.wav" id="5_pqlge"]
+[ext_resource type="AudioStream" uid="uid://0kxc7ycx2x0j" path="res://UI/Audio/ui-click.wav" id="5_pqlge"]
 
 [node name="pause_menu" type="CanvasLayer" unique_id=463649552]
 process_mode = 3

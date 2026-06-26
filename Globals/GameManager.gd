@@ -5,6 +5,7 @@ var CoinContainer: Node
 var main_menu: MainMenu
 var _HUD: HUD
 var _RespawnMenu: RespawnMenu 
+const DEAD_SMOKE = preload("uid://c2vgnsir0obtl")
 
 var SubUI_Opened: bool = false
 
@@ -44,6 +45,11 @@ func spawn_coin(pos: Vector2, coin_val: int = 0) -> void:
 	coin.coin_data = coin_data
 	CoinContainer.call_deferred("add_child", coin)
 	coin.position = pos
+	
+func spawn_smoke(pos: Vector2) -> void:
+	var new_smoke = DEAD_SMOKE.instantiate()
+	new_smoke.position = pos
+	add_child(new_smoke)
 
 func _update_hud_coins(ammount: int) -> void:
 	if _HUD:
