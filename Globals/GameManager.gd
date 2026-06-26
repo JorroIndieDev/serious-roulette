@@ -8,6 +8,8 @@ var _RespawnMenu: RespawnMenu
 
 var SubUI_Opened: bool = false
 
+var game_start_time
+
 #region Leaderboard content
 var player_id: int = 0
 var max_name_legth: int = 3
@@ -20,11 +22,14 @@ var max_leader_board_track: int = 10
 var leaderboard_track: Dictionary[int,Dictionary] = {}
 #endregion
 
-#func _ready() -> void:
-	#Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)   
+func _ready() -> void:
+	pass
 
 func _play_button() -> void:
-	change_scene(main_menu.game_scene)
+	#change_scene(main_menu.game_scene)
+	#game_start_time = Time.get_unix_time_from_system()
+	#print(game_start_time)
+	pass
 
 func change_scene(scene: PackedScene, change_mouse_mode: bool = true) -> void:
 	if get_tree().paused: get_tree().paused = false
@@ -48,9 +53,11 @@ func spawn_coin(pos: Vector2, coin_val: int = 0) -> void:
 func _update_hud_coins(ammount: int) -> void:
 	if _HUD:
 		_HUD._update_coins(ammount)
+		print("MEGAGAY")
 func _update_hud_points(ammount: int) -> void:
 	if _HUD:
 		_HUD._update_points(ammount)
+		print("MEGAGAYYY")
 
 func _update_leaderboard() -> void:
 	previews_player_score = player_score

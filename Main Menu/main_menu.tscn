@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://6qjjur51vt6k" path="res://UI/Sprites/Button-press.png" id="5_b6svo"]
 [ext_resource type="Texture2D" uid="uid://c1s1bddcb1p5k" path="res://UI/Sprites/Button-hover.png" id="6_tgyvh"]
 [ext_resource type="AudioStream" uid="uid://0kxc7ycx2x0j" path="res://UI/Audio/ui-click.wav" id="8_2ekim"]
+[ext_resource type="Script" uid="uid://d0pt7hhq70nw7" path="res://Main Menu/leader_board.gd" id="9_b6svo"]
+[ext_resource type="PackedScene" uid="uid://c041j45c33o4c" path="res://Main Menu/leaderboard_score_container.tscn" id="10_b6svo"]
 
 [sub_resource type="Animation" id="Animation_ft8e8"]
 length = 0.001
@@ -156,6 +158,25 @@ color = Color(0, 0, 0, 1)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1924724392]
 libraries/ = SubResource("AnimationLibrary_hd3la")
 autoplay = &"fade"
+
+[node name="LeaderBoard" type="Control" parent="." unique_id=188763497]
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 48.0
+offset_right = 96.0
+offset_bottom = 144.0
+script = ExtResource("9_b6svo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeaderBoard" unique_id=2100278196]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreContainer" parent="LeaderBoard/VBoxContainer" unique_id=81207981 instance=ExtResource("10_b6svo")]
+layout_mode = 2
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]
