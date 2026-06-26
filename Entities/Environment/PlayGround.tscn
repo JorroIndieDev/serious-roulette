@@ -32,8 +32,6 @@ script = ExtResource("1_chst8")
 
 [node name="World" parent="." unique_id=959458457 instance=ExtResource("2_ui1sl")]
 position = Vector2(-552, -304)
-collision_layer = 8
-collision_mask = 3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1584923213]
 environment = SubResource("Environment_csoal")
@@ -71,6 +69,7 @@ slot_machine_scene = ExtResource("7_epvvo")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=362828517]
 color = Color(0.86234206, 0.64104456, 0.99927324, 1)
+
 [node name="crosshair" type="Node2D" parent="." unique_id=1972867763]
 script = ExtResource("11_4n1d8")
 
@@ -101,5 +100,6 @@ process_mode = 3
 process_mode = 1
 
 [node name="RespawnMenu" parent="." unique_id=711910102 instance=ExtResource("14_7cehy")]
+cost_to_respawn = 50
 
 [node name="pause_menu" parent="." unique_id=463649552 instance=ExtResource("7_csoal")]

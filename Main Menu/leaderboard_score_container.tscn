@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c041j45c33o4c"]
+
+[ext_resource type="LabelSettings" path="res://Entities/Weapons/standard_damage_label_settings.tres" id="1_5h26u"]
+[ext_resource type="Script" uid="uid://df21aeijbxwuc" path="res://Main Menu/leaderboard_score_container.gd" id="1_uurki"]
+
+[node name="ScoreContainer" type="HBoxContainer" unique_id=81207981]
+size_flags_vertical = 3
+script = ExtResource("1_uurki")
+
+[node name="Name" type="Label" parent="." unique_id=1226461937]
+layout_mode = 2
+label_settings = ExtResource("1_5h26u")
+
+[node name="Points" type="Label" parent="." unique_id=1140892198]
+layout_mode = 2
+label_settings = ExtResource("1_5h26u")
