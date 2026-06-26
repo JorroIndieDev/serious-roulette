@@ -28,7 +28,7 @@ func _input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	gambling_ui.hide()
-	hud.hide()
+	#hud.hide()
 	
 	gambling.connect("finished_gambling", _back_from_gambling)
 	gambling.connect("esc_pressed", _on_gambling_esc_pressed)   # new connection
@@ -37,6 +37,9 @@ func _ready() -> void:
 	respawn_menu.connect("respawn_pressed", close_respawn_menu)
 
 func _gamble_for_weapon() -> void:
+	if PlayerData.player_coins < current_mach.cost: return
+	PlayerData._player_coins = PlayerData._player_coins - current_mach.cost
+	PlayerData.emit_signal("coins_gained",PlayerData._player_coins)
 	GameManager.SubUI_Opened = true
 	PauseManager.add_pause_source()
 	gambling_ui.show()

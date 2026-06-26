@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bhf6rlpaq2rph"]
 
-[ext_resource type="Texture2D" uid="uid://c0itn8wyh7o38" path="res://Entities/Weapons/Sprites/gun.png" id="1_kl2qt"]
 [ext_resource type="Script" uid="uid://bqq3pifvwht4y" path="res://Entities/Weapons/Pistol/pistol.gd" id="1_mjjjf"]
+[ext_resource type="Texture2D" uid="uid://yc06i3vw627j" path="res://Entities/Weapons/Pistol/pistol.png" id="2_mjjjf"]
 
 [sub_resource type="Curve" id="Curve_mjjjf"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.69264066, 1), 0.0, 0.0, 0, 0]
@@ -11,9 +11,20 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.31707317, 0.5609756, 0.7268293, 0.9073171)
 colors = PackedColorArray(1, 1, 1, 1, 0.9886072, 0.4961682, 0.42385334, 1, 0.9960622, 0.66553485, 0.4620641, 1, 0.82021034, 0.4973464, 0.28790146, 1, 0.7258813, 0.31319332, 0, 1)
 
-[node name="Pistol" type="Node2D" unique_id=1346476372 node_paths=PackedStringArray("gun_sprite_static", "shooting_particle", "muzzle")]
+[sub_resource type="SpriteFrames" id="SpriteFrames_pedwe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mjjjf")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}]
+
+[node name="Pistol" type="Node2D" unique_id=1346476372 node_paths=PackedStringArray("gun_sprite", "shooting_particle", "muzzle")]
 script = ExtResource("1_mjjjf")
-gun_sprite_static = NodePath("Icon")
+gun_sprite = NodePath("Icon")
 shooting_particle = NodePath("Muzzle/CPUParticles2D2")
 muzzle = NodePath("Muzzle")
 
@@ -40,5 +51,6 @@ scale_amount_max = 1.5
 scale_amount_curve = SubResource("Curve_mjjjf")
 color_ramp = SubResource("Gradient_pedwe")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=168221217]
-texture = ExtResource("1_kl2qt")
+[node name="Icon" type="AnimatedSprite2D" parent="." unique_id=67340380]
+sprite_frames = SubResource("SpriteFrames_pedwe")
+animation = &"normal"

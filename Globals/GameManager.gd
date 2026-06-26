@@ -19,7 +19,7 @@ var player_score: int = 0
 var previews_player_score: int = 0
 
 var max_leader_board_track: int = 10
-var leaderboard_track: Dictionary[int,Dictionary] = {}
+var leaderboard_track: Dictionary[int,Array] = {}
 #endregion
 
 func _ready() -> void:
@@ -58,15 +58,24 @@ func _update_hud_points(ammount: int) -> void:
 	if _HUD:
 		_HUD._update_points(ammount)
 		print("MEGAGAYYY")
+	player_score = PlayerData.player_points
+	print(player_score)
 
 func _update_leaderboard() -> void:
+	#  will cause bugs, leave it
 	previews_player_score = player_score
 	if leaderboard_track.is_empty():
-		leaderboard_track[player_id] = {player_name:player_score}
+		leaderboard_track[player_id] = [
+			{"player_name":player_name},
+			{"player_score":player_score}
+			]
 		return
 	
 	player_id += 1
-	leaderboard_track[player_id] = {player_name:player_score}
+	leaderboard_track[player_id] = [
+		{"player_name": player_name},
+		{"player_score": player_score}
+		]
 
 func player_died() -> void:
 	get_tree().paused = true
@@ -79,7 +88,6 @@ func _player_respawn() -> void:
 	PlayerData._respawn_player()
 	#_PauseMenu.process_mode = Node.PROCESS_MODE_DISABLED
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
-
 
 func quit_game() -> void:
 	get_tree().quit()
