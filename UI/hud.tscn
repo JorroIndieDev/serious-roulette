@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://qlp3vehirojc"]
 
 [ext_resource type="Script" uid="uid://mm7asg6c2i4s" path="res://Entities/Player/hud.gd" id="1_bytes"]
-[ext_resource type="LabelSettings" path="res://Entities/Weapons/standard_damage_label_settings.tres" id="2_2o5uh"]
+[ext_resource type="LabelSettings" uid="uid://dqbwnlhfqpwhv" path="res://Entities/Weapons/standard_damage_label_settings.tres" id="2_2o5uh"]
+[ext_resource type="Texture2D" uid="uid://kqiqyj1mmyru" path="res://UI/Sprites/points.png" id="3_rnl6m"]
+[ext_resource type="Texture2D" uid="uid://dkebnvr3ux5t1" path="res://UI/Sprites/single-coin.png" id="4_1ui3w"]
 
 [node name="HUD" type="CanvasLayer" unique_id=668063283 node_paths=PackedStringArray("coin_label", "point_label")]
 script = ExtResource("1_bytes")
@@ -9,11 +11,30 @@ coin_label = NodePath("Coins")
 point_label = NodePath("Points")
 label_settings = ExtResource("2_2o5uh")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=254978079]
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 11.0
+offset_bottom = 10.0
+texture = ExtResource("3_rnl6m")
+
 [node name="Points" type="Label" parent="." unique_id=1400523271]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 12.0
+offset_top = 1.0
+offset_right = 52.0
+offset_bottom = 10.0
+theme_override_font_sizes/font_size = 5
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=153224659]
+offset_left = 2.0
+offset_top = 11.0
+offset_right = 10.0
+offset_bottom = 19.0
+texture = ExtResource("4_1ui3w")
 
 [node name="Coins" type="Label" parent="." unique_id=1680360070]
-offset_top = 24.0
-offset_right = 40.0
-offset_bottom = 47.0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 52.0
+offset_bottom = 19.0
+theme_override_font_sizes/font_size = 5

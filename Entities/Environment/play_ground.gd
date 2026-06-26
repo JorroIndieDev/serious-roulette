@@ -28,7 +28,7 @@ func _input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	gambling_ui.hide()
-	hud.hide()
+	hud.show()
 	
 	gambling.connect("finished_gambling", _back_from_gambling)
 	gambling.connect("esc_pressed", _on_gambling_esc_pressed)   # new connection

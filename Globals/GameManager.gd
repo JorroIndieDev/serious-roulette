@@ -79,7 +79,6 @@ func _player_respawn() -> void:
 	#_PauseMenu.process_mode = Node.PROCESS_MODE_DISABLED
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 
-
 func quit_game() -> void:
 	get_tree().quit()
 
