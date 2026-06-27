@@ -32,6 +32,7 @@ func _physics_process(_delta: float) -> void:
 
 func _died() -> void:
 	GameManager.spawn_coin(position, value_coins)
+	GameManager.spawn_smoke(position)
 	PlayerData.player_points = value_points
 
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bd5au76s6u2m3"]
 
 [ext_resource type="Script" uid="uid://dbprfhpx3ocnc" path="res://Entities/Weapons/Shotgun/shotgun.gd" id="1_uoema"]
-[ext_resource type="Texture2D" uid="uid://c8gjvngtr318t" path="res://Entities/Weapons/Shotgun/shotgun.png" id="1_wpur8"]
+[ext_resource type="Texture2D" uid="uid://drfr8u5m5ds8v" path="res://Entities/Weapons/Shotgun/shotgun.png" id="1_wpur8"]
 
 [sub_resource type="Curve" id="Curve_uoema"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.69264066, 1), 0.0, 0.0, 0, 0]
@@ -21,7 +21,7 @@ metadata/_custom_type_script = "uid://cat6t8wyxdh4s"
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=1502904545]
 unique_name_in_owner = true
-position = Vector2(5.0467663, 0.531291)
+position = Vector2(6.0467663, 0.531291)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Muzzle" unique_id=1058748221]
 self_modulate = Color(1.499905, 1.499905, 1.499905, 1)
@@ -42,6 +42,6 @@ scale_amount_curve = SubResource("Curve_uoema")
 color_ramp = SubResource("Gradient_0qb30")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=774204797]
-position = Vector2(0.02575922, 0.026736617)
-scale = Vector2(0.3383639, 0.30083597)
+position = Vector2(0, -1.1920929e-07)
+scale = Vector2(0.44962695, 0.39975885)
 texture = ExtResource("1_wpur8")

@@ -31,6 +31,7 @@ var player_coins: int:
 		#print_debug(_player_coins)
 	get: return _player_coins
 
+
 var upgrades_list: Array[Upgrade] = []
 
 signal points_gained(ammount: int)
