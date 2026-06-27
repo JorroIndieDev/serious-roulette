@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://cnk606gocm561" path="res://UI/RespawnMenu/respawn_menu.tscn" id="14_7cehy"]
 [ext_resource type="Script" uid="uid://b4r32eo1q04ud" path="res://Entities/Environment/ArrowPointer.gd" id="17_menmn"]
 [ext_resource type="Texture2D" uid="uid://ktlteof88gt0" path="res://UI/Sprites/arrow.png" id="18_258df"]
+[ext_resource type="AudioStream" uid="uid://blwto6k57dtvx" path="res://Entities/Environment/level-up.wav" id="20_sh4ro"]
+[ext_resource type="PackedScene" uid="uid://btj0tv6byo4v4" path="res://UI/Tutorial/tutorial.tscn" id="21_n0isn"]
 
 [sub_resource type="Environment" id="Environment_csoal"]
 tonemap_mode = 4
@@ -103,3 +105,10 @@ process_mode = 1
 cost_to_respawn = 50
 
 [node name="pause_menu" parent="." unique_id=463649552 instance=ExtResource("7_csoal")]
+
+[node name="Audio" type="AudioStreamPlayer" parent="." unique_id=220286842]
+stream = ExtResource("20_sh4ro")
+
+[node name="Tutorial" type="CanvasLayer" parent="." unique_id=1587280408]
+
+[node name="Tutorial" parent="Tutorial" unique_id=1094425411 instance=ExtResource("21_n0isn")]

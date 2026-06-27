@@ -9,6 +9,7 @@
 
 [resource]
 script = ExtResource("1_23wox")
+name = "Revolver"
 base_damage = 15.0
 fire_rate = 5
 base_ammo = 6

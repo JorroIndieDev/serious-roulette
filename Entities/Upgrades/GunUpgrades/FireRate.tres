@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="GunUpgrade" format=3 uid="uid://cxjeehg7ihaev"]
+
+[ext_resource type="Script" uid="uid://cq7dj35jcrxbc" path="res://Entities/Upgrades/GunUpgrades/GunUpgrade.gd" id="1_un38y"]
+[ext_resource type="Texture2D" uid="uid://dtrr1wqnljaae" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/firerate.png" id="2_q255l"]
+
+[resource]
+script = ExtResource("1_un38y")
+inc_fire_rate = 1
+name = "Increased Firerate"
+description = "Your weapon go vroommm"
+texture = ExtResource("2_q255l")
+metadata/_custom_type_script = "uid://cq7dj35jcrxbc"

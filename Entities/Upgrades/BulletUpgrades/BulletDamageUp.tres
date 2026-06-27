@@ -7,7 +7,7 @@
 script = ExtResource("1_s3i77")
 inc_damage = 5.0
 inc_speed = 20.0
-name = "Bullet Damage Up"
+name = "Bullet Damage"
 description = "Big bullet damage"
 texture = ExtResource("2_vh66m")
 metadata/_custom_type_script = "uid://lwonjlqokopa"

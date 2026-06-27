@@ -12,9 +12,20 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.31707317, 0.49818182, 0.9073171)
 colors = PackedColorArray(1, 1, 1, 1, 0.4745947, 0.07028025, 0.035351556, 1, 0.48665142, 0.22841156, 0.0090056965, 1, 0.07340542, 0.013565514, 7.52043e-09, 1)
 
-[node name="Flintlock" type="Node2D" unique_id=377930580 node_paths=PackedStringArray("gun_sprite_static", "shooting_particle", "muzzle")]
+[sub_resource type="SpriteFrames" id="SpriteFrames_m0rgi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_751ab")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}]
+
+[node name="Flintlock" type="Node2D" unique_id=377930580 node_paths=PackedStringArray("gun_sprite", "shooting_particle", "muzzle")]
 script = ExtResource("1_najjr")
-gun_sprite_static = NodePath("Sprite2D")
+gun_sprite = NodePath("Sprite2D")
 shooting_particle = NodePath("Muzzle/CPUParticles2D")
 muzzle = NodePath("Muzzle")
 metadata/_custom_type_script = "uid://cat6t8wyxdh4s"
@@ -43,7 +54,8 @@ scale_amount_max = 0.75
 scale_amount_curve = SubResource("Curve_najjr")
 color_ramp = SubResource("Gradient_m0rgi")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=698948532]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1054126459]
 position = Vector2(-0.027758121, 0.00038838387)
 scale = Vector2(0.6649981, 0.5912432)
-texture = ExtResource("1_751ab")
+sprite_frames = SubResource("SpriteFrames_m0rgi")
+animation = &"normal"

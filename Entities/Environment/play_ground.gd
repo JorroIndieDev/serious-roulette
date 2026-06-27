@@ -7,6 +7,7 @@ extends Node2D
 @onready var respawn_menu: RespawnMenu = $RespawnMenu
 @onready var casino_maker: SlotMachineSpawner = $CasinoMaker
 @onready var arrow_pointer: ArrowPointer = $ArrowPointer
+@onready var audio: AudioStreamPlayer = $Audio
 
 var current_mach: SlotMachineOBJ
 var player_near_mach: bool
@@ -29,12 +30,16 @@ func _input(event: InputEvent) -> void:
 func _ready() -> void:
 	gambling_ui.hide()
 	hud.show()
+	_show_tutorial()
 	
 	gambling.connect("finished_gambling", _back_from_gambling)
 	gambling.connect("esc_pressed", _on_gambling_esc_pressed)   # new connection
 	PlayerData.connect("_player_leveled", _level_up_reward)
 	pause_menu.connect("continue_pressed", _on_pause_menu_continue)
 	respawn_menu.connect("respawn_pressed", close_respawn_menu)
+
+func _show_tutorial() -> void:
+	PauseManager.add_pause_source()
 
 func _gamble_for_weapon() -> void:
 	if PlayerData.player_coins < current_mach.cost: return
@@ -50,6 +55,7 @@ func _level_up_reward() -> void:
 	PauseManager.add_pause_source()
 	_pick_random_slot_machine()
 	gambling_ui.show()
+	audio.play()
 	gambling._spin_prize_wheel()
 
 func _back_from_gambling() -> void:

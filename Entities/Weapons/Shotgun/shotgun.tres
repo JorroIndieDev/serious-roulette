@@ -5,10 +5,12 @@
 [ext_resource type="Resource" uid="uid://cgrlbpjp51ygy" path="res://Entities/Weapons/Bullets/BasicBullet/basic_bullet.tres" id="2_o1h8p"]
 [ext_resource type="AudioStream" uid="uid://dmgj08kiyb5bx" path="res://Entities/Weapons/reload.wav" id="3_qi6sv"]
 [ext_resource type="AudioStream" uid="uid://dkqct7q0nlu88" path="res://Entities/Weapons/Shotgun/shotgun-shoot.wav" id="5_7c446"]
+[ext_resource type="Texture2D" uid="uid://c8gjvngtr318t" path="res://Entities/Weapons/Shotgun/shotgun.png" id="6_o1h8p"]
 
 [resource]
 script = ExtResource("1_kj1bb")
-base_damage = 5.0
+name = "Shotgun"
+base_damage = 2.0
 fire_rate = 3
 base_ammo = 1
 reload_time = 1.0
@@ -18,4 +20,5 @@ loaded_bullet = ExtResource("2_o1h8p")
 shot_sound = ExtResource("5_7c446")
 reload_sound = ExtResource("3_qi6sv")
 gun_scene = ExtResource("1_tp0gh")
+texture = ExtResource("6_o1h8p")
 metadata/_custom_type_script = "uid://u4ky25ao1wmw"

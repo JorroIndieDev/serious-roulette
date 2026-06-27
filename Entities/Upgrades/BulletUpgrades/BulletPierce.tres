@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BulletUpgrade" format=3 uid="uid://bweh25fdi8a7j"]
+
+[ext_resource type="Script" uid="uid://lwonjlqokopa" path="res://Entities/Upgrades/BulletUpgrades/BulletUpgrade.gd" id="1_jy73e"]
+[ext_resource type="Texture2D" uid="uid://bqsxssyfe82ld" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/pierce.png" id="2_50n0e"]
+
+[resource]
+script = ExtResource("1_jy73e")
+inc_pierce = 1
+name = "Bullet Pierce"
+description = "Bullets go though enemies"
+texture = ExtResource("2_50n0e")
+metadata/_custom_type_script = "uid://lwonjlqokopa"

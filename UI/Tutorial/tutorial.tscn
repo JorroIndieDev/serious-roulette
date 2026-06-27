@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://btj0tv6byo4v4"]
 
-[ext_resource type="Texture2D" uid="uid://ba13tuedrgbbi" path="res://Entities/CoinPickup/coin.png" id="1_amgj3"]
+[ext_resource type="Texture2D" uid="uid://celgidn44dk1f" path="res://Entities/CoinPickup/coin.png" id="1_amgj3"]
 [ext_resource type="Script" uid="uid://c008qbls6n4bs" path="res://UI/Tutorial/tutorial.gd" id="1_rkgh8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkgh8"]
@@ -107,6 +107,7 @@ animations = [{
 }]
 
 [node name="Tutorial" type="Control" unique_id=1094425411]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -166,7 +167,7 @@ Use  WASD to move.
  The mouse to aim and left click to shoot.
 \"f\" to gamble when you approach a gambling machine that is turned on.
 
-The gambling machines might turn on with time and an indicator will be shown on screen to showcase where these might be. After killing enough zombies you will level up, allowing you to use a prize wheel to get upgrades.
+A random gambling machine will turn on after you level up, allowing you to get a new weapon which might or not be better than your current one, afteall, its gambling. Leveling up will also give you upgrades from a prize wheel.
 
 [center][ Press space to continue ][/center]"
 fit_content = true

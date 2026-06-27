@@ -5,9 +5,11 @@
 [ext_resource type="Resource" uid="uid://cj8sgeri3855k" path="res://Entities/Weapons/Bullets/Rocket/Rocket.tres" id="2_arqmb"]
 [ext_resource type="AudioStream" uid="uid://8tlw72tr73hs" path="res://Entities/Weapons/heavy-reload.wav" id="3_arqmb"]
 [ext_resource type="AudioStream" uid="uid://c74vofspbibhe" path="res://Entities/Weapons/RocketLauncher/rocket-launcher-shoot.wav" id="4_vvum2"]
+[ext_resource type="Texture2D" uid="uid://bwnoaa3gdat2e" path="res://Entities/Weapons/RocketLauncher/rocket-launcher.png" id="6_vvum2"]
 
 [resource]
 script = ExtResource("1_13nu8")
+name = "Rocket Launcher"
 base_damage = 45.0
 fire_rate = 1
 base_ammo = 1
@@ -20,4 +22,5 @@ shot_sound = ExtResource("4_vvum2")
 reload_sound = ExtResource("3_arqmb")
 is_rocket = true
 gun_scene = ExtResource("1_s2r18")
+texture = ExtResource("6_vvum2")
 metadata/_custom_type_script = "uid://u4ky25ao1wmw"

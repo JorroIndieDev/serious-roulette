@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="GunUpgrade" format=3 uid="uid://b1wiw4sqcrfyf"]
+
+[ext_resource type="Script" uid="uid://cq7dj35jcrxbc" path="res://Entities/Upgrades/GunUpgrades/GunUpgrade.gd" id="1_lwink"]
+[ext_resource type="Texture2D" uid="uid://de3h6ad4ar5bh" path="res://Entities/Gambling/Prize Wheel/Sprites/Prizes/infinte-bullets.png" id="2_7m12q"]
+
+[resource]
+script = ExtResource("1_lwink")
+infinite_ammo = true
+temp_timer = 10.0
+texture = ExtResource("2_7m12q")
+metadata/_custom_type_script = "uid://cq7dj35jcrxbc"

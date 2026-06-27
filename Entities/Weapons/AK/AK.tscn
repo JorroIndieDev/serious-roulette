@@ -11,6 +11,17 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.31707317, 0.5609756, 0.7268293, 0.9073171)
 colors = PackedColorArray(1, 1, 1, 1, 0.9886072, 0.4961682, 0.42385334, 1, 0.9960622, 0.66553485, 0.4620641, 1, 0.82021034, 0.4973464, 0.28790146, 1, 0.7258813, 0.31319332, 0, 1)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_muc0x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4aaoj")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}]
+
 [node name="Ak" type="Node2D" unique_id=292342791 node_paths=PackedStringArray("gun_sprite", "shooting_particle", "muzzle")]
 script = ExtResource("1_muc0x")
 gun_sprite = NodePath("Sprite2D")
@@ -41,7 +52,8 @@ scale_amount_max = 1.5
 scale_amount_curve = SubResource("Curve_muc0x")
 color_ramp = SubResource("Gradient_hjnpf")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=917692459]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=170141923]
 position = Vector2(0.04242277, -0.013363473)
 scale = Vector2(0.6115889, 0.5437576)
-texture = ExtResource("1_4aaoj")
+sprite_frames = SubResource("SpriteFrames_muc0x")
+animation = &"normal"

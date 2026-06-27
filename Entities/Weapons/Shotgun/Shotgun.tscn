@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bd5au76s6u2m3"]
 
 [ext_resource type="Script" uid="uid://dbprfhpx3ocnc" path="res://Entities/Weapons/Shotgun/shotgun.gd" id="1_uoema"]
-[ext_resource type="Texture2D" uid="uid://drfr8u5m5ds8v" path="res://Entities/Weapons/Shotgun/shotgun.png" id="1_wpur8"]
+[ext_resource type="Texture2D" uid="uid://c8gjvngtr318t" path="res://Entities/Weapons/Shotgun/shotgun.png" id="1_wpur8"]
 
 [sub_resource type="Curve" id="Curve_uoema"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.69264066, 1), 0.0, 0.0, 0, 0]
@@ -11,10 +11,21 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.31707317, 0.5609756, 0.7268293, 0.9073171)
 colors = PackedColorArray(1, 1, 1, 1, 0.9886072, 0.4961682, 0.42385334, 1, 0.9960622, 0.66553485, 0.4620641, 1, 0.82021034, 0.4973464, 0.28790146, 1, 0.7258813, 0.31319332, 0, 1)
 
-[node name="Shotgun" type="Node2D" unique_id=30276001 node_paths=PackedStringArray("gun_sprite_static", "shooting_particle", "muzzle")]
+[sub_resource type="SpriteFrames" id="SpriteFrames_uoema"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wpur8")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}]
+
+[node name="Shotgun" type="Node2D" unique_id=30276001 node_paths=PackedStringArray("gun_sprite", "shooting_particle", "muzzle")]
 script = ExtResource("1_uoema")
-bullet_amount = 5
-gun_sprite_static = NodePath("Sprite2D")
+bullet_amount = 9
+gun_sprite = NodePath("Sprite2D")
 shooting_particle = NodePath("Muzzle/CPUParticles2D")
 muzzle = NodePath("Muzzle")
 metadata/_custom_type_script = "uid://cat6t8wyxdh4s"
@@ -41,7 +52,8 @@ scale_amount_max = 1.5
 scale_amount_curve = SubResource("Curve_uoema")
 color_ramp = SubResource("Gradient_0qb30")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=774204797]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=71617646]
 position = Vector2(0, -1.1920929e-07)
 scale = Vector2(0.44962695, 0.39975885)
-texture = ExtResource("1_wpur8")
+sprite_frames = SubResource("SpriteFrames_uoema")
+animation = &"normal"

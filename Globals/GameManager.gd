@@ -32,6 +32,9 @@ func _play_button() -> void:
 	#print(game_start_time)
 	pass
 
+func _get_player_points() -> int:
+	return PlayerData.player_points
+
 func change_scene(scene: PackedScene, change_mouse_mode: bool = true) -> void:
 	if get_tree().paused: get_tree().paused = false
 	get_tree().change_scene_to_packed(scene)

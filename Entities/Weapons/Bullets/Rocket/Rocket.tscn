@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cjlyrfy6tjc5a" path="res://Entities/Weapons/Sprites/fireball.png" id="6_4iy7y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bw3w"]
-size = Vector2(2, 1)
+size = Vector2(13.299847, 11.167809)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0w5ky"]
 atlas = ExtResource("6_4iy7y")
@@ -75,6 +75,7 @@ collision_layer = 1
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" unique_id=327186149]
+position = Vector2(2.9346294, -0.07191849)
 shape = SubResource("RectangleShape2D_1bw3w")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=989455035]

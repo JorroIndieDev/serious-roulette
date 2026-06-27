@@ -61,9 +61,11 @@ theme_override_constants/separation = 101
 
 [node name="Title" type="Label" parent="text" unique_id=850877879]
 layout_mode = 2
+theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 26
 horizontal_alignment = 1
 
 [node name="Description" type="Label" parent="text" unique_id=1022616756]
 layout_mode = 2
+theme_override_constants/outline_size = 10
 horizontal_alignment = 1

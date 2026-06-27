@@ -11,9 +11,20 @@ point_count = 2
 offsets = PackedFloat32Array(1)
 colors = PackedColorArray(1, 1, 1, 1)
 
-[node name="RocketLauncher" type="Node2D" unique_id=151632652 node_paths=PackedStringArray("gun_sprite_static", "shooting_particle", "muzzle")]
+[sub_resource type="SpriteFrames" id="SpriteFrames_lqtm7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vshbg")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}]
+
+[node name="RocketLauncher" type="Node2D" unique_id=151632652 node_paths=PackedStringArray("gun_sprite", "shooting_particle", "muzzle")]
 script = ExtResource("1_lqtm7")
-gun_sprite_static = NodePath("Sprite2D")
+gun_sprite = NodePath("Sprite2D")
 shooting_particle = NodePath("Muzzle/CPUParticles2D")
 muzzle = NodePath("Muzzle")
 metadata/_custom_type_script = "uid://cat6t8wyxdh4s"
@@ -42,7 +53,8 @@ scale_amount_max = 1.5
 scale_amount_curve = SubResource("Curve_lqtm7")
 color_ramp = SubResource("Gradient_5bpir")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=750933507]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=354473788]
 position = Vector2(-0.07853937, -0.08734357)
 scale = Vector2(0.70610595, 0.6277916)
-texture = ExtResource("1_vshbg")
+sprite_frames = SubResource("SpriteFrames_lqtm7")
+animation = &"normal"

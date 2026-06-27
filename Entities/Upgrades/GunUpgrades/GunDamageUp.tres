@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_jr67t")
 inc_base_damage = 10.0
-name = "GunDamageUp"
+name = "Gun Damage"
 description = "Big gun damage"
 texture = ExtResource("2_nmynn")
 metadata/_custom_type_script = "uid://cq7dj35jcrxbc"

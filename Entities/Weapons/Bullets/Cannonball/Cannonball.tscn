@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b1f3ar31wcehi" path="res://Entities/Weapons/Sprites/canonball.png" id="2_7d6s7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1rm3"]
-size = Vector2(2, 1)
+size = Vector2(3.813881, 3.3978214)
 
 [node name="Cannonball" type="Node2D" unique_id=7123755 node_paths=PackedStringArray("hitbox", "timer", "visible_on_screen_notifier_2d")]
 script = ExtResource("1_7d6s7")
@@ -18,6 +18,7 @@ collision_layer = 1
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" unique_id=2142500311]
+position = Vector2(0.41855812, 0.20745182)
 shape = SubResource("RectangleShape2D_f1rm3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1323548947]

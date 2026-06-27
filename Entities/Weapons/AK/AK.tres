@@ -4,11 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://dkmdjnohs2ggt" path="res://Entities/Weapons/AK/AK.tscn" id="1_yv2y2"]
 [ext_resource type="Resource" uid="uid://cgrlbpjp51ygy" path="res://Entities/Weapons/Bullets/BasicBullet/basic_bullet.tres" id="2_hvi0y"]
 [ext_resource type="AudioStream" uid="uid://dmgj08kiyb5bx" path="res://Entities/Weapons/reload.wav" id="3_xul7h"]
-[ext_resource type="AudioStream" uid="uid://cteeh4hogm4qy" path="res://Entities/Weapons/AK/ak-shoot.wav" id="5_j2k4n"]
+[ext_resource type="AudioStream" uid="uid://bxf2nkggo67xi" path="res://Entities/Weapons/AK/riffle-shot.wav" id="5_hvi0y"]
+[ext_resource type="Texture2D" uid="uid://rsyeuur5s8tc" path="res://Entities/Weapons/AK/ak.png" id="6_hvi0y"]
 
 [resource]
 script = ExtResource("1_8uru5")
-base_damage = 10.0
+name = "Riffle"
+base_damage = 5.0
 fire_rate = 15
 base_ammo = 32
 reload_time = 1.0
@@ -17,7 +19,8 @@ recoil_duration = 0.05
 return_duration = 0.1
 spread_degrees = 5.0
 loaded_bullet = ExtResource("2_hvi0y")
-shot_sound = ExtResource("5_j2k4n")
+shot_sound = ExtResource("5_hvi0y")
 reload_sound = ExtResource("3_xul7h")
 gun_scene = ExtResource("1_yv2y2")
+texture = ExtResource("6_hvi0y")
 metadata/_custom_type_script = "uid://u4ky25ao1wmw"

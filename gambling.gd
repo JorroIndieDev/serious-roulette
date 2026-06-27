@@ -41,11 +41,15 @@ func show_prize(win_texture : Texture2D, win_title : String, win_desc : String):
 	#prize.scale = Vector2(0.1,0.1)
 	texture.texture = win_texture
 	texture.size = Vector2(70,70) ##TODO Change ?
-	texture.position = Vector2(70,50)
+	texture.position = Vector2(140,50)
 	texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	texture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	title.text = win_title
+	title.add_theme_color_override("font_outline_color", Color.BLACK)
+	title.add_theme_constant_override("outline_size", 8)
 	desc.text = win_desc
+	desc.add_theme_color_override("font_outline_color", Color.BLACK)
+	desc.add_theme_constant_override("outline_size", 4)
 	prize.visible = true
 	var tween = create_tween()
 	tween.tween_property(shine, "rotation", 1, 1.5)

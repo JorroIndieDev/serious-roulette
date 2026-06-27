@@ -21,6 +21,7 @@ var can_damage : bool = true
 func _ready() -> void:
 	$HealthComponent.connect("damaged", _damaged)
 	$HealthComponent.connect("died", _died)
+	$HealthComponent.max_health = 50 + (GameManager._get_player_points()/100)*2
 	if hitbox:
 		hitbox.connect("area_entered", melee)
 	if texture_variants.size() > 0:

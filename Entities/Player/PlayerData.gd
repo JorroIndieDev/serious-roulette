@@ -3,7 +3,7 @@ extends Node
 var player_ref: Player
 
 var level_up_step: int = 0
-var level_up_milestone: int = 100
+var level_up_milestone: int = 200
 
 var leveled_up: bool:
 	get: return leveled_up

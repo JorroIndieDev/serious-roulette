@@ -5,9 +5,11 @@
 [ext_resource type="Resource" uid="uid://0cbn04ndbl0s" path="res://Entities/Weapons/Bullets/Cannonball/cannonball.tres" id="2_cmov7"]
 [ext_resource type="AudioStream" uid="uid://8tlw72tr73hs" path="res://Entities/Weapons/heavy-reload.wav" id="3_cmov7"]
 [ext_resource type="AudioStream" uid="uid://e3m0vh17i11l" path="res://Entities/Weapons/Cannon/cannon-shoot.wav" id="4_w3hlp"]
+[ext_resource type="Texture2D" uid="uid://6kybuvg11c1t" path="res://Entities/Weapons/Cannon/cannon.png" id="6_w3hlp"]
 
 [resource]
 script = ExtResource("1_rrxqh")
+name = "Cannon"
 base_damage = 50.0
 fire_rate = 1
 base_ammo = 1
@@ -22,4 +24,5 @@ loaded_bullet = ExtResource("2_cmov7")
 shot_sound = ExtResource("4_w3hlp")
 reload_sound = ExtResource("3_cmov7")
 gun_scene = ExtResource("1_7brbv")
+texture = ExtResource("6_w3hlp")
 metadata/_custom_type_script = "uid://u4ky25ao1wmw"

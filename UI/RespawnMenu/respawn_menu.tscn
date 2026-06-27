@@ -2,30 +2,39 @@
 
 [ext_resource type="Script" uid="uid://cvxuucxwv1cb3" path="res://UI/RespawnMenu/respawn_menu.gd" id="1_yadlk"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yadlk"]
+content_margin_top = 70.0
+content_margin_bottom = 70.0
+bg_color = Color(0.08627451, 0.08627451, 0.08627451, 0.42352942)
+
 [node name="RespawnMenu" type="CanvasLayer" unique_id=711910102]
 process_mode = 3
 script = ExtResource("1_yadlk")
 
-[node name="Respawn" type="Button" parent="." unique_id=853797350]
-offset_left = 192.0
-offset_top = 144.0
-offset_right = 319.0
-offset_bottom = 175.0
-text = "Pay to respawn"
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1802794914]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yadlk")
 
-[node name="BackToMenu" type="Button" parent="." unique_id=1587153034]
-offset_left = 64.0
-offset_top = 144.0
-offset_right = 179.0
-offset_bottom = 175.0
-text = "Back to menu"
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=1780919605]
+layout_mode = 2
+alignment = 1
 
-[node name="Quit" type="Button" parent="." unique_id=1829662235]
-offset_top = 144.0
-offset_right = 42.0
-offset_bottom = 175.0
+[node name="Quit" type="Button" parent="PanelContainer/HBoxContainer" unique_id=1829662235]
+layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="Respawn" to="." method="_on_respawn_pressed"]
-[connection signal="pressed" from="BackToMenu" to="." method="_on_back_to_menu_pressed"]
-[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[node name="BackToMenu" type="Button" parent="PanelContainer/HBoxContainer" unique_id=1587153034]
+layout_mode = 2
+text = "Back to menu"
+
+[node name="Respawn" type="Button" parent="PanelContainer/HBoxContainer" unique_id=853797350]
+layout_mode = 2
+text = "Pay to respawn"
+
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/BackToMenu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Respawn" to="." method="_on_respawn_pressed"]

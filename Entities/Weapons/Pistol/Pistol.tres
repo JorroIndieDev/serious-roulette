@@ -9,6 +9,7 @@
 
 [resource]
 script = ExtResource("3_pn64k")
+name = "Pistol"
 base_damage = 10.0
 fire_rate = 5
 base_ammo = 15

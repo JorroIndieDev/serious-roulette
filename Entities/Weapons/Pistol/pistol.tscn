@@ -30,7 +30,7 @@ muzzle = NodePath("Muzzle")
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=1316599992]
 unique_name_in_owner = true
-position = Vector2(4, -1)
+position = Vector2(3, -1)
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="Muzzle" unique_id=1490671486]
 self_modulate = Color(1.499905, 1.499905, 1.499905, 1)
@@ -52,5 +52,6 @@ scale_amount_curve = SubResource("Curve_mjjjf")
 color_ramp = SubResource("Gradient_pedwe")
 
 [node name="Icon" type="AnimatedSprite2D" parent="." unique_id=67340380]
+scale = Vector2(0.3509616, 0.3509615)
 sprite_frames = SubResource("SpriteFrames_pedwe")
 animation = &"normal"

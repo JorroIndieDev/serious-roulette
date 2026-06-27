@@ -5,7 +5,11 @@ enum ID {
 	MOVESPEED,
 	GUNDMGUP,
 	BULLETDMGUP,
-	# Add more here as you create them
+	#PIERCE,
+	#BULLETSPD,
+	#FIRERATE,
+	#INFINITEBULLETS,
+	#HEAL
 }
 
 @export var id: ID           # The unique identifier

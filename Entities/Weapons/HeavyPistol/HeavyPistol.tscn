@@ -3,6 +3,14 @@
 [ext_resource type="Script" uid="uid://do8jbqq0dudwe" path="res://Entities/Weapons/HeavyPistol/heavy_pistol.gd" id="1_m838o"]
 [ext_resource type="Texture2D" uid="uid://tn0pc7pqidlc" path="res://Entities/Weapons/HeavyPistol/revolver.png" id="2_m838o"]
 
+[sub_resource type="Curve" id="Curve_m838o"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.69264066, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_h7y6m"]
+offsets = PackedFloat32Array(0, 0.31707317, 0.5609756, 0.7268293, 0.9073171)
+colors = PackedColorArray(1, 1, 1, 1, 0.9886072, 0.4961682, 0.42385334, 1, 0.9960622, 0.66553485, 0.4620641, 1, 0.82021034, 0.4973464, 0.28790146, 1, 0.7258813, 0.31319332, 0, 1)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_h7y6m"]
 animations = [{
 "frames": [{
@@ -14,24 +22,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Curve" id="Curve_m838o"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.69264066, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_h7y6m"]
-offsets = PackedFloat32Array(0, 0.31707317, 0.5609756, 0.7268293, 0.9073171)
-colors = PackedColorArray(1, 1, 1, 1, 0.9886072, 0.4961682, 0.42385334, 1, 0.9960622, 0.66553485, 0.4620641, 1, 0.82021034, 0.4973464, 0.28790146, 1, 0.7258813, 0.31319332, 0, 1)
-
 [node name="HeavyPistol" type="Node2D" unique_id=2106572378 node_paths=PackedStringArray("gun_sprite", "shooting_particle", "muzzle")]
 script = ExtResource("1_m838o")
 gun_sprite = NodePath("Sprite2D")
 shooting_particle = NodePath("Muzzle/CPUParticles2D")
 muzzle = NodePath("Muzzle")
-
-[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=266793495]
-position = Vector2(0.023839712, -0.0587101)
-sprite_frames = SubResource("SpriteFrames_h7y6m")
-animation = &"normal"
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=67614177]
 unique_name_in_owner = true
@@ -55,3 +50,8 @@ scale_amount_min = 0.0
 scale_amount_max = 1.5
 scale_amount_curve = SubResource("Curve_m838o")
 color_ramp = SubResource("Gradient_h7y6m")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=266793495]
+position = Vector2(0.023839712, -0.0587101)
+sprite_frames = SubResource("SpriteFrames_h7y6m")
+animation = &"normal"

@@ -4,15 +4,18 @@
 [ext_resource type="PackedScene" uid="uid://cce22qyor71a" path="res://Entities/Weapons/Staff/staff.tscn" id="1_lbsgj"]
 [ext_resource type="Resource" uid="uid://cj8sgeri3855k" path="res://Entities/Weapons/Bullets/Rocket/Rocket.tres" id="2_lbsgj"]
 [ext_resource type="AudioStream" uid="uid://bf0jytlvo8q3f" path="res://Entities/Weapons/Staff/staff.wav" id="4_31mgi"]
+[ext_resource type="Texture2D" uid="uid://wqairrclr74m" path="res://Entities/Weapons/Staff/staff.png" id="5_ox2jo"]
 
 [resource]
 script = ExtResource("1_cpwoj")
+name = "Staff"
 base_damage = 20.0
-fire_rate = 4
+fire_rate = 8
 base_ammo = 1
 recoil_angle_degrees = 0.0
 recoil_distance_pixels = 1.0
 loaded_bullet = ExtResource("2_lbsgj")
 shot_sound = ExtResource("4_31mgi")
 gun_scene = ExtResource("1_lbsgj")
+texture = ExtResource("5_ox2jo")
 metadata/_custom_type_script = "uid://u4ky25ao1wmw"
