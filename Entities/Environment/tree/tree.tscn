@@ -11,6 +11,7 @@ height = 10.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_5qdvr"]
 
 [sub_resource type="SystemFont" id="SystemFont_a1odr"]
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_qxpn1"]
 font = SubResource("SystemFont_a1odr")
@@ -19,6 +20,7 @@ font_size = 5
 [node name="Tree" type="StaticBody2D" unique_id=587637675]
 collision_layer = 8
 script = ExtResource("1_dbwsq")
+cost = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=631147027]
 texture_filter = 1
@@ -79,7 +81,7 @@ offset_right = 1.4981766
 offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "E"
+text = "F"
 label_settings = SubResource("LabelSettings_qxpn1")
 horizontal_alignment = 1
 vertical_alignment = 1

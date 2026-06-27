@@ -37,6 +37,9 @@ func _ready() -> void:
 	respawn_menu.connect("respawn_pressed", close_respawn_menu)
 
 func _gamble_for_weapon() -> void:
+	if PlayerData.player_coins < current_mach.cost: return
+	PlayerData._player_coins = PlayerData._player_coins - current_mach.cost
+	PlayerData.emit_signal("coins_gained",PlayerData._player_coins)
 	GameManager.SubUI_Opened = true
 	PauseManager.add_pause_source()
 	gambling_ui.show()

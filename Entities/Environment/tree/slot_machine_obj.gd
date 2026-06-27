@@ -3,6 +3,7 @@ class_name SlotMachineOBJ extends StaticBody2D
 @export var min_energy : float = 0.6
 @export var max_energy : float = 1.0
 @export var flicker_speed : float = 60.0   # base frequency (Hz)
+@export var cost: int
 
 # For colour shifts
 @export var min_temperature : float = 0.9   # 1.0 = neutral, lower = warmer?
@@ -11,6 +12,7 @@ class_name SlotMachineOBJ extends StaticBody2D
 @onready var color_rect: ColorRect = $Sprite2D/ColorRect
 @onready var point_light: PointLight2D = $Sprite2D/PointLight2D
 @onready var area_2d: Area2D = $Area2D
+@onready var panel: Panel = $Panel
 
 var rng = RandomNumberGenerator.new()
 var tween : Tween
@@ -116,10 +118,12 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	if _body is Player:
+		panel.show()
 		current_scene.player_near_mach = true
 
 func _on_area_2d_body_exited(_body: Node2D) -> void:
 	if _body is Player:
+		panel.hide()
 		current_scene.player_near_mach = false
 
 

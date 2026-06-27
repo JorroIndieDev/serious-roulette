@@ -100,5 +100,6 @@ process_mode = 3
 process_mode = 1
 
 [node name="RespawnMenu" parent="." unique_id=711910102 instance=ExtResource("14_7cehy")]
+cost_to_respawn = 50
 
 [node name="pause_menu" parent="." unique_id=463649552 instance=ExtResource("7_csoal")]
